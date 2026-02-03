@@ -2,9 +2,15 @@ using UnityEngine;
 
 public class CameraTargeting : MonoBehaviour
 {
+
+    [Header("Tracking Information")]
     public Transform cameraTarget;
     public Transform cameraTrackPoint;
-    public float cameraRotationSpeed;
+
+    [Header("Camera Stats")]
+    [SerializeField]
+    private float cameraRotationSpeed;
+    [SerializeField]
     public float cameraMovementSpeed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

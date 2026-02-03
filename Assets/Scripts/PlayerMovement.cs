@@ -5,14 +5,20 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Values")]
-    public float speed = 0.05f;
-    public float gravity = 0.1f;
-    public float jumpForce = 0.2f;
+    [SerializeField]
+    float speed = 0.05f;
+    [SerializeField]
+    float gravity = 0.1f;
+    [SerializeField]
+    float jumpForce = 0.2f;
 
     [Header("Constraint Values")]
-    public float maxFallSpeed = 0.5f;
-    public float maxWalkVelocity = 0.2f;
-    public float maxSprintVelocity = 0.5f;
+    [SerializeField]
+    float maxFallSpeed = 0.5f;
+    [SerializeField]
+    float maxWalkVelocity = 0.2f;
+    [SerializeField]
+    float maxSprintVelocity = 0.5f;
     
     private Vector3 inputVector;
     private Vector3 velocityVector;
