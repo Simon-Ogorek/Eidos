@@ -9,10 +9,10 @@ What you should do:
 Tip: If using Google Docs, you can export/save-as markdown then paste it below the relevant comment here.
 Note: The slashes at the end tell markdown to treat them as line breaks.
 -->
-Living Document Link: \<insert here\> \
+Living Document Link: \<https://docs.google.com/document/d/1vtY70_-AzDsFTHrhMCzy5o4ZkCC03FqDTTPnDYW-ang/edit?usp=sharing\> \
 Version Number: v0.0.0 \
 Last Updated: 2/6/2026 \
-Team Name: \<name\> 
+Team Name: \<Studio Eidos\> 
 
 ---
 <!-- Paste the latest vesion of the document below here. 
@@ -245,8 +245,6 @@ Bag (Items)
 Compendium
 Keeps track of eidos seen
 
-
-https://docs.google.com/document/d/1vtY70_-AzDsFTHrhMCzy5o4ZkCC03FqDTTPnDYW-ang/edit?usp=sharing 
 
 If images don't show up, you can drag and drop them into the Github text editor and they'll upload to the location.
 As a last resort, you can note to "see living document page <#>".-->
