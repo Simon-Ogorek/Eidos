@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+
 /// <summary>
 /// Moves the player around using a Character Controller
 /// </summary>
@@ -47,6 +48,16 @@ public class PlayerMovement : MonoBehaviour
 
     /// @brief Is the player grounded
     private bool grounded;
+
+    /// @brief Camera tracking points to be rotated accoding to player input
+    [SerializeField]
+    private GameObject cameraTrackingPoints;
+
+    /// @brief
+    [SerializeField]
+    private float cameraRotationX = 5;
+    [SerializeField]
+    private float cameraRotationY = 5;
 
     void Start()
     {
@@ -106,5 +117,15 @@ public class PlayerMovement : MonoBehaviour
         Mathf.Clamp(velocityVector.y,-1*maxFallSpeed,maxFallSpeed);
 
         controller.Move(velocityVector);
+
+        /*
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+
+        transform.Rotate(new Vector3(0, mouseX * cameraRotationY, 0));
+
+        cameraTrackingPoints.transform.Rotate(new Vector3(-mouseX * cameraRotationX,0,0));
+
+        */
     }
 }
