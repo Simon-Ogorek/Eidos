@@ -53,7 +53,7 @@ In a world where ideas take physical form, the player journeys through the Islan
 
 ## **Features:** 
 
-Adventure through a village open zone, discover, catch and enjoy engaging action combat against eidos, experience the story of the island of four ps with dialogue from the characters. 
+Adventure through a village open zone, discover, catch and enjoy engaging action combat against eidos, experience the story of the island of four ps with dialogue and actions from the characters. 
 
 ## **Art Style:** 
 
