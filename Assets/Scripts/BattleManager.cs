@@ -1,5 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor;
+using Unity.Mathematics;
+using System.Numerics;
 
 public class BattleManager : MonoBehaviour
 {
@@ -26,6 +29,10 @@ public class BattleManager : MonoBehaviour
 
     [SerializeField]
     private PlayerMovement playerMovement;
+
+    [SerializeField]
+    private GameObject arenaVisualPrefab;
+    private Material arenaVisualMat;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,7 +42,10 @@ public class BattleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (state == BattleState.Active)
+        {
+            float distanceFromCenterCoefficient = Vector3.Distance()
+        }
     }
 
     private Vector3 DetermineCenterOfBattle(List<Transform> combatantLists)
@@ -98,8 +108,11 @@ public class BattleManager : MonoBehaviour
         arenaCollider.center = transform.InverseTransformPoint(centerOfArena);
         arenaCollider.height = 100;
 
+        GameObject arenaVisual = Instantiate(arenaVisualPrefab);
+        arenaVisual.transform.position = centerOfArena;
+        arenaVisual.transform.localScale = new Vector3(arenaRadius * 2, 1000, arenaRadius * 2);
 
-        
+        arenaVisualMat = arenaVisual.GetComponent<Renderer>().material;
 
         }
     }

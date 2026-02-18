@@ -1463,8 +1463,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823688464}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.33100694, y: -0.0000030987385, z: 0.0000010869787, w: 0.9436283}
-  m_LocalPosition: {x: 1.74903, y: 5.06, z: -6.86874}
+  m_LocalRotation: {x: 0.08813471, y: -0.44503725, z: 0.044067364, w: 0.8900743}
+  m_LocalPosition: {x: 3.74903, y: 1.56, z: -3.36874}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1785,6 +1785,7 @@ MonoBehaviour:
   minArenaRadius: 2
   arenaRadiusExpansionRelativeToPlayer: 5
   playerMovement: {fileID: 1766572880}
+  arenaVisualPrefab: {fileID: 2074831787795924776, guid: 7853295e7eb5c1e49a63591960f58e21, type: 3}
 --- !u!4 &1911794125
 Transform:
   m_ObjectHideFlags: 0
