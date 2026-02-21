@@ -99,13 +99,17 @@ public class BattleManager : MonoBehaviour
             if (Vector3.Distance(combatant.transform.position, playerMovement.transform.position) < enemyAttentionRadius)
             {
                 combatantList.Add(combatant.transform);
+                if (combatant.isEnemy)
+                    UIController.Instance.AddToEnemyPanel(combatant);
             }
         }
+        UIController.Instance.SetState(UIController.UIState.Battle);
+        
 
         Debug.LogWarning(combatantList.Count);
 
         centerOfArena = DetermineCenterOfBattle(combatantList);
-
+        Debug.Log("Center: " + centerOfArena);
         float arenaRadius = Vector3.Distance(centerOfArena, playerMovement.transform.position);
 
         arenaRadius += arenaRadiusExpansionRelativeToPlayer;
@@ -114,7 +118,7 @@ public class BattleManager : MonoBehaviour
 
         arenaCollider.isTrigger = true;
         arenaCollider.radius = arenaRadius;
-        arenaCollider.center = transform.InverseTransformPoint(centerOfArena);
+        arenaCollider.center = centerOfArena;
         arenaCollider.height = 100;
 
         arenaVisualInstance = Instantiate(arenaVisualPrefab);

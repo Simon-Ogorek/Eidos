@@ -1,13 +1,9 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Combatant
 {
     [SerializeField]
     private float awarenessRange = 5f;
-    [SerializeField]
-    private Transform player;
-    [SerializeField]
-    private GameObject battleManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

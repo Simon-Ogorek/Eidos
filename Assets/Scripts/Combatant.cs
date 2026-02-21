@@ -6,9 +6,15 @@ public class Combatant : MonoBehaviour
     [SerializeField]
     protected float Health = 5f;
     [SerializeField]
-    private Transform player;
+    protected Transform player;
+    [SerializeField]
+    public bool isEnemy;
     [SerializeField]
     protected GameObject partyManager;
+    [SerializeField]
+    public GameObject EnemyUIElement;
+    [SerializeField]
+    protected GameObject battleManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
