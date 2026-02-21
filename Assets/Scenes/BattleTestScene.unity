@@ -2370,6 +2370,10 @@ GameObject:
   - component: {fileID: 1766572879}
   - component: {fileID: 1766572881}
   - component: {fileID: 1766572882}
+  - component: {fileID: 1766572886}
+  - component: {fileID: 1766572885}
+  - component: {fileID: 1766572884}
+  - component: {fileID: 1766572883}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2553,6 +2557,58 @@ MonoBehaviour:
   followRange: 2
   speed: 5
   target: {fileID: 693177760}
+--- !u!114 &1766572883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766572873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd266ce13e3b8ff4986341e15944ead5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Move
+  selectedMove: 0
+--- !u!114 &1766572884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766572873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd266ce13e3b8ff4986341e15944ead5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Move
+  selectedMove: 1
+--- !u!114 &1766572885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766572873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd266ce13e3b8ff4986341e15944ead5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Move
+  selectedMove: 1
+--- !u!114 &1766572886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766572873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd266ce13e3b8ff4986341e15944ead5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Move
+  selectedMove: 0
 --- !u!1 &1823688464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2641,8 +2697,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823688464}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08813471, y: -0.44503725, z: 0.044067364, w: 0.8900743}
-  m_LocalPosition: {x: 3.74903, y: 1.56, z: -3.36874}
+  m_LocalRotation: {x: 0.33100694, y: -0.0000030987385, z: 0.0000010869787, w: 0.9436283}
+  m_LocalPosition: {x: 1.74903, y: 5.06, z: -6.86874}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

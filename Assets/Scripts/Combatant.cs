@@ -1,8 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// Any given entity that can enter combat is a combatant
+/// </summary>
 public class Combatant : MonoBehaviour
 {
-    //general combatent script for player and eidos partners to build off
     [SerializeField]
     protected float Health = 5f;
     [SerializeField]

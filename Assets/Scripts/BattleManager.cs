@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEditor;
 using Unity.Mathematics;
 
+/// <summary>
+/// This keeps tracks of if a battle is currently ongoing, activating UI and creating the arena for a given
+/// battle. 
+/// </summary>
 public class BattleManager : MonoBehaviour
 {
 
@@ -40,7 +44,7 @@ public class BattleManager : MonoBehaviour
         state = BattleState.Inactive;
     }
 
-    // Update is called once per frame
+    /// @brief Fade the arena visual in/out depending on player distance
     void Update()
     {
         if (state == BattleState.Active && arenaVisualInstance)
@@ -57,6 +61,7 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    /// @brief used for determining where the center is in accordance to all combatants
     private Vector3 DetermineCenterOfBattle(List<Transform> combatantLists)
     {
         Vector3 centerPoint = Vector3.zero;
