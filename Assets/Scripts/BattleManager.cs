@@ -76,6 +76,7 @@ public class BattleManager : MonoBehaviour
 
     public void StartBattle()
     {
+        
         if(state == BattleState.Inactive){
         state = BattleState.Active;
 
@@ -133,6 +134,11 @@ public class BattleManager : MonoBehaviour
         arenaVisualMat = arenaVisualInstance.GetComponentInChildren<Renderer>().material;
         
 
+        }
+        else
+        {
+            Debug.Log("Trying to start a new battle when one already exists");
+            return;
         }
     }
 

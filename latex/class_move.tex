@@ -1,0 +1,103 @@
+\doxysection{Move Class Reference}
+\hypertarget{class_move}{}\label{class_move}\index{Move@{Move}}
+
+
+Every move usuable by a player, eidos, or monster is handled here. Must be associated with a \doxylink{class_combatant}{Combatant} Sub-\/\+Class.  
+
+
+Inheritance diagram for Move:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_move}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_move_1_1_move_definition}{Move\+Definition}}
+\begin{DoxyCompactList}\small\item\em Defines a move \texorpdfstring{$\vert$}{|} validator checks to see if the move is able to be done. performer does the move. target specifies if its for targetting enemies or for targeting yourself. name is used for UI purposes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_move_aa784db74e1cd71dc4f0dab9f3d0a9557}\label{class_move_aa784db74e1cd71dc4f0dab9f3d0a9557} 
+enum \doxymbox{\hyperlink{class_move_aa784db74e1cd71dc4f0dab9f3d0a9557}{target\+Types}} \{ {\bfseries Self}
+, {\bfseries Enemy}
+ \}
+\begin{DoxyCompactList}\small\item\em Who this move effects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_move_1_1_move_definition}{Move\+Definition}} \doxymbox{\hyperlink{class_move_aea56372629b97eac9554cbfd682b2601}{Get\+Definition}} ()
+\begin{DoxyCompactList}\small\item\em shorthand to get a move\textquotesingle{}s definition \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_move_ad03b30ca0837115a709b9064a8982e50}\label{class_move_ad03b30ca0837115a709b9064a8982e50} 
+\doxymbox{\hyperlink{class_combatant}{Combatant}} {\bfseries caster}
+\begin{DoxyCompactList}\small\item\em Who this move is assigned to, assigned automatically. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_move_ade9bf0b8e9c8659da980c45a2721a569}\label{class_move_ade9bf0b8e9c8659da980c45a2721a569} 
+enum {\bfseries Move\+Registry} \{ {\bfseries Attack}
+, {\bfseries Block}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_move_ad049aad36550a7369fddd204eed1ebac}\label{class_move_ad049aad36550a7369fddd204eed1ebac} 
+void {\bfseries Awake} ()
+\item 
+\Hypertarget{class_move_aea23c11a3be7cd82d739e051aa9a7ae2}\label{class_move_aea23c11a3be7cd82d739e051aa9a7ae2} 
+void {\bfseries Start} ()
+\item 
+\Hypertarget{class_move_a4929c3e41906485fac2fc33c9b55eaa9}\label{class_move_a4929c3e41906485fac2fc33c9b55eaa9} 
+void {\bfseries Check\+\_\+\+Attack} ()
+\item 
+\Hypertarget{class_move_a95189e8f8047de19065662b6466ea5bf}\label{class_move_a95189e8f8047de19065662b6466ea5bf} 
+void {\bfseries Do\+\_\+\+Attack} ()
+\item 
+\Hypertarget{class_move_afd3a75eea710bf352474fa1f0f64fef6}\label{class_move_afd3a75eea710bf352474fa1f0f64fef6} 
+void {\bfseries Check\+\_\+\+Block} ()
+\item 
+\Hypertarget{class_move_a023f92400661c365d6abc09d1d98e951}\label{class_move_a023f92400661c365d6abc09d1d98e951} 
+void {\bfseries Do\+\_\+\+Block} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_move_adc7f428ffb1990b88f7a82b3352f83ad}\label{class_move_adc7f428ffb1990b88f7a82b3352f83ad} 
+Move\+Registry {\bfseries selected\+Move}
+\begin{DoxyCompactList}\small\item\em What move is this. \end{DoxyCompactList}\item 
+\Hypertarget{class_move_a09ac23108be1f8a39f3d0ca350a239a6}\label{class_move_a09ac23108be1f8a39f3d0ca350a239a6} 
+Dictionary$<$ Move\+Registry, \doxymbox{\hyperlink{struct_move_1_1_move_definition}{Move\+Definition}} $>$ {\bfseries move\+Function\+Lookup}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Every move usuable by a player, eidos, or monster is handled here. Must be associated with a \doxylink{class_combatant}{Combatant} Sub-\/\+Class. 
+
+Combatants have associated Moves that have a function to validate casting of the spell, and execution of the actual spell. every instance of a \doxylink{class_move}{Move} is aware of the combatant for the sake of being able to figure out who the target of x \doxylink{class_combatant}{Combatant} is, and for applying status effects. 
+
+\label{doc-func-members}
+\Hypertarget{class_move_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_move_aea56372629b97eac9554cbfd682b2601}\index{Move@{Move}!GetDefinition@{GetDefinition}}
+\index{GetDefinition@{GetDefinition}!Move@{Move}}
+\doxysubsubsection{\texorpdfstring{GetDefinition()}{GetDefinition()}}
+{\footnotesize\ttfamily \label{class_move_aea56372629b97eac9554cbfd682b2601} 
+\doxymbox{\hyperlink{struct_move_1_1_move_definition}{Move\+Definition}} Move.\+Get\+Definition (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+shorthand to get a move\textquotesingle{}s definition 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_move_1_1_move_definition}{Move\+Definition}
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Assets/\+\+Scripts/\+Move.\+cs\end{DoxyCompactItemize}

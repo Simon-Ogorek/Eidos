@@ -1,21 +1,27 @@
 var indexSectionsWithContent =
 {
-  0: "cfgijmpsv",
-  1: "cp",
-  2: "fgijmsv"
+  0: "bcdefgijmpstuv",
+  1: "bcefmpu",
+  2: "dgu",
+  3: "cfgijmsv",
+  4: "t"
 };
 
 var indexSectionNames =
 {
   0: "all",
   1: "classes",
-  2: "variables"
+  2: "functions",
+  3: "variables",
+  4: "enums"
 };
 
 var indexSectionLabels =
 {
   0: "All",
   1: "Classes",
-  2: "Variables"
+  2: "Functions",
+  3: "Variables",
+  4: "Enumerations"
 };
 

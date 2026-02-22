@@ -31,6 +31,8 @@ public class UIController : MonoBehaviour
 
 
     public static UIController Instance { get; private set; }
+
+    public Combatant playerCombatant;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Awake()
@@ -45,6 +47,23 @@ public class UIController : MonoBehaviour
         BattleUI.SetActive(false);
     }
 
+    void Update()
+    {
+        if (current_state == UIState.Battle)
+        {
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                MovePanel.ChangeMove(true);
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                MovePanel.ChangeMove(false);
+            }
+
+            PlayerPanel.SoftUpdatePlayerInfo(playerCombatant);
+        }
+    }
+
     public void SetState(UIState newState)
     {
         current_state = newState;
@@ -53,26 +72,22 @@ public class UIController : MonoBehaviour
         {
             AdventureUI.SetActive(false);
             BattleUI.SetActive(true);
+            MovePanel.UpdateMoveSelection(playerCombatant);
+            PlayerPanel.UpdatePlayerInfo(playerCombatant);
         }
         else if (current_state == UIState.Exploring)
         {
             AdventureUI.SetActive(true);
             BattleUI.SetActive(false);
         }
+        
     }
 
     public void AddToEnemyPanel(Combatant combatant)
     {
         if (combatant.isEnemy)
         {
-            if (combatant.EnemyUIElement)
-            {
-                EnemyPanel.AddEnemyInfo(combatant.EnemyUIElement);
-            }
-            else
-            {
-                Debug.LogWarning("A Combatant marked as an enemy does not have a UI Element UI Prefab assigned");
-            }
+            EnemyPanel.AddEnemyInfo(combatant);
         }
     }
 }

@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// NOT IMPLEMENTED | TODO
+/// </summary>
 public class UIStatusBar : MonoBehaviour
 {
     [SerializeField]

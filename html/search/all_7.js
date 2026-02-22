@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['speed_0',['speed',['../class_player_movement.html#a6800716352b83358ea16bc706dd88cbb',1,'PlayerMovement']]]
+  ['jumpforce_0',['jumpForce',['../class_player_movement.html#a55cf4a38e7ce8f9d02715352e55b2de6',1,'PlayerMovement']]]
 ];

@@ -1,0 +1,83 @@
+\doxysection{Battle\+Manager Class Reference}
+\hypertarget{class_battle_manager}{}\label{class_battle_manager}\index{BattleManager@{BattleManager}}
+
+
+This keeps tracks of if a battle is currently ongoing, activating UI and creating the arena for a given battle.  
+
+
+Inheritance diagram for Battle\+Manager:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_battle_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_battle_manager_ac3b52ac86404114410abd00cb8398bb8}\label{class_battle_manager_ac3b52ac86404114410abd00cb8398bb8} 
+enum {\bfseries Battle\+State} \{ {\bfseries Active}
+, {\bfseries Inactive}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_battle_manager_a1c97f9c09cf9ae74260a3c39e44a5cd7}\label{class_battle_manager_a1c97f9c09cf9ae74260a3c39e44a5cd7} 
+void {\bfseries Start\+Battle} ()
+\item 
+\Hypertarget{class_battle_manager_a629c9aa98eb1eead5ead054f08f77c62}\label{class_battle_manager_a629c9aa98eb1eead5ead054f08f77c62} 
+void {\bfseries End\+Battle} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_battle_manager_ae78b7ff68d7c3fe476cd0e788b775410}\label{class_battle_manager_ae78b7ff68d7c3fe476cd0e788b775410} 
+void {\bfseries Start} ()
+\item 
+\Hypertarget{class_battle_manager_a5975f2475d79a4c93d7c52b37682e91e}\label{class_battle_manager_a5975f2475d79a4c93d7c52b37682e91e} 
+void {\bfseries Update} ()
+\begin{DoxyCompactList}\small\item\em Fade the arena visual in/\+out depending on player distance. \end{DoxyCompactList}\item 
+\Hypertarget{class_battle_manager_a313f6716b561ea221e3a9d4e39c30c9d}\label{class_battle_manager_a313f6716b561ea221e3a9d4e39c30c9d} 
+Vector3 {\bfseries Determine\+Center\+Of\+Battle} (List$<$ Transform $>$ combatant\+Lists)
+\begin{DoxyCompactList}\small\item\em used for determining where the center is in accordance to all combatants \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_battle_manager_a2d081c36621492d48ac7d6a40e3ffb28}\label{class_battle_manager_a2d081c36621492d48ac7d6a40e3ffb28} 
+float {\bfseries arena\+Radius\+Size}
+\item 
+\Hypertarget{class_battle_manager_ae03d53635141db5d1a4374043e0bd7e3}\label{class_battle_manager_ae03d53635141db5d1a4374043e0bd7e3} 
+float {\bfseries enemy\+Attention\+Radius}
+\item 
+\Hypertarget{class_battle_manager_ad0c14d19ecdb042c038b88eaa62c65f4}\label{class_battle_manager_ad0c14d19ecdb042c038b88eaa62c65f4} 
+float {\bfseries min\+Arena\+Radius}
+\item 
+\Hypertarget{class_battle_manager_a7db10a1aaf8651ca708d16a33b23d0ae}\label{class_battle_manager_a7db10a1aaf8651ca708d16a33b23d0ae} 
+float {\bfseries arena\+Radius\+Expansion\+Relative\+To\+Player}
+\item 
+\Hypertarget{class_battle_manager_a48adf2034ff3f09965a2f0528abbe876}\label{class_battle_manager_a48adf2034ff3f09965a2f0528abbe876} 
+Battle\+State {\bfseries state}
+\item 
+\Hypertarget{class_battle_manager_a796038a18367c71b26b2c93fc517c854}\label{class_battle_manager_a796038a18367c71b26b2c93fc517c854} 
+\doxymbox{\hyperlink{class_player_movement}{Player\+Movement}} {\bfseries player\+Movement}
+\item 
+\Hypertarget{class_battle_manager_a99893e1c998f156727c40a364cf9f547}\label{class_battle_manager_a99893e1c998f156727c40a364cf9f547} 
+Game\+Object {\bfseries arena\+Visual\+Prefab}
+\item 
+\Hypertarget{class_battle_manager_a70d1de27925d0d63117fea09417188a9}\label{class_battle_manager_a70d1de27925d0d63117fea09417188a9} 
+Game\+Object {\bfseries arena\+Visual\+Instance}
+\item 
+\Hypertarget{class_battle_manager_af3f60acf87c1699d52d9f3c327cf0d8c}\label{class_battle_manager_af3f60acf87c1699d52d9f3c327cf0d8c} 
+Material {\bfseries arena\+Visual\+Mat}
+\item 
+\Hypertarget{class_battle_manager_ac3a68e1c9eb1e416c1f602bb81677ee9}\label{class_battle_manager_ac3a68e1c9eb1e416c1f602bb81677ee9} 
+Vector3 {\bfseries center\+Of\+Arena}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This keeps tracks of if a battle is currently ongoing, activating UI and creating the arena for a given battle. 
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Assets/\+\+Scripts/\+Battle\+Manager.\+cs\end{DoxyCompactItemize}

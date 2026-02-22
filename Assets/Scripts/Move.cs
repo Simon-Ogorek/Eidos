@@ -69,7 +69,7 @@ public class Move : MonoBehaviour
     /// shorthand to get a move's definition
     /// </summary>
     /// <returns>MoveDefinition</returns>
-    MoveDefinition GetMove()
+    public MoveDefinition GetDefinition()
     {
         return moveFunctionLookup[selectedMove];
     }
@@ -80,26 +80,26 @@ public class Move : MonoBehaviour
         caster = GetComponentInParent<Combatant>();
         if (caster == null)
         {
-            Debug.LogError(GetMove().name + " needs to be a child of a caster (Combatant sub-class)");
+            Debug.LogError(GetDefinition().name + " needs to be a child of a caster (Combatant sub-class)");
         }
         
     }
-    public void Check_Attack()
+    void Check_Attack()
     {
         
     }
 
-    public void Do_Attack()
+    void Do_Attack()
     {
         
     }
 
-    public void Check_Block()
+    void Check_Block()
     {
         
     }
 
-    public void Do_Block()
+    void Do_Block()
     {
         
     }

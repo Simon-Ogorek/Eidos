@@ -5,8 +5,20 @@ using UnityEngine;
 /// </summary>
 public class Combatant : MonoBehaviour
 {
-    [SerializeField]
-    protected float Health = 5f;
+    [field: SerializeField]
+    public float health { get; private set; } = 5f;
+    [field: SerializeField]
+    public float maxHealth { get; private set; } = 5f;
+
+    [field: SerializeField]
+    public float mana { get; private set; } = 5f;
+    [field: SerializeField]
+    public float maxMana { get; private set; } = 5f;
+    [field: SerializeField]
+    public Texture2D portrait { get; private set; }
+    [field: SerializeField]
+    public string displayName { get; private set; }
+
     [SerializeField]
     protected Transform player;
     [SerializeField]
@@ -14,9 +26,8 @@ public class Combatant : MonoBehaviour
     [SerializeField]
     protected GameObject partyManager;
     [SerializeField]
-    public GameObject EnemyUIElement;
-    [SerializeField]
     protected GameObject battleManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -44,4 +55,6 @@ public class Combatant : MonoBehaviour
     void Update()
     {
     }
+
+    
 }

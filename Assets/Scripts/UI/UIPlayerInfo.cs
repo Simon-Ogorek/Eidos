@@ -1,16 +1,27 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIPlayerInfo : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField]
+    Slider healthSlider;
+    [SerializeField]
+    Slider manaSlider;
+    [SerializeField]
+    RawImage portraitUI;
+
+    /// @brief !! Does not update portraits !!
+    public void SoftUpdatePlayerInfo(Combatant player)
     {
-        
+        healthSlider.value = player.health / player.maxHealth;
+        manaSlider.value = player.mana / player.maxMana;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdatePlayerInfo(Combatant player)
     {
-        
+        healthSlider.value = player.health / player.maxHealth;
+        manaSlider.value = player.mana / player.maxMana;
+        portraitUI.texture = player.portrait;
     }
 }

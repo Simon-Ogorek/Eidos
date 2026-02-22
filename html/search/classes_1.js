@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['playermovement_0',['PlayerMovement',['../class_player_movement.html',1,'']]]
+  ['cameratargeting_0',['CameraTargeting',['../class_camera_targeting.html',1,'']]],
+  ['combatant_1',['Combatant',['../class_combatant.html',1,'']]]
 ];

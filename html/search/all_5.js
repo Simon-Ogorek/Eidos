@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['maxfallspeed_0',['maxFallSpeed',['../class_player_movement.html#aeecdd193603932e017fa4dfb7421c955',1,'PlayerMovement']]],
-  ['maxsprintvelocity_1',['maxSprintVelocity',['../class_player_movement.html#afd8a11472ac0951da0c6226c8ca3ead7',1,'PlayerMovement']]],
-  ['maxwalkvelocity_2',['maxWalkVelocity',['../class_player_movement.html#aa7112c28100cf6d744df13f316ca65c3',1,'PlayerMovement']]]
+  ['getdefinition_0',['GetDefinition',['../class_move.html#aea56372629b97eac9554cbfd682b2601',1,'Move']]],
+  ['gravity_1',['gravity',['../class_player_movement.html#ac0ce901b83befc8913174927ee387b01',1,'PlayerMovement']]],
+  ['grounded_2',['grounded',['../class_player_movement.html#ac5d4a75424f345bfa27d0d680aae5e84',1,'PlayerMovement']]]
 ];

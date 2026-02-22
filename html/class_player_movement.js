@@ -1,5 +1,6 @@
 var class_player_movement =
 [
+    [ "cameraTrackingPoints", "class_player_movement.html#a93ae1ff379df51c808021ccabfb6502b", null ],
     [ "friction", "class_player_movement.html#ab283964356555ec92b93f76a1c01a126", null ],
     [ "gravity", "class_player_movement.html#ac0ce901b83befc8913174927ee387b01", null ],
     [ "grounded", "class_player_movement.html#ac5d4a75424f345bfa27d0d680aae5e84", null ],

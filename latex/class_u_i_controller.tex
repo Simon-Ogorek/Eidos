@@ -1,0 +1,74 @@
+\doxysection{UIController Class Reference}
+\hypertarget{class_u_i_controller}{}\label{class_u_i_controller}\index{UIController@{UIController}}
+
+
+Controls all in-\/game aspects about the UI.  
+
+
+Inheritance diagram for UIController:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_u_i_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_u_i_controller_a8f9cf3209ebb860e5cf78b4138733661}\label{class_u_i_controller_a8f9cf3209ebb860e5cf78b4138733661} 
+enum {\bfseries UIState} \{ {\bfseries Exploring}
+, {\bfseries Battle}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_u_i_controller_ae7ffe753b65818d15b9aa0b09f99489f}\label{class_u_i_controller_ae7ffe753b65818d15b9aa0b09f99489f} 
+void {\bfseries Set\+State} (UIState new\+State)
+\item 
+\Hypertarget{class_u_i_controller_ad3cbcd5a58cafdd5e4342c216ecb239a}\label{class_u_i_controller_ad3cbcd5a58cafdd5e4342c216ecb239a} 
+void {\bfseries Add\+To\+Enemy\+Panel} (\doxymbox{\hyperlink{class_combatant}{Combatant}} combatant)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_u_i_controller_af261ab10ebbb6d82e2565b2ada209f25}\label{class_u_i_controller_af261ab10ebbb6d82e2565b2ada209f25} 
+static \doxymbox{\hyperlink{class_u_i_controller}{UIController}} {\bfseries Instance}\hspace{0.3cm}{\ttfamily  \+[get, private set]\+}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_u_i_controller_ab1853922923ea143f0e27d10425a3adb}\label{class_u_i_controller_ab1853922923ea143f0e27d10425a3adb} 
+void {\bfseries Awake} ()
+\item 
+\Hypertarget{class_u_i_controller_a676b3b972c33885db4565ee43f23e459}\label{class_u_i_controller_a676b3b972c33885db4565ee43f23e459} 
+void {\bfseries Start} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_u_i_controller_a31dfd68c5ddbcf85a10f2d56f686e7dd}\label{class_u_i_controller_a31dfd68c5ddbcf85a10f2d56f686e7dd} 
+UIState {\bfseries current\+\_\+state}
+\item 
+\Hypertarget{class_u_i_controller_aa71178d65f925838b1a2481cfa96bd5a}\label{class_u_i_controller_aa71178d65f925838b1a2481cfa96bd5a} 
+Game\+Object {\bfseries Adventure\+UI}
+\item 
+\Hypertarget{class_u_i_controller_a645346d3770c74f9b12cf136fa2328d3}\label{class_u_i_controller_a645346d3770c74f9b12cf136fa2328d3} 
+Game\+Object {\bfseries Battle\+UI}
+\item 
+\Hypertarget{class_u_i_controller_ad08d95aacda796922336b4a37e161529}\label{class_u_i_controller_ad08d95aacda796922336b4a37e161529} 
+\doxymbox{\hyperlink{class_u_i_enemy_info}{UIEnemy\+Info}} {\bfseries Enemy\+Panel}
+\item 
+\Hypertarget{class_u_i_controller_a95760b24520b1941bcb90716e9784885}\label{class_u_i_controller_a95760b24520b1941bcb90716e9784885} 
+\doxymbox{\hyperlink{class_u_i_player_info}{UIPlayer\+Info}} {\bfseries Player\+Panel}
+\item 
+\Hypertarget{class_u_i_controller_a7826889edc79356c8aa14480e9bc4fdd}\label{class_u_i_controller_a7826889edc79356c8aa14480e9bc4fdd} 
+\doxymbox{\hyperlink{class_u_i_move_info}{UIMove\+Info}} {\bfseries Move\+Panel}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controls all in-\/game aspects about the UI. 
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Assets/\+\+Scripts/\+\+UI/\+UIController.\+cs\end{DoxyCompactItemize}

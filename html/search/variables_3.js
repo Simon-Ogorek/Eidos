@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jumpforce_0',['jumpForce',['../class_player_movement.html#a55cf4a38e7ce8f9d02715352e55b2de6',1,'PlayerMovement']]]
+  ['inputvector_0',['inputVector',['../class_player_movement.html#a52ab2d03fb3f61b818b85c4e8b7af7b6',1,'PlayerMovement']]]
 ];

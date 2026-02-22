@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cameratargeting_0',['CameraTargeting',['../class_camera_targeting.html',1,'']]]
+  ['battlemanager_0',['BattleManager',['../class_battle_manager.html',1,'']]]
 ];
