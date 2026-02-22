@@ -68,9 +68,11 @@ public class BattleManager : MonoBehaviour
         
         foreach (Transform combatant in combatantLists)
         {
-            centerPoint += transform.position;
+            centerPoint += combatant.transform.position;
+            Debug.Log("Transform is" + centerPoint);
         }
 
+        Debug.Log("Transform returned is" + centerPoint);
         return centerPoint / combatantLists.Count;
     }
 
@@ -98,6 +100,9 @@ public class BattleManager : MonoBehaviour
             state = BattleState.Inactive;
             return;
         }
+
+        //Reset combatant list so enemies aren't counted twice
+        combatantList = new List<Transform>();
 
         Combatant[] allCombatants = FindObjectsByType<Combatant>(FindObjectsSortMode.None);
         foreach (Combatant combatant in allCombatants)

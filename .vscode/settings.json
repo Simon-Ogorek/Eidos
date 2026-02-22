@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "Collab.slnx"
+    "dotnet.defaultSolution": "TempCollabGD.slnx"
 }
