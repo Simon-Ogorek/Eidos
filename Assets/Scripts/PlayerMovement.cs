@@ -55,14 +55,16 @@ public class PlayerMovement : MonoBehaviour
 
     /// @brief
     [SerializeField]
-    private float cameraRotationX = 5;
+    private float cameraRotationX = 1;
     [SerializeField]
-    private float cameraRotationY = 5;
+    private float cameraRotationY = 1;
 
     void Start()
     {
         inputVector = Vector3.zero;
         controller = GetComponent<CharacterController>();
+        Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     void FixedUpdate()
@@ -127,5 +129,27 @@ public class PlayerMovement : MonoBehaviour
         cameraTrackingPoints.transform.Rotate(new Vector3(-mouseX * cameraRotationX,0,0));
 
         */
+
+
+     
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+
+       
+        transform.Rotate(new Vector3(mouseY * cameraRotationY , 0, 0));
+        
+        transform.Rotate(new Vector3(0, mouseX * cameraRotationX, 0));
+    
+        
+
+        
+
+/*
+        if (Input.GetKey(KeyCode.U))
+        {
+            transform.Rotate(new Vector3(1,0,0));
+
+        }
+*/
     }
 }
