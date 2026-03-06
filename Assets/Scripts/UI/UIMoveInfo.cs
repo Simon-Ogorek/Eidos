@@ -33,7 +33,7 @@ public class UIMoveInfo : MonoBehaviour
     Coroutine transformerNext;
     Coroutine transformerNextNext;
     int activeTransformers;
-    float cooldownTimer;
+    float cooldownTimer = -1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -102,8 +102,8 @@ public class UIMoveInfo : MonoBehaviour
         }
             
         Debug.Log("iterated");
-        obj.transform.localScale = Vector3.Slerp(obj.transform.localScale, Vector3.one, Time.deltaTime*3);
-        obj.transform.localPosition = Vector3.Slerp(obj.transform.localPosition, Vector3.zero, Time.deltaTime*3);
+        obj.transform.localScale = Vector3.Slerp(obj.transform.localScale, Vector3.one, 0.06f);
+        obj.transform.localPosition = Vector3.Slerp(obj.transform.localPosition, Vector3.zero, 0.06f);
         yield return new WaitForEndOfFrame();
 
         yield return StartCoroutine(Transformer(obj));
@@ -157,6 +157,10 @@ public class UIMoveInfo : MonoBehaviour
 
     public void DoSelectedMove()
     {
+        if (cooldownTimer > 0)
+        {
+            return;
+        }
         mapUIToMove[listOfMoveUIs[(moveIndex+2)%listOfMoveUIs.Count]].DoMove();
     }
 
@@ -177,7 +181,7 @@ public class UIMoveInfo : MonoBehaviour
 
     IEnumerator endCooldown()
     {
-        while (cooldownTimer >= 0)
+        while (cooldownTimer > 0)
         {
             cooldownTimer -= Time.deltaTime;
             yield return new WaitForEndOfFrame();

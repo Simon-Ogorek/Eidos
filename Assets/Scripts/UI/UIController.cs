@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
 
@@ -11,7 +12,8 @@ public class UIController : MonoBehaviour
     public enum UIState
     {
         Exploring,
-        Battle
+        Battle,
+        Battle_Selecting_Target
     }
     UIState current_state;
 
@@ -60,8 +62,18 @@ public class UIController : MonoBehaviour
             {
                 MovePanel.ChangeMove(false);
             }
-            if (Input.GetKeyDown(KeyCode.Return))
+
+            if (current_state == UIState.Battle && Input.GetKeyDown(KeyCode.Return) )
             {
+                Time.timeScale = 0.02f;
+                Time.fixedDeltaTime = 0.02f * Time.timeScale;
+                
+                
+            }
+            if (current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.Return))
+            {
+                Time.timeScale = 1f;
+                Time.fixedDeltaTime = 0.02f * Time.timeScale;
                 MovePanel.DoSelectedMove();
             }
 

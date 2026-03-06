@@ -116,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
         Mathf.Clamp(velocityVector.z,-1*maxWalkVelocity,maxWalkVelocity);
         Mathf.Clamp(velocityVector.y,-1*maxFallSpeed,maxFallSpeed);
 
-        controller.Move(velocityVector);
+        controller.Move(velocityVector * Time.deltaTime);
 
         /*
         float mouseX = Input.GetAxis("Mouse X");
