@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// Controls all in-game aspects about the UI
@@ -54,11 +55,11 @@ public class UIController : MonoBehaviour
     {
         if (current_state == UIState.Battle)
         {
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Gamepad.current.rightShoulder.wasPressedThisFrame)
             {
                 MovePanel.ChangeMove(true);
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Gamepad.current.leftShoulder.wasPressedThisFrame)
             {
                 MovePanel.ChangeMove(false);
             }

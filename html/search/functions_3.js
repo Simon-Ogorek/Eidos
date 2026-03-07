@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['update_0',['Update',['../class_battle_manager.html#a5975f2475d79a4c93d7c52b37682e91e',1,'BattleManager']]]
+  ['matchrotation_0',['matchRotation',['../class_player_movement.html#a01b75d741baa717ee9522256e7fb657e',1,'PlayerMovement']]]
 ];

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using System;
 
 /// <summary>
@@ -87,9 +88,13 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         velocityVector *= friction;
-
         /* Change this out for the new input system */
         inputVector = Vector3.zero;
+
+        if(controllerMove())
+        {
+            inputVector += transform.forward;
+        }
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -124,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
         {
             grounded = true;
             velocityVector.y = -0.1f;
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) || Gamepad.current.buttonSouth.isPressed)
             {
                 velocityVector.y += jumpForce;
             }
@@ -154,6 +159,7 @@ public class PlayerMovement : MonoBehaviour
         */
     }
 
+    /// @brief maches the rotation of the player relative to the rotation of the camera
     public void matchRotation(Direction playerMotion)
     {
         Vector3 playerRotation = transform.eulerAngles;
@@ -169,4 +175,42 @@ public class PlayerMovement : MonoBehaviour
             newPlayerRotation = new Vector3(playerRotation.x, cameraRotation.y - 90, cameraRotation.z);    
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(newPlayerRotation), Time.deltaTime * 5);
     }
+
+    /// @brief gives support for controller movement
+    public bool controllerMove()
+    {
+        Gamepad controller = Gamepad.current;
+        if(controller.leftStick.ReadValue() != new Vector2(0,0))
+        {
+            Vector2 leftStick = controller.leftStick.ReadValue();
+            if(leftStick.y > 0 && leftStick.x < 0.1 && leftStick.x > -0.1)
+                matchRotation(Direction.Forward);
+            else if(leftStick.y > 0 && leftStick.x < 0.9 && leftStick.x >= 0.1){
+                matchRotation(Direction.Forward);
+                matchRotation(Direction.Right);
+            }
+            else if(leftStick.y > 0 && leftStick.x > -0.9 && leftStick.x <= -0.1){
+                matchRotation(Direction.Forward);
+                matchRotation(Direction.Left);
+            }
+            else if(leftStick.y < 0 && leftStick.x < 0.1 && leftStick.x > -0.1)
+                matchRotation(Direction.Backward);
+            else if(leftStick.y < 0 && leftStick.x < 0.9 && leftStick.x >= 0.1){
+                matchRotation(Direction.Backward);
+                matchRotation(Direction.Right);
+            }
+            else if(leftStick.y < 0 && leftStick.x > -0.9 && leftStick.x <= -0.1){
+                matchRotation(Direction.Backward);
+                matchRotation(Direction.Left);
+            }
+            else if(leftStick.y > -0.25 && leftStick.y < 0.1 && leftStick.x < 0)
+                matchRotation(Direction.Left);
+            else if(leftStick.y > -0.25 && leftStick.y < 0.1 && leftStick.x > 0)
+                matchRotation(Direction.Right);
+            return true;
+        }
+        return false;
+    }
+
+
 }

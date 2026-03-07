@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getdata_0',['GetData',['../class_move.html#a64314d2642758d29fa4bae33a0ccbb51',1,'Move']]]
+  ['determinecenterofbattle_0',['DetermineCenterOfBattle',['../class_battle_manager.html#a313f6716b561ea221e3a9d4e39c30c9d',1,'BattleManager']]]
 ];
