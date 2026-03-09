@@ -12,6 +12,8 @@ public class NonCombatant : MonoBehaviour
     [SerializeField]
     protected Transform player;
 
+    protected string[] dialogue = {"Hello there", "How do you do"};
+
     int test = 0; 
 
     void Start()
@@ -20,14 +22,19 @@ public class NonCombatant : MonoBehaviour
     }
     void Update()
     {
-        if(test==0){
-        UIController.Instance.OpenDialogue("Hello there!");
-        test+=1;
+
+    }
+
+    public void GiveDialogue()
+    {
+        int i = 0;
+        while(i < dialogue.Length)
+        {
+            UIController.Instance.OpenDialogue(dialogue[i]);
+            if(Input.GetKeyDown(KeyCode.U))
+            {
+                i+=1;
+            }
         }
-        if(test==100){
-        UIController.Instance.OpenDialogue("I am the king!");
-        test+=1;
-        }
-        test+=1;
     }
 }
