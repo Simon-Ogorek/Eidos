@@ -76,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float cameraRotationY = 5;
 
+    bool usingController = false;
     void Start()
     {
         inputVector = Vector3.zero;
@@ -91,7 +92,16 @@ public class PlayerMovement : MonoBehaviour
         /* Change this out for the new input system */
         inputVector = Vector3.zero;
 
-        if(controllerMove())
+        //Only do controller movement if controller is connected.
+        if(Gamepad.current!=null){
+            usingController = true;
+        }
+        else if(Gamepad.current==null)
+        {
+            usingController = false;
+        }
+
+        if(usingController && controllerMove())
         {
             inputVector += transform.forward;
         }
@@ -129,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
         {
             grounded = true;
             velocityVector.y = -0.1f;
-            if (Input.GetKey(KeyCode.Space) || Gamepad.current.buttonSouth.isPressed)
+            if (Input.GetKey(KeyCode.Space) || (usingController && Gamepad.current.buttonSouth.isPressed))
             {
                 velocityVector.y += jumpForce;
             }

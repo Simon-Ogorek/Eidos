@@ -11,10 +11,19 @@ public class PlayerInteract : MonoBehaviour
     private bool touchingNPC = false;
     private GameObject lastTouchedNPC;
 
+    bool usingController = false;
+
 //Update function starts a dialogue action with collided NPC.
     void Update()
     {
-        if((touchingNPC && Input.GetKeyDown(KeyCode.I)) || (touchingNPC &&  Gamepad.current.buttonEast.wasPressedThisFrame))
+        if(Gamepad.current!=null){
+            usingController = true;
+        }
+        else if(Gamepad.current==null)
+        {
+            usingController = false;
+        }
+        if((touchingNPC && Input.GetKeyDown(KeyCode.I)) || (touchingNPC &&  usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
         {
             Debug.Log("Touched NPC");
             lastTouchedNPC.GetComponent<NonCombatant>().GiveDialogue();

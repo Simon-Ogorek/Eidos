@@ -15,6 +15,7 @@ public class NonCombatant : MonoBehaviour
 
     int i = 0;
     bool inDialogue = false;
+    bool usingController = false;
 
     void Start()
     {
@@ -24,11 +25,18 @@ public class NonCombatant : MonoBehaviour
 //Goes through dialogue array
     void Update()
     {
+        if(Gamepad.current!=null){
+            usingController = true;
+        }
+        else if(Gamepad.current==null)
+        {
+            usingController = false;
+        }
         if(inDialogue)
         {
         if(i < dialogue.Length)
         {
-            if(Input.GetKeyDown(KeyCode.I) || Gamepad.current.buttonEast.wasPressedThisFrame)
+            if(Input.GetKeyDown(KeyCode.I) || (usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
             {
                 i+=1;
                 if(i<=dialogue.Length-1)

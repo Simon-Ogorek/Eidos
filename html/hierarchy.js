@@ -16,6 +16,7 @@ var hierarchy =
       [ "PartyManager", "class_party_manager.html", null ],
       [ "PlayerInteract", "class_player_interact.html", null ],
       [ "PlayerMovement", "class_player_movement.html", null ],
+      [ "TitleSplash", "class_title_splash.html", null ],
       [ "UIController", "class_u_i_controller.html", null ],
       [ "UIDialogue", "class_u_i_dialogue.html", null ],
       [ "UIEnemyInfo", "class_u_i_enemy_info.html", null ],

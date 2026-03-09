@@ -38,6 +38,7 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private UIDialogue DialogueBox;
 
+    bool usingController = false;
 
     public static UIController Instance { get; private set; }
 
@@ -59,25 +60,33 @@ public class UIController : MonoBehaviour
 
     void Update()
     {
+        if(Gamepad.current!=null){
+            usingController = true;
+        }
+        else if(Gamepad.current==null)
+        {
+            usingController = false;
+        }
+
         if (current_state == UIState.Battle)
         {
-            if (Input.GetKeyDown(KeyCode.RightArrow) || Gamepad.current.rightShoulder.wasPressedThisFrame)
+            if (Input.GetKeyDown(KeyCode.RightArrow) || (usingController && Gamepad.current.rightShoulder.wasPressedThisFrame))
             {
                 MovePanel.ChangeMove(true);
             }
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Gamepad.current.leftShoulder.wasPressedThisFrame)
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || (usingController && Gamepad.current.leftShoulder.wasPressedThisFrame))
             {
                 MovePanel.ChangeMove(false);
             }
 
-            if ((current_state == UIState.Battle && Input.GetKeyDown(KeyCode.Return)) || (current_state == UIState.Battle && Gamepad.current.rightTrigger.wasPressedThisFrame))
+            if ((current_state == UIState.Battle && Input.GetKeyDown(KeyCode.Return)) || (current_state == UIState.Battle && usingController && Gamepad.current.rightTrigger.wasPressedThisFrame))
             {
                 Time.timeScale = 0.02f;
                 Time.fixedDeltaTime = 0.02f * Time.timeScale;
                 
                 
             }
-            if (current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.Return))
+            if ((current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.Return)) || (current_state == UIState.Battle_Selecting_Target && usingController && Gamepad.current.rightTrigger.wasPressedThisFrame))
             {
                 Time.timeScale = 1f;
                 Time.fixedDeltaTime = 0.02f * Time.timeScale;
