@@ -31,7 +31,7 @@ public class NonCombatant : MonoBehaviour
         while(i < dialogue.Length)
         {
             UIController.Instance.OpenDialogue(dialogue[i]);
-            if(Input.GetKeyDown(KeyCode.U))
+            if(Input.GetKeyDown(KeyCode.I))
             {
                 i+=1;
             }
