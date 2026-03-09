@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 using UnityEngine.Scripting.APIUpdating;
 using UnityEngine.InputSystem;
 
@@ -23,7 +24,8 @@ public class UIController : MonoBehaviour
     private GameObject AdventureUI;
     [SerializeField]
     private GameObject BattleUI;
-
+    [SerializeField]
+    private GameObject DialogueUI;
 
     [Header("Battle UI Panels")]
     [SerializeField]
@@ -32,6 +34,9 @@ public class UIController : MonoBehaviour
     private UIPlayerInfo PlayerPanel;
     [SerializeField]
     private UIMoveInfo MovePanel;
+    
+    [SerializeField]
+    private UIDialogue DialogueBox;
 
 
     public static UIController Instance { get; private set; }
@@ -49,6 +54,7 @@ public class UIController : MonoBehaviour
     {
         AdventureUI.SetActive(true);
         BattleUI.SetActive(false);
+        DialogueUI.SetActive(false);
     }
 
     void Update()
@@ -123,5 +129,11 @@ public class UIController : MonoBehaviour
     public void startCooldownTimer(float timer)
     {
         MovePanel.startCooldownTimerMoves(timer);
+    }
+
+    public void OpenDialogue(string dialogue)
+    {
+        DialogueUI.SetActive(true);
+        DialogueBox.SetDialogue(dialogue);
     }
 }
