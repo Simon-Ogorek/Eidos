@@ -41,6 +41,7 @@ public class Combatant : MonoBehaviour
     public bool canDoActions { get; private set; } = false;
     public bool doingAction { get; private set; } = false;
     public bool canCancelAction { get; private set; } = false;
+    protected float remainingCooldown;
 
     //Player is controlling the selected
     public void SwitchOn()

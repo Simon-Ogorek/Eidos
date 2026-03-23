@@ -1,0 +1,3 @@
+These moves shouldn't be used the player
+
+These mostly concern moving around the enemies without overcomplication

@@ -37,7 +37,8 @@ public class BattleManager : MonoBehaviour
     private GameObject arenaVisualPrefab;
     private GameObject arenaVisualInstance;
     private Material arenaVisualMat;
-    private Vector3 centerOfArena;
+    public Vector3 centerOfArena;
+    public float arenaRadius;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -49,6 +50,8 @@ public class BattleManager : MonoBehaviour
     {
         if (state == BattleState.Active && arenaVisualInstance)
         {
+            #region ArenaUpdate
+
             float distanceFromCenterCoefficient = Vector3.Distance(playerMovement.transform.position, centerOfArena) /
               arenaVisualInstance.transform.localScale.x/2;
 
@@ -57,6 +60,14 @@ public class BattleManager : MonoBehaviour
                 arenaVisualMat.color = new Color(arenaVisualMat.color.r, arenaVisualMat.color.g, arenaVisualMat.color.b, distanceFromCenterCoefficient * 180/255);
             else
                 arenaVisualMat.color = new Color(arenaVisualMat.color.r, arenaVisualMat.color.g, arenaVisualMat.color.b, 0);
+            
+            #endregion
+
+            #region BattleUpdate
+
+
+
+            #endregion
 
         }
     }
@@ -110,8 +121,12 @@ public class BattleManager : MonoBehaviour
             if (Vector3.Distance(combatant.transform.position, playerMovement.transform.position) < enemyAttentionRadius)
             {
                 combatantList.Add(combatant.transform);
-                if (combatant.isEnemy)
+                if (combatant is Enemy enemyClass)
+                {
+                    StartCoroutine(enemyClass.TryForMovement());
                     UIController.Instance.AddToEnemyPanel(combatant);
+                }
+                    
             }
         }
         UIController.Instance.SetState(UIController.UIState.Battle);
@@ -121,7 +136,7 @@ public class BattleManager : MonoBehaviour
 
         centerOfArena = DetermineCenterOfBattle(combatantList);
         Debug.Log("Center: " + centerOfArena);
-        float arenaRadius = Vector3.Distance(centerOfArena, playerMovement.transform.position);
+        arenaRadius = Vector3.Distance(centerOfArena, playerMovement.transform.position);
 
         arenaRadius += arenaRadiusExpansionRelativeToPlayer;
         
@@ -151,4 +166,5 @@ public class BattleManager : MonoBehaviour
     {
         state = BattleState.Inactive;
     }
+
 }
