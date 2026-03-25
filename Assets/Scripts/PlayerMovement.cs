@@ -60,6 +60,9 @@ public class PlayerMovement : MonoBehaviour
     /// @brief Is the player grounded
     private bool grounded;
 
+    /// @brief Player is in dialogue
+    public bool inDialogue = false;
+
     /// @brief Camera tracking points to be rotated accoding to player input
     [SerializeField]
     private GameObject cameraTrackingPoints;
@@ -101,11 +104,12 @@ public class PlayerMovement : MonoBehaviour
             usingController = false;
         }
 
-        if(usingController && controllerMove())
+        if(usingController && controllerMove() && !inDialogue)
         {
             inputVector += transform.forward;
         }
 
+        if(!inDialogue){
         if (Input.GetKey(KeyCode.W))
         {
             matchRotation(Direction.Forward);
@@ -129,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
             matchRotation(Direction.Right);
             inputVector += transform.forward;
         }
-
+        }
         inputVector = Vector3.Normalize(inputVector);
         
         velocityVector += inputVector * speed;

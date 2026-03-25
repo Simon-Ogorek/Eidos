@@ -13,9 +13,13 @@ public class NonCombatant : MonoBehaviour
     [SerializeField]
     protected string[] dialogue;
 
+    public PlayerMovement player;
+
     int i = 0;
     bool inDialogue = false;
     bool usingController = false;
+
+    
 
     void Start()
     {
@@ -42,12 +46,11 @@ public class NonCombatant : MonoBehaviour
                 if(i<=dialogue.Length-1)
                     UIController.Instance.OpenDialogue(dialogue[i]);
             }
-
-            
         }
         else
             {
                 inDialogue = false;
+                player.inDialogue = false;
                 UIController.Instance.EndDialogue();
             }
         }
@@ -59,5 +62,6 @@ public class NonCombatant : MonoBehaviour
         i = 0;
         UIController.Instance.OpenDialogue(dialogue[i]);
         inDialogue = true;
+        player.inDialogue = true;
     }
 }
