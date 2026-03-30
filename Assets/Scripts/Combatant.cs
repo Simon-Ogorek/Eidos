@@ -17,6 +17,8 @@ public class Combatant : MonoBehaviour
     [field: SerializeField]
     public float maxMana { get; private set; } = 5f;
     [field: SerializeField]
+    public float speed { get; private set; } = 0.05f;
+    [field: SerializeField]
     public float level { get; private set; } = 5f;
     [field: SerializeField]
     public float experience { get; private set; } = 5f;

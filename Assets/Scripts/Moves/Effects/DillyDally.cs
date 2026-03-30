@@ -13,7 +13,6 @@ public class DillyDally : MoveEffect
         Debug.Assert(user);
         Debug.Assert(user.target);
         Debug.Assert(data);
-
         
         Vector3 randomPoint = Random.insideUnitSphere;
         var battleManager = GameObject.FindAnyObjectByType<BattleManager>();

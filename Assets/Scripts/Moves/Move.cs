@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
 
 /// <summary>
 ///  Every move usuable by a player, eidos, or monster is handled here. 
@@ -31,8 +32,22 @@ public class Move : MonoBehaviour
         return data;
     }
 
-    public void DoMove()
+    public void CreateHurtbox()
     {
+        if (data.collider == BattleManager.ColliderTypes.Box)
+        {
+            BoxCollider col;
+            
+        }
+        
+    }
+
+    IEnumerator CastSpell()
+    {
+        UIController.Instance.endCooldown();
+        UIController.Instance.startCooldown();
+
+        yield return new WaitForSeconds(data.castTime);
         foreach (MoveEffect effect in data.effects)
         {
             if (data.manaChange >= 0 || Math.Abs(data.manaChange) <= caster.mana)
@@ -43,7 +58,26 @@ public class Move : MonoBehaviour
             }
         }
 
-        UIController.Instance.startCooldownTimer(data.cooldown);
+        UIController.Instance.endCooldown();
+
+        Debug.Log("Finished Cast");
+
+        yield break;
+        
+    }
+
+    public Coroutine DoMove()
+    {
+        PlayerMovement Player = caster.GetComponent<PlayerMovement>();
+        if (Player)
+        {
+            Debug.Log("Starting Cast");
+            Player.StartCastMovement(data.castTime);
+            return StartCoroutine(CastSpell());
+        }
+        return null;
+
+        
     }
 
 }

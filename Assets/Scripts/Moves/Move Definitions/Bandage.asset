@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Bandage
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
   moveName: Bandage
+  castTime: 5
   output: 1
   cooldown: 3
   range: 0
@@ -20,3 +21,6 @@ MonoBehaviour:
   targetType: 0
   effects:
   - {fileID: 11400000, guid: f02f1b56da28b9f4dbebd1c830f350d9, type: 2}
+  collider: 0
+  hurtBoxrange: 0
+  hurtBoxWidth: 0

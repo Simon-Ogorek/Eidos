@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Punch
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
   moveName: Punch
+  castTime: 5
   output: -1
   cooldown: 3
   range: 10
@@ -20,3 +21,6 @@ MonoBehaviour:
   targetType: 1
   effects:
   - {fileID: 11400000, guid: 484ae6214e4f3a644acf3f059bfb12c9, type: 2}
+  collider: 0
+  hurtBoxrange: 0
+  hurtBoxWidth: 0

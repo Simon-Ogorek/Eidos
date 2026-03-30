@@ -33,7 +33,7 @@ public class UIMoveInfo : MonoBehaviour
     Coroutine transformerNext;
     Coroutine transformerNextNext;
     int activeTransformers;
-    float cooldownTimer = -1;
+    bool underCooldown = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -157,35 +157,26 @@ public class UIMoveInfo : MonoBehaviour
 
     public void DoSelectedMove()
     {
-        if (cooldownTimer > 0)
+        if (underCooldown)
         {
             return;
         }
         mapUIToMove[listOfMoveUIs[(moveIndex+2)%listOfMoveUIs.Count]].DoMove();
     }
 
-    public void startCooldownTimerMoves(float timer)
+    public void setCooldownTrue()
     {
-        if (timer <= 0 )
-        {
-            Debug.LogWarning("Nonsense timer set: " + timer);
-        }
-        cooldownTimer = timer;
+        underCooldown = true;
 
         foreach (GameObject moveUIs in listOfMoveUIs)
         {
             moveUIs.GetComponentInChildren<UnityEngine.UI.Image>().color = new Color(0.7f,0.7f,0.7f,1f);
         }
-        StartCoroutine(endCooldown());
     }   
 
-    IEnumerator endCooldown()
+    public void setCooldownFalse()
     {
-        while (cooldownTimer > 0)
-        {
-            cooldownTimer -= Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-        }
+        underCooldown = false;
 
         foreach (GameObject moveUIs in listOfMoveUIs)
         {

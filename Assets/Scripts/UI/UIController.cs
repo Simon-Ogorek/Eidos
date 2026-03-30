@@ -43,6 +43,7 @@ public class UIController : MonoBehaviour
     public static UIController Instance { get; private set; }
 
     public Combatant playerCombatant;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Awake()
@@ -83,6 +84,7 @@ public class UIController : MonoBehaviour
             {
                 Time.timeScale = 0.02f;
                 Time.fixedDeltaTime = 0.02f * Time.timeScale;
+                current_state = UIState.Battle_Selecting_Target;
                 
                 
             }
@@ -135,9 +137,14 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void startCooldownTimer(float timer)
+    public void startCooldown()
     {
-        MovePanel.startCooldownTimerMoves(timer);
+        MovePanel.setCooldownTrue();
+    }
+
+    public void endCooldown()
+    {
+        MovePanel.setCooldownFalse();
     }
 
     public void OpenDialogue(string dialogue)

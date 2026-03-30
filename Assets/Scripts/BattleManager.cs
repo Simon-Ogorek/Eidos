@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEditor;
 using Unity.Mathematics;
+using UnityEngine.UIElements;
 
 /// <summary>
 /// This keeps tracks of if a battle is currently ongoing, activating UI and creating the arena for a given
@@ -9,11 +10,15 @@ using Unity.Mathematics;
 /// </summary>
 public class BattleManager : MonoBehaviour
 {
-
+    public static BattleManager Instance { get; private set; }
     public enum BattleState
     {
         Active,
         Inactive
+    }
+    public enum ColliderTypes
+    {
+        Box
     }
 
     [SerializeField]
@@ -39,6 +44,10 @@ public class BattleManager : MonoBehaviour
     private Material arenaVisualMat;
     public Vector3 centerOfArena;
     public float arenaRadius;
+    void Awake()
+    {
+        Instance = this;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
