@@ -4,6 +4,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections;
+using NUnit.Framework;
 
 /// <summary>
 ///  Every move usuable by a player, eidos, or monster is handled here. 
@@ -14,25 +15,14 @@ using System.Collections;
 ///  the combatant for the sake of being able to figure out 
 ///  who the target of x Combatant is, and for applying status effects.
 /// </summary>
-public class Move : MonoBehaviour
+public static class MoveCaster : object
 {
-    /// @brief Who this move is assigned to, assigned automatically
-    protected Combatant caster;
-    public MoveData data;
 
-    void Start()
-    {
-        caster = GetComponent<Combatant>();
-    }
     /// <summary>
     /// shorthand to get a move's data
     /// </summary>
-    public MoveData GetData()
-    {
-        return data;
-    }
 
-    public void CreateHurtbox()
+    public static void CreateHurtbox(MoveData data)
     {
         if (data.collider == BattleManager.ColliderTypes.Box)
         {
@@ -42,10 +32,12 @@ public class Move : MonoBehaviour
         
     }
 
-    IEnumerator CastSpell()
+    static IEnumerator CastSpell(Combatant caster, MoveData data)
     {
-        UIController.Instance.endCooldown();
-        UIController.Instance.startCooldown();
+        if (caster is PlayerBattle)
+        {
+            UIController.Instance.startCooldown();
+        }
 
         yield return new WaitForSeconds(data.castTime);
         foreach (MoveEffect effect in data.effects)
@@ -58,7 +50,10 @@ public class Move : MonoBehaviour
             }
         }
 
-        UIController.Instance.endCooldown();
+        if (caster is PlayerBattle)
+        {
+            UIController.Instance.endCooldown();
+        }
 
         Debug.Log("Finished Cast");
 
@@ -66,18 +61,11 @@ public class Move : MonoBehaviour
         
     }
 
-    public Coroutine DoMove()
+    public static IEnumerator DoMove(Combatant caster, MoveData data)
     {
-        PlayerMovement Player = caster.GetComponent<PlayerMovement>();
-        if (Player)
-        {
-            Debug.Log("Starting Cast");
-            Player.StartCastMovement(data.castTime);
-            return StartCoroutine(CastSpell());
-        }
-        return null;
-
-        
+        Debug.Log("Starting Cast");
+        caster.StartCastMovement(data.castTime);
+        return CastSpell(caster,data);
     }
 
 }

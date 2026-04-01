@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using Unity.VisualScripting;
 using UnityEditor.UI;
 using UnityEngine;
 
@@ -16,17 +17,7 @@ public class Enemy : Combatant
     [SerializeField]
 
     private float movementOpportunityChance = 0.4f;
-
-    [Serializable]
-    public struct AIAction
-    {
-        public int weight; // How likely to happen
-        public MoveData move; // What to execute
-
-    }
-
-    [SerializeField]
-    public List<AIAction> listOfActions = new List<AIAction>();
+    Coroutine currentMove;
 
     
 
@@ -48,6 +39,7 @@ public class Enemy : Combatant
 
     void ExecuteMove(MoveData move)
     {
+        /*
         Debug.Log($"Enemy {name} is executing {move.name}");
 
         foreach (MoveEffect effect in move.effects)
@@ -59,15 +51,20 @@ public class Enemy : Combatant
                     this.ChangeMana(move.manaChange);
             }
         }
+        */
 
+        currentMove = StartCoroutine(MoveCaster.DoMove(this,move));
         remainingCooldown = move.cooldown;
         StartCoroutine(TryForMovement());
+
     }
 
     public IEnumerator TryForMovement()
     {
         yield return new WaitForSeconds(remainingCooldown);
         yield return new WaitForSeconds(movementOpportunityInterval);
+
+        currentMove = null;
 
         if (UnityEngine.Random.Range(0,1) < movementOpportunityChance)
         {
@@ -76,19 +73,19 @@ public class Enemy : Combatant
             int i = 0;
             int totalWeights = 0;
 
-            for (; i < listOfActions.Count; i++)
+            for (; i < moves.Count; i++)
             {
-                totalWeights += listOfActions[i].weight;
+                totalWeights += moves[i].castWeight;
             }
 
             int weightToFind = UnityEngine.Random.Range(0, totalWeights+1);
 
-            for (i = 0; i < listOfActions.Count && weightToFind > listOfActions[i].weight; i++)
+            for (i = 0; i < moves.Count && weightToFind > moves[i].castWeight; i++)
             {
-                weightToFind -= listOfActions[i].weight;
+                weightToFind -= moves[i].castWeight;
             }
 
-            ExecuteMove(listOfActions[i].move);
+            ExecuteMove(moves[i]);
 
         }
         else

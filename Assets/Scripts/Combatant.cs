@@ -1,6 +1,9 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
+
 
 /// <summary>
 /// Any given entity that can enter combat is a combatant
@@ -18,6 +21,8 @@ public class Combatant : MonoBehaviour
     public float maxMana { get; private set; } = 5f;
     [field: SerializeField]
     public float speed { get; private set; } = 0.05f;
+
+    float defaultSpeed;
     [field: SerializeField]
     public float level { get; private set; } = 5f;
     [field: SerializeField]
@@ -45,6 +50,15 @@ public class Combatant : MonoBehaviour
     public bool canCancelAction { get; private set; } = false;
     protected float remainingCooldown;
 
+    Coroutine castingCoroutine;
+    bool coroutineRunning = false;
+    public List<MoveData> moves;
+
+    void Start()
+    {
+        defaultSpeed = speed;
+    }
+
     //Player is controlling the selected
     public void SwitchOn()
     {
@@ -62,6 +76,29 @@ public class Combatant : MonoBehaviour
 
     }
 
+    IEnumerator CastMovement(float time)
+    {
+        speed = defaultSpeed * 0.1f;
+        yield return new WaitForSeconds(time);
+        speed = defaultSpeed;
+
+    }
+    public void StartCastMovement(float time)
+    {
+        if (coroutineRunning)
+        {
+            EndCastMovement();
+        }
+        castingCoroutine = StartCoroutine(CastMovement(time));
+    }
+    public void EndCastMovement()
+    {
+        if (coroutineRunning)
+        {
+            StopCoroutine(castingCoroutine);
+        }
+    }
+
     public void Die()
     {
         
@@ -70,6 +107,7 @@ public class Combatant : MonoBehaviour
     public void ChangeHealth(float value)
     {
         health = Math.Clamp(health + value, 0, maxHealth);
+        Debug.Log($"New Health {health}");
         uiOutOfSync = true;
     }
     public void ChangeMana(float value)

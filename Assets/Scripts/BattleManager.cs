@@ -64,7 +64,7 @@ public class BattleManager : MonoBehaviour
             float distanceFromCenterCoefficient = Vector3.Distance(playerMovement.transform.position, centerOfArena) /
               arenaVisualInstance.transform.localScale.x/2;
 
-            Debug.Log(distanceFromCenterCoefficient);
+            //Debug.Log(distanceFromCenterCoefficient);
             if (distanceFromCenterCoefficient > 0.7f)
                 arenaVisualMat.color = new Color(arenaVisualMat.color.r, arenaVisualMat.color.g, arenaVisualMat.color.b, distanceFromCenterCoefficient * 180/255);
             else

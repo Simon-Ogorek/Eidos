@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class UIMoveInfo : MonoBehaviour
 {
     List<GameObject> listOfMoveUIs;
-    Dictionary<GameObject, Move> mapUIToMove;
+    Dictionary<GameObject, MoveData> mapUIToMove;
     [SerializeField]
     private GameObject template;
 
@@ -38,18 +38,18 @@ public class UIMoveInfo : MonoBehaviour
     void Start()
     {
         listOfMoveUIs = new List<GameObject>();
-        mapUIToMove = new Dictionary<GameObject, Move>();
+        mapUIToMove = new Dictionary<GameObject, MoveData>();
     }
     public void UpdateMoveSelection(Combatant combatant)
     {
         listOfMoveUIs.Clear();
         mapUIToMove.Clear();
 
-        foreach (Move move in combatant.GetComponents<Move>())
+        foreach (MoveData move in combatant.moves)
         {
             GameObject tempUI = Instantiate(template);
             TMP_Text text = tempUI.GetComponentInChildren<TMP_Text>();
-                text.text = move.GetData().moveName;
+                text.text = move.moveName;
 
             mapUIToMove.Add(tempUI, move);
             listOfMoveUIs.Add(tempUI);
@@ -161,7 +161,11 @@ public class UIMoveInfo : MonoBehaviour
         {
             return;
         }
-        mapUIToMove[listOfMoveUIs[(moveIndex+2)%listOfMoveUIs.Count]].DoMove();
+        MoveData data = mapUIToMove[listOfMoveUIs[(moveIndex+2)%listOfMoveUIs.Count]];
+        // TODO: MAKE THIS COROUTINE CANCELLABLE BY PLAYER
+        StartCoroutine(MoveCaster.DoMove(UIController.Instance.playerCombatant,data));
+
+        
     }
 
     public void setCooldownTrue()

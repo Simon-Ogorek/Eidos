@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     /// @brief How fast the player moves in X and Z
     [SerializeField]
     float speed = 0.05f;
-    float defaultSpeed;
+
 
     /// @brief Applied every frame where the player isnt grounded
     [SerializeField]
@@ -81,11 +81,9 @@ public class PlayerMovement : MonoBehaviour
     private float cameraRotationY = 5;
 
     bool usingController = false;
-    Coroutine castingCoroutine;
-    bool coroutineRunning = false;
+
     void Start()
     {
-        defaultSpeed = speed;
 
         inputVector = Vector3.zero;
         controller = GetComponent<CharacterController>();
@@ -228,29 +226,6 @@ public class PlayerMovement : MonoBehaviour
             return true;
         }
         return false;
-    }
-
-    IEnumerator CastMovement(float time)
-    {
-        speed = defaultSpeed * 0.1f;
-        yield return new WaitForSeconds(time);
-        speed = defaultSpeed;
-
-    }
-    public void StartCastMovement(float time)
-    {
-        if (coroutineRunning)
-        {
-            EndCastMovement();
-        }
-        castingCoroutine = StartCoroutine(CastMovement(time));
-    }
-    public void EndCastMovement()
-    {
-        if (coroutineRunning)
-        {
-            StopCoroutine(castingCoroutine);
-        }
     }
 
 }

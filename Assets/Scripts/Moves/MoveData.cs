@@ -13,7 +13,7 @@ public enum targetTypes
 
 
 
-[CreateAssetMenu(fileName = "NewMove", menuName = "Combat/Move")]
+[CreateAssetMenu(fileName = "MoveData", menuName = "Combat/MoveData")]
 public class MoveData : ScriptableObject
 {
     public string moveName;
@@ -31,5 +31,6 @@ public class MoveData : ScriptableObject
     public BattleManager.ColliderTypes collider;
     public float hurtBoxrange;
     public float hurtBoxWidth;
+    public int castWeight;
 
 }

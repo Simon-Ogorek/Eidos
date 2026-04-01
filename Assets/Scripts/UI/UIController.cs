@@ -69,7 +69,7 @@ public class UIController : MonoBehaviour
             usingController = false;
         }
 
-        if (current_state == UIState.Battle)
+        if (current_state == UIState.Battle || current_state == UIState.Battle_Selecting_Target)
         {
             if (Input.GetKeyDown(KeyCode.RightArrow) || (usingController && Gamepad.current.rightShoulder.wasPressedThisFrame))
             {

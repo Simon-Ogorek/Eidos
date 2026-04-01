@@ -24,3 +24,4 @@ MonoBehaviour:
   collider: 0
   hurtBoxrange: 0
   hurtBoxWidth: 0
+  castWeight: 10
