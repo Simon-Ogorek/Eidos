@@ -27,17 +27,16 @@ public class CameraController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private CurrentMember selected;
+
+     void Awake()
+    {
+        Instance = this;
+    }
     
-    //SwitchMember switches player control from player character to eidos partner.
-    public void GivingDialogue(GameObject Speaker)
+    //FocusOn has the camera look at a certain target.
+    public void FocusOn(GameObject Target)
     {
-
-        Camera.Follow = Speaker.transform;    
-    } 
-
-    public void FocusOnPlayer(GameObject Player)
-    {
-        Camera.Follow = Player.transform;  
+        Camera.Follow = Target.transform;  
     }
     void Start()
     {

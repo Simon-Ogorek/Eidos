@@ -51,6 +51,7 @@ public class NonCombatant : MonoBehaviour
             {
                 inDialogue = false;
                 player.inDialogue = false;
+                CameraController.Instance.FocusOn(player.gameObject);
                 UIController.Instance.EndDialogue();
             }
         }
@@ -60,6 +61,7 @@ public class NonCombatant : MonoBehaviour
     public void GiveDialogue()
     {
         i = 0;
+        CameraController.Instance.FocusOn(gameObject);
         UIController.Instance.OpenDialogue(dialogue[i]);
         inDialogue = true;
         player.inDialogue = true;
