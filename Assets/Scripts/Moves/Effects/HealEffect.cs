@@ -4,8 +4,9 @@ using UnityEngine;
 public class HealEffect : MoveEffect
 {
 
-    public override void Apply(Combatant user, MoveData data)
+    public override void Apply(Combatant user, Combatant victim, MoveData data)
     {
+        Debug.Log($"Healing {user} for {data.output}");
         user.ChangeHealth(data.output);
     }
 }

@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class UIMoveInfo : MonoBehaviour
 {
     List<GameObject> listOfMoveUIs;
-    Dictionary<GameObject, Move> mapUIToMove;
+    Dictionary<GameObject, MoveData> mapUIToMove;
     [SerializeField]
     private GameObject template;
 
@@ -33,23 +33,23 @@ public class UIMoveInfo : MonoBehaviour
     Coroutine transformerNext;
     Coroutine transformerNextNext;
     int activeTransformers;
-    float cooldownTimer = -1;
+    bool underCooldown = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         listOfMoveUIs = new List<GameObject>();
-        mapUIToMove = new Dictionary<GameObject, Move>();
+        mapUIToMove = new Dictionary<GameObject, MoveData>();
     }
     public void UpdateMoveSelection(Combatant combatant)
     {
         listOfMoveUIs.Clear();
         mapUIToMove.Clear();
 
-        foreach (Move move in combatant.GetComponents<Move>())
+        foreach (MoveData move in combatant.moves)
         {
             GameObject tempUI = Instantiate(template);
             TMP_Text text = tempUI.GetComponentInChildren<TMP_Text>();
-                text.text = move.GetData().moveName;
+                text.text = move.moveName;
 
             mapUIToMove.Add(tempUI, move);
             listOfMoveUIs.Add(tempUI);
@@ -157,35 +157,30 @@ public class UIMoveInfo : MonoBehaviour
 
     public void DoSelectedMove()
     {
-        if (cooldownTimer > 0)
+        if (underCooldown)
         {
             return;
         }
-        mapUIToMove[listOfMoveUIs[(moveIndex+2)%listOfMoveUIs.Count]].DoMove();
+        MoveData data = mapUIToMove[listOfMoveUIs[(moveIndex+2)%listOfMoveUIs.Count]];
+        // TODO: MAKE THIS COROUTINE CANCELLABLE BY PLAYER
+        StartCoroutine(MoveCaster.DoMove(UIController.Instance.playerCombatant,data));
+
+        
     }
 
-    public void startCooldownTimerMoves(float timer)
+    public void setCooldownTrue()
     {
-        if (timer <= 0 )
-        {
-            Debug.LogWarning("Nonsense timer set: " + timer);
-        }
-        cooldownTimer = timer;
+        underCooldown = true;
 
         foreach (GameObject moveUIs in listOfMoveUIs)
         {
             moveUIs.GetComponentInChildren<UnityEngine.UI.Image>().color = new Color(0.7f,0.7f,0.7f,1f);
         }
-        StartCoroutine(endCooldown());
     }   
 
-    IEnumerator endCooldown()
+    public void setCooldownFalse()
     {
-        while (cooldownTimer > 0)
-        {
-            cooldownTimer -= Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-        }
+        underCooldown = false;
 
         foreach (GameObject moveUIs in listOfMoveUIs)
         {

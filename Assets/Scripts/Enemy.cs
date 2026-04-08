@@ -1,13 +1,31 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using NUnit.Framework;
+using Unity.VisualScripting;
+using UnityEditor.UI;
 using UnityEngine;
 
 public class Enemy : Combatant
 {
     [SerializeField]
     private float awarenessRange = 5f;
+
+    [SerializeField]
+    private float movementOpportunityInterval = 3f;
+    [SerializeField]
+
+    private float movementOpportunityChance = 0.4f;
+    Coroutine currentMove;
+
+    
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        target = FindAnyObjectByType<PlayerBattle>();
     }
 
     // Update is called once per frame
@@ -17,5 +35,69 @@ public class Enemy : Combatant
         {
             battleManager.GetComponent<BattleManager>().StartBattle();
         }
+    }
+
+    void ExecuteMove(MoveData move)
+    {
+        /*
+        Debug.Log($"Enemy {name} is executing {move.name}");
+
+        foreach (MoveEffect effect in move.effects)
+        {
+            if (move.manaChange >= 0 || Math.Abs(move.manaChange) <= this.mana)
+            {
+                effect.Apply(this as Combatant, move);
+                if (move.manaChange != 0)
+                    this.ChangeMana(move.manaChange);
+            }
+        }
+        */
+
+        currentMove = StartCoroutine(MoveCaster.DoMove(this,move));
+        remainingCooldown = move.cooldown;
+        StartCoroutine(TryForMovement());
+
+    }
+
+    public IEnumerator TryForMovement()
+    {
+        yield return new WaitForSeconds(remainingCooldown);
+        yield return new WaitForSeconds(movementOpportunityInterval);
+
+        currentMove = null;
+
+        if (UnityEngine.Random.Range(0,1) < movementOpportunityChance)
+        {
+            Debug.Log("Movement opportunity passed, doing some action");
+
+            int i = 0;
+            int totalWeights = 0;
+
+            for (; i < moves.Count; i++)
+            {
+                totalWeights += moves[i].castWeight;
+            }
+
+            int weightToFind = UnityEngine.Random.Range(0, totalWeights+1);
+
+            for (i = 0; i < moves.Count && weightToFind > moves[i].castWeight; i++)
+            {
+                weightToFind -= moves[i].castWeight;
+            }
+
+            ExecuteMove(moves[i]);
+
+        }
+        else
+        {
+            Debug.Log("Movement opportunity didnt succeed for enemy, Idling");
+        }
+
+
+    }
+
+    public void UpdateBattle()
+    {
+        
     }
 }

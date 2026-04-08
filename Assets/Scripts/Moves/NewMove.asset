@@ -10,23 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc3bc598696cd8c438657b304755ee89, type: 3}
-  m_Name: Punch
+  m_Name: NewMove
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
-  moveName: Punch
-  castTime: 2
-  output: -1
-  cooldown: 3
-  range: 10
+  moveName: 
+  castTime: 0
+  output: 0
+  cooldown: 0
+  range: 0
   manaChange: 0
-  targetType: 1
-  effects:
-  - {fileID: 11400000, guid: 484ae6214e4f3a644acf3f059bfb12c9, type: 2}
+  targetType: 0
+  effects: []
   collider: 0
-  colliderTTL: 1
-  hurtBoxrange: 5
-  hurtBoxWidth: 2
-  spreadRange: 0
-  spreadWidth: 0
-  projectileObj: {fileID: 0}
-  projectileForce: 0
-  castWeight: 20
+  hurtBoxrange: 0
+  hurtBoxWidth: 0

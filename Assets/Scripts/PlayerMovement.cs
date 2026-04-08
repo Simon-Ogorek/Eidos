@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using Unity.VisualScripting;
+using System.Collections;
 
 /// <summary>
 /// Moves the player around using a Character Controller
@@ -22,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     /// @brief How fast the player moves in X and Z
     [SerializeField]
     float speed = 0.05f;
+
 
     /// @brief Applied every frame where the player isnt grounded
     [SerializeField]
@@ -76,12 +79,18 @@ public class PlayerMovement : MonoBehaviour
     /// @brief
     [SerializeField]
     private float cameraRotationX = 5;
+
     [SerializeField]
     private float cameraRotationY = 5;
 
     bool usingController = false;
+    float defaultSpeed;
+    Coroutine castingCoroutine;
+    bool coroutineRunning = false;
+
     void Start()
     {
+        defaultSpeed = speed;
         inputVector = Vector3.zero;
         controller = GetComponent<CharacterController>();
         //for camera control
@@ -226,5 +235,29 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
+    IEnumerator CastMovement(float time)
+    {
+        speed = defaultSpeed * 0.1f;
+        Debug.Log($"Cast Movement started {speed} for {name}");
+        yield return new WaitForSeconds(time);
+        speed = defaultSpeed;
+        Debug.Log($"Cast Movement ended {speed} for {name}");
 
+
+    }
+    public void StartCastMovement(float time)
+    {
+        if (coroutineRunning)
+        {
+            EndCastMovement();
+        }
+        castingCoroutine = StartCoroutine(CastMovement(time));
+    }
+    public void EndCastMovement()
+    {
+        if (coroutineRunning)
+        {
+            StopCoroutine(castingCoroutine);
+        }
+    }
 }
