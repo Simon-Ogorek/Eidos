@@ -81,10 +81,13 @@ public class PlayerMovement : MonoBehaviour
     private float cameraRotationY = 5;
 
     bool usingController = false;
+    float defaultSpeed;
+    Coroutine castingCoroutine;
+    bool coroutineRunning = false;
 
     void Start()
     {
-
+        defaultSpeed = speed;
         inputVector = Vector3.zero;
         controller = GetComponent<CharacterController>();
         //for camera control
@@ -228,4 +231,29 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
+    IEnumerator CastMovement(float time)
+    {
+        speed = defaultSpeed * 0.1f;
+        Debug.Log($"Cast Movement started {speed} for {name}");
+        yield return new WaitForSeconds(time);
+        speed = defaultSpeed;
+        Debug.Log($"Cast Movement ended {speed} for {name}");
+
+
+    }
+    public void StartCastMovement(float time)
+    {
+        if (coroutineRunning)
+        {
+            EndCastMovement();
+        }
+        castingCoroutine = StartCoroutine(CastMovement(time));
+    }
+    public void EndCastMovement()
+    {
+        if (coroutineRunning)
+        {
+            StopCoroutine(castingCoroutine);
+        }
+    }
 }

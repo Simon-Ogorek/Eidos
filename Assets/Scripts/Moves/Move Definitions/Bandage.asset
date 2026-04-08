@@ -21,7 +21,12 @@ MonoBehaviour:
   targetType: 0
   effects:
   - {fileID: 11400000, guid: f02f1b56da28b9f4dbebd1c830f350d9, type: 2}
-  collider: 0
+  collider: 3
+  colliderTTL: 0
   hurtBoxrange: 0
   hurtBoxWidth: 0
+  spreadRange: 0
+  spreadWidth: 0
+  projectileObj: {fileID: 0}
+  projectileForce: 0
   castWeight: 10

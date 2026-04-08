@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 
 public enum targetTypes
@@ -29,8 +30,17 @@ public class MoveData : ScriptableObject
 
     [SerializeField]
     public BattleManager.ColliderTypes collider;
+    public float colliderTTL;
+    [Header("For Box Collider Only")]
     public float hurtBoxrange;
     public float hurtBoxWidth;
+    [Header("For Spread Collider Only")]
+    public float spreadRange;
+    public float spreadWidth;
+    [Header("For Projectile Only")]
+    public GameObject projectileObj;
+    public float projectileForce;
+
     public int castWeight;
 
 }

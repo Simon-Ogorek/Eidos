@@ -7,11 +7,9 @@ using UnityEngine.AI;
 public class DillyDally : MoveEffect
 {
 
-    public override void Apply(Combatant user, MoveData data)
-    {
+    public override void Apply(Combatant user, Combatant victim, MoveData data)    {
         Debug.Log("Straight up Dilly Dallying (Random Roaming)");
         Debug.Assert(user);
-        Debug.Assert(user.target);
         Debug.Assert(data);
         
         Vector3 randomPoint = Random.insideUnitSphere;

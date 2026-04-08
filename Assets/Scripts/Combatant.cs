@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UIElements;
 
 
 /// <summary>
@@ -54,6 +55,8 @@ public class Combatant : MonoBehaviour
     bool coroutineRunning = false;
     public List<MoveData> moves;
 
+    public GameObject CombatColliders;
+
     void Start()
     {
         defaultSpeed = speed;
@@ -79,8 +82,11 @@ public class Combatant : MonoBehaviour
     IEnumerator CastMovement(float time)
     {
         speed = defaultSpeed * 0.1f;
+        Debug.Log($"Cast Movement started {speed} for {name}");
         yield return new WaitForSeconds(time);
         speed = defaultSpeed;
+        Debug.Log($"Cast Movement ended {speed} for {name}");
+
 
     }
     public void StartCastMovement(float time)
@@ -114,5 +120,41 @@ public class Combatant : MonoBehaviour
     {
         mana = Math.Clamp(mana + value, 0, maxMana);
         uiOutOfSync = true;
+    }
+
+    public void DisableColliders()
+    {
+        foreach (Transform obj in CombatColliders.transform)
+        {
+            obj.gameObject.SetActive(false);
+        }
+    }
+
+    public Collider SetHurtbox(Vector3 size)
+    {
+        Debug.Assert(CombatColliders);
+        BoxCollider col = CombatColliders.GetComponentInChildren<BoxCollider>(true);
+        
+        col.gameObject.transform.localScale = size;
+        col.gameObject.transform.localPosition = new Vector3(0,0,col.gameObject.transform.localScale.z/2);
+
+        return col;
+    }
+
+    public Collider SetSpread(Vector3 size)
+    {
+        MeshCollider col = CombatColliders.GetComponentInChildren<MeshCollider>(true);
+        
+        col.gameObject.transform.localScale = size;
+        
+        return col;
+    }
+
+    public Collider ShootProjectile(GameObject obj, Vector3 force)
+    {
+        Rigidbody rb = obj.GetComponent<Rigidbody>();
+        rb.AddForce(force);
+
+        return rb.gameObject.GetComponent<Collider>();
     }
 }

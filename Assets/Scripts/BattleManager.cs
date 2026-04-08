@@ -18,7 +18,10 @@ public class BattleManager : MonoBehaviour
     }
     public enum ColliderTypes
     {
-        Box
+        Box,
+        Spread,
+        Projectile,
+        None
     }
 
     [SerializeField]

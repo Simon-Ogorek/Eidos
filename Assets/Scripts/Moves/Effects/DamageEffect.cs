@@ -4,13 +4,13 @@ using UnityEngine;
 public class DamageEffect : MoveEffect
 {
 
-    public override void Apply(Combatant user, MoveData data)
+    public override void Apply(Combatant user, Combatant victim, MoveData data)
     {
-        Debug.Log($"Punching for {data.output} {user.name} to {user.target.name}");
+        Debug.Log($"Punching for {data.output} {user.name} to {victim.name}");
         Debug.Assert(user);
-        Debug.Assert(user.target);
+        Debug.Assert(victim);
         Debug.Assert(data);
 
-        user.target.ChangeHealth(data.output);
+        victim.ChangeHealth(data.output);
     }
 }
