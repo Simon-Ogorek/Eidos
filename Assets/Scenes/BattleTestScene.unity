@@ -6292,6 +6292,7 @@ MonoBehaviour:
   - Hi, hows your day?
   - Is the presentation going well?
   - The weather is looking great today!
+  player: {fileID: 1766572880}
 --- !u!1 &577399833
 GameObject:
   m_ObjectHideFlags: 0
@@ -7796,6 +7797,7 @@ MonoBehaviour:
   maxFallSpeed: 0.5
   maxWalkVelocity: 0.05
   maxSprintVelocity: 0.5
+  inDialogue: 0
   cameraTrackingPoints: {fileID: 700915847}
   freeLookCamera: {fileID: 0}
   cameraRotationX: 5
@@ -21584,6 +21586,7 @@ MonoBehaviour:
   maxFallSpeed: 0.5
   maxWalkVelocity: 0.05
   maxSprintVelocity: 0.5
+  inDialogue: 0
   cameraTrackingPoints: {fileID: 1164132600}
   freeLookCamera: {fileID: 1004547469}
   cameraRotationX: 5
