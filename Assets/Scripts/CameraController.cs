@@ -20,6 +20,9 @@ public class CameraController : MonoBehaviour
     private GameObject Eidos;
 
     [SerializeField]
+    private GameObject focusPoint;
+
+    [SerializeField]
     private CinemachineCamera Camera;
 
     public static CameraController Instance { get; private set; }
@@ -38,6 +41,13 @@ public class CameraController : MonoBehaviour
     {
         Camera.Follow = Target.transform;  
     }
+
+    public void LookTowards(GameObject Target)
+    {
+        focusPoint.transform.position = (Target.transform.position + Player.transform.position) * 0.5f;
+        Camera.LookAt = focusPoint.transform;  
+        //Camera.Transform = Player.transform;
+    }
     void Start()
     {
     }
@@ -45,6 +55,6 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //LookTowards(Eidos);
     }
 }

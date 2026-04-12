@@ -16,6 +16,7 @@ public class PlayerInteract : MonoBehaviour
 //Update function starts a dialogue action with collided NPC.
     void Update()
     {
+        //this is happening
         if(Gamepad.current!=null){
             usingController = true;
         }
