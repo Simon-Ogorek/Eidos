@@ -38,13 +38,13 @@ public class NonCombatant : MonoBehaviour
         }
         if(inDialogue)
         {
-        if(i < dialogue.Length)
+        if(i <= dialogue.Length)
         {
             if(Input.GetKeyDown(KeyCode.I) || (usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
             {
-                i+=1;
-                if(i<=dialogue.Length-1)
+                if(i <= dialogue.Length-1)
                     UIController.Instance.OpenDialogue(dialogue[i]);
+                i+=1;
             }
         }
         else
