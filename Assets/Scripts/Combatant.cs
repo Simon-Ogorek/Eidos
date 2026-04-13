@@ -152,9 +152,16 @@ public class Combatant : MonoBehaviour
 
     public Collider ShootProjectile(GameObject obj, Vector3 force)
     {
-        Rigidbody rb = obj.GetComponent<Rigidbody>();
+        GameObject proj = Instantiate(obj);
+        proj.transform.position = CombatColliders.transform.Find("ProjectileSpawnPoint").transform.position;
+        Rigidbody rb = proj.GetComponent<Rigidbody>();
+        if (!proj.GetComponent<HurtColliderQuereyer>())
+        {
+            HurtColliderQuereyer quereyer = proj.AddComponent<HurtColliderQuereyer>();
+            quereyer.tag = tag;
+        }
         rb.AddForce(force);
-
-        return rb.gameObject.GetComponent<Collider>();
+        Debug.Log("Shot a projectile");
+        return proj.GetComponent<Collider>();
     }
 }
