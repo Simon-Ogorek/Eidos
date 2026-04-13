@@ -12032,6 +12032,7 @@ GameObject:
   - component: {fileID: 1004547472}
   - component: {fileID: 1004547471}
   - component: {fileID: 1004547470}
+  - component: {fileID: 1004547476}
   m_Layer: 0
   m_Name: FreeLook Camera
   m_TagString: Untagged
@@ -12264,6 +12265,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1004547476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004547469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f24ac692a5647cb43a1583d0e2dcafca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraController
+  Player: {fileID: 1766572873}
+  Eidos: {fileID: 0}
+  focusPoint: {fileID: 0}
+  Camera: {fileID: 1004547474}
 --- !u!1 &1009227242
 GameObject:
   m_ObjectHideFlags: 0
@@ -21697,13 +21714,19 @@ MonoBehaviour:
   followRange: 2
   speed: 5
   target: {fileID: 693177760}
+<<<<<<< HEAD
 --- !u!136 &1766572883
 CapsuleCollider:
+=======
+--- !u!114 &1766572883
+MonoBehaviour:
+>>>>>>> d76188456b3f4e12853a5cd20e8d9e6fb838fde8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766572873}
+<<<<<<< HEAD
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -21720,6 +21743,13 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+=======
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f04d1bd34cef94e4a90298c9d73ed1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteract
+>>>>>>> d76188456b3f4e12853a5cd20e8d9e6fb838fde8
 --- !u!1 &1767339182
 GameObject:
   m_ObjectHideFlags: 0

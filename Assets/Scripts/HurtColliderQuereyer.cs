@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HurtColliderQuereyer : MonoBehaviour
 {
-    string selfTag;
+    public string selfTag;
     public Collider collidedCombatant;
     void Start()
     {
@@ -11,8 +11,16 @@ public class HurtColliderQuereyer : MonoBehaviour
         collidedCombatant = null;
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
+        if (selfTag == String.Empty)
+        {
+            Debug.LogWarning("Tag is set as blanks for whatever reason");
+        }
+        if (selfTag == "Player")
+        {
+            Debug.Log($"Hit {other.name}");
+        }
         // Did I hit another combatant that isnt myself?
         if (other.gameObject.GetComponent<Combatant>() && !other.transform.CompareTag(selfTag))
         {
