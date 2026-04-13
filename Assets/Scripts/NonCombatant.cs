@@ -42,8 +42,16 @@ public class NonCombatant : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.I) || (usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
             {
-                if(i <= dialogue.Length-1)
-                    UIController.Instance.OpenDialogue(dialogue[i]);
+                if(i <= dialogue.Length-1){
+                    if(dialogue[i] == "QUEST")
+                        {
+                            Debug.Log("A quest has begun");
+                        }
+                    else
+                        {
+                            UIController.Instance.OpenDialogue(dialogue[i]);
+                        }
+                }
                 i+=1;
             }
         }
