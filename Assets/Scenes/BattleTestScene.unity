@@ -3969,6 +3969,7 @@ GameObject:
   - component: {fileID: 411407153}
   - component: {fileID: 411407159}
   - component: {fileID: 411407160}
+  - component: {fileID: 411407161}
   m_Layer: 0
   m_Name: Enemy (1)
   m_TagString: Enemy
@@ -4029,7 +4030,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4
+  m_Radius: 1.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &411407155
 CapsuleCollider:
@@ -4162,6 +4163,33 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &411407161
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411407152}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &412013653
 GameObject:
   m_ObjectHideFlags: 0
@@ -5586,6 +5614,7 @@ GameObject:
   - component: {fileID: 544020732}
   - component: {fileID: 544020733}
   - component: {fileID: 544020734}
+  - component: {fileID: 544020735}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -5709,7 +5738,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 4
+  m_Radius: 1.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &544020733
 MonoBehaviour:
@@ -5767,6 +5796,33 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &544020735
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544020727}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &545354854 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1370117507542182224, guid: b1a0f37737b61e44cb42416c272d42fd, type: 3}
@@ -21437,6 +21493,7 @@ GameObject:
   - component: {fileID: 1766572879}
   - component: {fileID: 1766572881}
   - component: {fileID: 1766572882}
+  - component: {fileID: 1766572883}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -21640,6 +21697,29 @@ MonoBehaviour:
   followRange: 2
   speed: 5
   target: {fileID: 693177760}
+--- !u!136 &1766572883
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766572873}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1767339182
 GameObject:
   m_ObjectHideFlags: 0
