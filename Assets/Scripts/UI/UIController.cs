@@ -36,7 +36,10 @@ public class UIController : MonoBehaviour
     private UIMoveInfo MovePanel;
     
     [SerializeField]
-    private UIDialogue DialogueBox;
+    private UITextDisplay DialogueBox;
+
+    [SerializeField]
+    private UITextDisplay QuestBox;
 
     bool usingController = false;
 
@@ -150,7 +153,7 @@ public class UIController : MonoBehaviour
     public void OpenDialogue(string dialogue)
     {
         DialogueUI.SetActive(true);
-        DialogueBox.SetDialogue(dialogue);
+        DialogueBox.SetText(dialogue);
     }
 
     public void EndDialogue()

@@ -3309,7 +3309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIDialogue
   panel: {fileID: 1195028158}
-  dialogue: {fileID: 871128233}
+  textBox: {fileID: 871128233}
 --- !u!1 &372361838
 GameObject:
   m_ObjectHideFlags: 0
@@ -7660,6 +7660,7 @@ MonoBehaviour:
   PlayerPanel: {fileID: 432296447}
   MovePanel: {fileID: 281491202}
   DialogueBox: {fileID: 370522547}
+  QuestBox: {fileID: 0}
   playerCombatant: {fileID: 1766572881}
 --- !u!1 &654541393
 GameObject:
@@ -10475,7 +10476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIDialogue
   panel: {fileID: 719461678}
-  dialogue: {fileID: 1393235858}
+  textBox: {fileID: 0}
 --- !u!1 &871128231
 GameObject:
   m_ObjectHideFlags: 0
@@ -12196,6 +12197,7 @@ GameObject:
   - component: {fileID: 1004547472}
   - component: {fileID: 1004547471}
   - component: {fileID: 1004547470}
+  - component: {fileID: 1004547476}
   m_Layer: 0
   m_Name: FreeLook Camera
   m_TagString: Untagged
@@ -12428,6 +12430,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1004547476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004547469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f24ac692a5647cb43a1583d0e2dcafca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraController
+  Player: {fileID: 1766572873}
+  Eidos: {fileID: 0}
+  focusPoint: {fileID: 0}
+  Camera: {fileID: 1004547474}
 --- !u!1 &1009227242
 GameObject:
   m_ObjectHideFlags: 0
@@ -21797,6 +21815,7 @@ GameObject:
   - component: {fileID: 1766572881}
   - component: {fileID: 1766572882}
   - component: {fileID: 1766572883}
+  - component: {fileID: 1766572884}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -22023,6 +22042,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1766572884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766572873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f04d1bd34cef94e4a90298c9d73ed1e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteract
 --- !u!1 &1767339182
 GameObject:
   m_ObjectHideFlags: 0

@@ -53,6 +53,7 @@ public class NonCombatant : MonoBehaviour
                         }
                 }
                 i+=1;
+                Debug.Log("The number is" + i);
             }
         }
         else
@@ -73,5 +74,6 @@ public class NonCombatant : MonoBehaviour
         UIController.Instance.OpenDialogue(dialogue[i]);
         inDialogue = true;
         player.inDialogue = true;
+        i += 1;
     }
 }
