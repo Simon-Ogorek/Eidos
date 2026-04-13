@@ -7660,7 +7660,7 @@ MonoBehaviour:
   PlayerPanel: {fileID: 432296447}
   MovePanel: {fileID: 281491202}
   DialogueBox: {fileID: 370522547}
-  QuestBox: {fileID: 0}
+  QuestBox: {fileID: 861246140}
   playerCombatant: {fileID: 1766572881}
 --- !u!1 &654541393
 GameObject:
@@ -10436,7 +10436,7 @@ GameObject:
   - component: {fileID: 861246139}
   - component: {fileID: 861246140}
   m_Layer: 5
-  m_Name: DialogueBox
+  m_Name: QuestBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10476,7 +10476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIDialogue
   panel: {fileID: 719461678}
-  textBox: {fileID: 0}
+  textBox: {fileID: 1393235858}
 --- !u!1 &871128231
 GameObject:
   m_ObjectHideFlags: 0
@@ -17140,8 +17140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hello There I am going to the moon to find out the truth of how things
-    are actually going to be. How are you doing today?
+  m_text: 'Main Quest:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 62683ff31b10dfc479dcf3c9523d5c6f, type: 2}

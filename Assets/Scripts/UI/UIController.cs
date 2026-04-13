@@ -160,4 +160,9 @@ public class UIController : MonoBehaviour
     {
         DialogueUI.SetActive(false);
     }
+
+    public void SetQuest(string quest)
+    {
+        QuestBox.SetText(quest);
+    }
 }
