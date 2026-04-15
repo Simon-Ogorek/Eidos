@@ -64,6 +64,10 @@ public static class MoveCaster : object
         yield return new WaitForSeconds(data.castTime);
 
         Collider col = ActivateHurtCollider(caster,data);
+        if (col == null)
+        {
+            Debug.Log("Casting a move with no collider");
+        }
 
         if (col != null)
         {

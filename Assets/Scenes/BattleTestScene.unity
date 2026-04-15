@@ -7858,6 +7858,7 @@ MonoBehaviour:
   freeLookCamera: {fileID: 0}
   cameraRotationX: 5
   cameraRotationY: 5
+  canMove: 1
 --- !u!136 &693177757
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15423,7 +15424,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 14eafdc9901288846b8cd01f4df35283, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 14eafdc9901288846b8cd01f4df35283, type: 3}
       propertyPath: m_LocalScale.y
@@ -15431,7 +15432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 14eafdc9901288846b8cd01f4df35283, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 14eafdc9901288846b8cd01f4df35283, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21648,6 +21649,7 @@ MonoBehaviour:
   freeLookCamera: {fileID: 1004547469}
   cameraRotationX: 5
   cameraRotationY: 5
+  canMove: 1
 --- !u!114 &1766572881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21680,7 +21682,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3438d0430121f0546b8e82ed593c4155, type: 2}
   - {fileID: 11400000, guid: 94fd20479f0eedd448dc998810d635c3, type: 2}
   - {fileID: 11400000, guid: 3438d0430121f0546b8e82ed593c4155, type: 2}
-  - {fileID: 11400000, guid: 3438d0430121f0546b8e82ed593c4155, type: 2}
+  - {fileID: 11400000, guid: 8bd1d3f5b2f731f49a55e120bc8d5b39, type: 2}
   CombatColliders: {fileID: 1279302127}
 --- !u!114 &1766572882
 MonoBehaviour:
