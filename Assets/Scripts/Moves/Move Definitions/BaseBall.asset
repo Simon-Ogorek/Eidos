@@ -12,20 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3bc598696cd8c438657b304755ee89, type: 3}
   m_Name: BaseBall
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
-  moveName: 
-  castTime: 0
-  output: 0
-  cooldown: 0
-  range: 0
+  moveName: Throw
+  castTime: 2
+  output: -3
+  cooldown: 4
+  range: 5
   manaChange: 0
-  targetType: 0
-  effects: []
-  collider: 0
-  colliderTTL: 0
+  targetType: 1
+  effects:
+  - {fileID: 11400000, guid: 484ae6214e4f3a644acf3f059bfb12c9, type: 2}
+  collider: 2
+  colliderTTL: 3
   hurtBoxrange: 0
   hurtBoxWidth: 0
   spreadRange: 0
   spreadWidth: 0
-  projectileObj: {fileID: 0}
-  projectileForce: 0
-  castWeight: 0
+  projectileObj: {fileID: 7377806702426059609, guid: bfe83b86e2c969f45820454827b447b2, type: 3}
+  projectileForce: 3000
+  castWeight: 1

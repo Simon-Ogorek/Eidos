@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
+using UnityEngine.AI;
 
 
 /// <summary>
@@ -57,9 +58,14 @@ public class Combatant : MonoBehaviour
 
     public GameObject CombatColliders;
 
+    bool AgentInControl = false;
+    NavMeshAgent agent;
+
     void Start()
     {
         defaultSpeed = speed;
+        agent = GetComponent<NavMeshAgent>();
+        agent.enabled = false;
     }
 
     //Player is controlling the selected
@@ -107,7 +113,7 @@ public class Combatant : MonoBehaviour
 
     public void Die()
     {
-        
+        BattleManager.Instance.RemoveFromBattle(this);
     }
 
     public void ChangeHealth(float value)
@@ -115,6 +121,11 @@ public class Combatant : MonoBehaviour
         health = Math.Clamp(health + value, 0, maxHealth);
         Debug.Log($"New Health {health}");
         uiOutOfSync = true;
+
+        if (health <= 0)
+        {
+            Die();
+        }
     }
     public void ChangeMana(float value)
     {
@@ -163,5 +174,39 @@ public class Combatant : MonoBehaviour
         rb.AddForce(force);
         Debug.Log("Shot a projectile");
         return proj.GetComponent<Collider>();
+    }
+
+    public void HandoffControlToAgent()
+    {
+        
+        AgentInControl = true;
+        if (this is PlayerBattle)
+        {
+            GetComponent<PlayerMovement>().canMove = false;
+        }
+    }
+
+    public void TakeBackControlFromAgent()
+    {
+        
+        AgentInControl = false;
+        if (this is PlayerBattle)
+        {
+            agent.enabled = false;
+            GetComponent<PlayerMovement>().canMove = true;
+        }
+    }
+
+    public IEnumerator GetWithinRangeOfPoint(Transform point, float range)
+    {
+        agent.enabled = true;
+        AgentInControl = true;
+        HandoffControlToAgent();
+        while (Vector3.Distance(transform.position, point.position) < range)
+        {
+            agent.SetDestination(point.position);
+            yield return new WaitForFixedUpdate();
+        }
+        TakeBackControlFromAgent();
     }
 }

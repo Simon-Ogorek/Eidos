@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Punch
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
   moveName: Punch
-  castTime: 2
+  castTime: 0
   output: -1
-  cooldown: 3
+  cooldown: 0.5
   range: 10
   manaChange: 0
   targetType: 1
