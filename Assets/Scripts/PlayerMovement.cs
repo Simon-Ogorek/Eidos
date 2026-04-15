@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
         Left
     }
 
+
+
     [Header("Movement Values")]
 
     /// @brief How fast the player moves in X and Z
@@ -88,6 +90,8 @@ public class PlayerMovement : MonoBehaviour
     Coroutine castingCoroutine;
     bool coroutineRunning = false;
 
+    public bool canMove = true;
+
     void Start()
     {
         defaultSpeed = speed;
@@ -103,6 +107,9 @@ public class PlayerMovement : MonoBehaviour
         velocityVector *= friction;
         /* Change this out for the new input system */
         inputVector = Vector3.zero;
+
+        if (!canMove)
+            return;
 
         //Only do controller movement if controller is connected.
         if(Gamepad.current!=null){

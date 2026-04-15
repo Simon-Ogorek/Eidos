@@ -139,6 +139,10 @@ public class UIController : MonoBehaviour
             EnemyPanel.AddEnemyInfo(combatant);
         }
     }
+    public void RemoveFromEnemyPanel(Combatant combatant)
+    {
+        EnemyPanel.RemoveEnemyInfo(combatant);
+    }
 
     public void startCooldown()
     {

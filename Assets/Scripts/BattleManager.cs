@@ -47,6 +47,8 @@ public class BattleManager : MonoBehaviour
     private Material arenaVisualMat;
     public Vector3 centerOfArena;
     public float arenaRadius;
+    List<Transform> combatantList;
+    
     void Awake()
     {
         Instance = this;
@@ -77,6 +79,8 @@ public class BattleManager : MonoBehaviour
 
             #region BattleUpdate
 
+            
+            
 
 
             #endregion
@@ -105,29 +109,10 @@ public class BattleManager : MonoBehaviour
         if(state == BattleState.Inactive){
         state = BattleState.Active;
 
-        // This can be done more efficiently later and not be poo poo TODO
-        Enemy[] allEnemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
-
-        List<Transform> combatantList = new List<Transform>();
-        foreach (Enemy enemy in allEnemies)
-        {
-            if (Vector3.Distance(enemy.transform.position, playerMovement.transform.position) < enemyAttentionRadius)
-            {
-                combatantList.Add(enemy.transform);
-            }
-        }
-
-        if (combatantList.Count <= 0)
-        {
-            Debug.LogWarning("Tried to start a battle with no enemies nearby");
-            state = BattleState.Inactive;
-            return;
-        }
-
-        //Reset combatant list so enemies aren't counted twice
-        combatantList = new List<Transform>();
 
         Combatant[] allCombatants = FindObjectsByType<Combatant>(FindObjectsSortMode.None);
+        combatantList = new List<Transform>();
+
         foreach (Combatant combatant in allCombatants)
         {
             if (Vector3.Distance(combatant.transform.position, playerMovement.transform.position) < enemyAttentionRadius)
@@ -141,8 +126,8 @@ public class BattleManager : MonoBehaviour
                     
             }
         }
+
         UIController.Instance.SetState(UIController.UIState.Battle);
-        
 
         Debug.LogWarning(combatantList.Count);
 
@@ -177,6 +162,31 @@ public class BattleManager : MonoBehaviour
     public void EndBattle()
     {
         state = BattleState.Inactive;
+    }
+
+    public void RemoveFromBattle(Combatant ent)
+    {
+        Debug.Log($"Removing UI of a {ent.GetType()}");
+        if (ent is Enemy)
+        {
+            Debug.Log($"Removing {ent.name} from battle");
+            
+            UIController.Instance.RemoveFromEnemyPanel(ent);
+            combatantList.Remove(ent.transform);
+
+            // Check if we have any enemies left in the battle;
+            foreach (Transform combatant in combatantList)
+            {
+                if (combatant.gameObject.GetComponent<Enemy>())
+                {
+                    return;
+                }
+            }
+
+            // There are no enemies left in the battle.
+
+            EndBattle();
+        }
     }
 
 }
