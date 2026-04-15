@@ -36,6 +36,11 @@ public class QuestManager : MonoBehaviour
     {
     }
 
+    public void StartQuest()
+    {
+        UIController.Instance.SetQuest("A quest has begun");
+    }
+
     // Update is called once per frame
     void Update()
     {

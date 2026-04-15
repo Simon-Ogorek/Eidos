@@ -4030,6 +4030,8 @@ MonoBehaviour:
   <mana>k__BackingField: 5
   <maxMana>k__BackingField: 5
   <speed>k__BackingField: 0.05
+  <communityRealm>k__BackingField: 1
+  <familyRealm>k__BackingField: 1
   <level>k__BackingField: 5
   <experience>k__BackingField: 5
   <displayName>k__BackingField: DinoV3
@@ -4942,6 +4944,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466859173}
   m_Mesh: {fileID: 3687347242292553588, guid: e0185beace16842488ae10e51dc597b1, type: 3}
+--- !u!1 &467331961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 467331963}
+  - component: {fileID: 467331962}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &467331962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467331961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778eeddb9f8feec4790526382bfbf543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestManager
+  Player: {fileID: 0}
+  Eidos: {fileID: 0}
+  day: 0
+--- !u!4 &467331963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467331961}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 223.28636, y: 153.18983, z: 2.9264}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &471128193 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 19642183a53bb77448f60edcdb1a1bd0, type: 3}
@@ -5793,6 +5842,8 @@ MonoBehaviour:
   <mana>k__BackingField: 5
   <maxMana>k__BackingField: 5
   <speed>k__BackingField: 0.05
+  <communityRealm>k__BackingField: 1
+  <familyRealm>k__BackingField: 1
   <level>k__BackingField: 5
   <experience>k__BackingField: 5
   <displayName>k__BackingField: DinoV2
@@ -8025,6 +8076,8 @@ MonoBehaviour:
   <mana>k__BackingField: 5
   <maxMana>k__BackingField: 5
   <speed>k__BackingField: 0.05
+  <communityRealm>k__BackingField: 1
+  <familyRealm>k__BackingField: 1
   <level>k__BackingField: 5
   <experience>k__BackingField: 5
   <displayName>k__BackingField: 
@@ -21988,6 +22041,8 @@ MonoBehaviour:
   <mana>k__BackingField: 5
   <maxMana>k__BackingField: 5
   <speed>k__BackingField: 0.05
+  <communityRealm>k__BackingField: 1
+  <familyRealm>k__BackingField: 1
   <level>k__BackingField: 5
   <experience>k__BackingField: 5
   <displayName>k__BackingField: 
@@ -27472,3 +27527,4 @@ SceneRoots:
   - {fileID: 648253222}
   - {fileID: 394115877}
   - {fileID: 1004547475}
+  - {fileID: 467331963}

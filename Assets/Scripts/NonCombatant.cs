@@ -45,7 +45,7 @@ public class NonCombatant : MonoBehaviour
                 if(i <= dialogue.Length-1){
                     if(dialogue[i] == "QUEST")
                         {
-                            UIController.Instance.SetQuest("A quest has begun");
+                            QuestManager.Instance.StartQuest();
                         }
                     else
                         {
