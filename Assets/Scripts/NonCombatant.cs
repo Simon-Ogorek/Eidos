@@ -11,7 +11,10 @@ public class NonCombatant : MonoBehaviour
 
 //Array with all of the dialogue of the NPC
     [SerializeField]
-    protected string[] dialogue;
+    public string[] dialogue;
+
+    [SerializeField]
+    public string name;
 
     public PlayerMovement player;
 
@@ -40,16 +43,21 @@ public class NonCombatant : MonoBehaviour
         {
         if(i <= dialogue.Length)
         {
+            Debug.Log("Dialogue loop" + name);
             if(Input.GetKeyDown(KeyCode.I) || (usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
             {
+                Debug.Log(name + " dialogueI");
                 if(i <= dialogue.Length-1){
                     if(dialogue[i] == "QUEST")
                         {
+                            EndNPCDialogue();
                             QuestManager.Instance.StartQuest();
+
                         }
                     else
                         {
-                            UIController.Instance.OpenDialogue(dialogue[i]);
+                            Debug.Log("Dialogue for" + name);
+                            UIController.Instance.OpenDialogue(dialogue[i], name);
                         }
                 }
                 i+=1;
@@ -58,10 +66,7 @@ public class NonCombatant : MonoBehaviour
         }
         else
             {
-                inDialogue = false;
-                player.inDialogue = false;
-                CameraController.Instance.FocusOn(player.gameObject);
-                UIController.Instance.EndDialogue();
+                EndNPCDialogue();
             }
         }
     }
@@ -69,11 +74,20 @@ public class NonCombatant : MonoBehaviour
 //Starts a dialogue action from UI Controller
     public void GiveDialogue()
     {
+        Debug.Log("This happened" + name);
         i = 0;
         CameraController.Instance.FocusOn(gameObject);
-        UIController.Instance.OpenDialogue(dialogue[i]);
+        UIController.Instance.OpenDialogue(dialogue[i], name);
         inDialogue = true;
         player.inDialogue = true;
         i += 1;
+    }
+
+    public void EndNPCDialogue()
+    {
+        inDialogue = false;
+        player.inDialogue = false;
+        CameraController.Instance.FocusOn(player.gameObject);
+        UIController.Instance.EndDialogue();
     }
 }

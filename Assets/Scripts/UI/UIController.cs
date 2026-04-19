@@ -154,10 +154,12 @@ public class UIController : MonoBehaviour
         MovePanel.setCooldownFalse();
     }
 
-    public void OpenDialogue(string dialogue)
+    public void OpenDialogue(string dialogue, string name)
     {
+        Debug.Log(name + "dialogue started");
         DialogueUI.SetActive(true);
         DialogueBox.SetText(dialogue);
+        DialogueBox.SetHeader(name);
     }
 
     public void EndDialogue()
