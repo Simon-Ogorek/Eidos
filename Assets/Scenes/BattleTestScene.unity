@@ -5204,11 +5204,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778eeddb9f8feec4790526382bfbf543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestManager
-  Player: {fileID: 0}
-  Eidos: {fileID: 0}
+  Player: {fileID: 1766572873}
+  Archimedes: {fileID: 576290686}
   day: 0
   inQuest: 0
   quest: 0
+  questScript: 0
+  questActionComplete: 0
 --- !u!4 &467331963
 Transform:
   m_ObjectHideFlags: 0
@@ -6807,6 +6809,11 @@ MonoBehaviour:
   - Is the presentation going well?
   - The weather is looking great today!
   - QUEST
+  - QUEST
+  - QUEST
+  - QUEST1
+  - Hello, Marketus. My name is Archimedes.
+  - CONTINUEQUEST
   name: Archimedes
   player: {fileID: 1766572880}
 --- !u!1 &577399833
@@ -22875,6 +22882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NonCombatant
   dialogue:
   - I am about to start a quest!
+  - This is cool!
   name: Marketus
   player: {fileID: 1766572880}
 --- !u!1 &1767339182

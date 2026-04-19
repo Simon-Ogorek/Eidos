@@ -20,6 +20,8 @@ public class NonCombatant : MonoBehaviour
 
     int i = 0;
     bool inDialogue = false;
+
+    bool questDialogue = false;
     bool usingController = false;
 
     
@@ -54,6 +56,12 @@ public class NonCombatant : MonoBehaviour
                             QuestManager.Instance.StartQuest();
 
                         }
+                    else if(dialogue[i] == "CONTINUEQUEST")
+                        {
+                            EndNPCDialogue();
+                            QuestManager.Instance.ContinueQuest();
+
+                    }
                     else
                         {
                             Debug.Log("Dialogue for" + name);
@@ -69,18 +77,35 @@ public class NonCombatant : MonoBehaviour
                 EndNPCDialogue();
             }
         }
+        else if (questDialogue)
+        {
+            if(Input.GetKeyDown(KeyCode.I) || (usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
+            {
+                Debug.Log(name + " quest dialogue interaction");
+                questDialogue = false;
+                CameraController.Instance.FocusOn(player.gameObject);
+                UIController.Instance.EndDialogue();
+                QuestManager.Instance.ContinueQuest();
+            }
+            
+        }
     }
 
 //Starts a dialogue action from UI Controller
     public void GiveDialogue()
     {
         Debug.Log("This happened" + name);
-        i = 0;
         CameraController.Instance.FocusOn(gameObject);
         UIController.Instance.OpenDialogue(dialogue[i], name);
         inDialogue = true;
         player.inDialogue = true;
         i += 1;
+    }
+
+    public void GiveQuestDialogue(string dialogue)
+    {
+        questDialogue = true;
+        UIController.Instance.OpenDialogue(dialogue, name);
     }
 
     public void EndNPCDialogue()
@@ -89,5 +114,12 @@ public class NonCombatant : MonoBehaviour
         player.inDialogue = false;
         CameraController.Instance.FocusOn(player.gameObject);
         UIController.Instance.EndDialogue();
+    }
+
+    public void AdvanceDialogueGroup(string marker)
+    {
+        while(dialogue[i] != marker)
+            i++;
+        i+=1;
     }
 }
