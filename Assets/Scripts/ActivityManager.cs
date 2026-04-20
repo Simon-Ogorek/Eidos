@@ -17,6 +17,9 @@ public class ActivityManager : MonoBehaviour
     private GameObject Player;
 
     [SerializeField]
+    private GameObject Pitcher;
+
+    [SerializeField]
     private GameObject Baseball;
 
     [SerializeField]
@@ -38,6 +41,12 @@ public class ActivityManager : MonoBehaviour
 
     [SerializeField]
     private bool questActionComplete = false;
+
+    private bool inBaseball = false;
+
+    private bool throwing = false;
+
+    private Transform hitLocation;
 
     bool usingController = false;
     public static ActivityManager Instance { get; private set; }
@@ -61,6 +70,21 @@ public class ActivityManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(inBaseball){
+
+            if (throwing)
+            {
+                if(Baseball.transform.position.y < Pitcher.transform.position.y + 2.5)
+                {
+
+                    Baseball.transform.position += new Vector3(0, 0.02f, 0);
+                }
+                else
+                {
+                    throwing = false;
+                    Baseball.GetComponent<BaseballPitch>().enabled = true;
+                }
+            }
 
         if(Gamepad.current!=null){
             usingController = true;
@@ -72,11 +96,13 @@ public class ActivityManager : MonoBehaviour
         if((inPlay && Input.GetKeyDown(KeyCode.I)) || (inPlay &&  usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
         {
             Debug.Log("BASEBALL HIT");
+            HitBaseball();
 
         }
         else if ((!inPlay && Input.GetKeyDown(KeyCode.I)) || (!inPlay &&  usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
         {
             Debug.Log("BASEBALL MISS");   
+        }
         }
        // if(quest == 1)
        //     Quest1();
@@ -115,6 +141,47 @@ public class ActivityManager : MonoBehaviour
         
     }
 */
+
+    public void StartBaseballMatch()
+    {
+        gameObject.transform.position = new Vector3(Player.transform.position.x+2, Player.transform.position.y, Player.transform.position.z);
+        Pitcher.transform.position = new Vector3(Player.transform.position.x+2, Player.transform.position.y, Player.transform.position.z+20);
+        Player.GetComponent<PlayerMovement>().cantMove = true;
+        CameraController.Instance.FocusOn(gameObject);
+        inBaseball = true;
+        throwBaseball();
+
+        
+    }
+
+    public void throwBaseball()
+    {
+        Baseball.GetComponent<Renderer>().enabled = true;
+        Baseball.transform.position = Pitcher.transform.position;
+        Baseball.GetComponent<BaseballPitch>().enabled = false;
+        throwing = true;
+    }
+
+    public void PitchEnded()
+    {
+        throwBaseball();
+    }
+
+    public void HitBaseball()
+    {
+        GameObject hitBall = Instantiate(Baseball, hitLocation.position, Quaternion.identity);
+        Baseball.GetComponent<Renderer>().enabled = false;
+        hitBall.GetComponent<BaseballPitch>().enabled = false;
+        Rigidbody rb = hitBall.GetComponent<Rigidbody>();
+        if(rb != null)
+        {
+            Vector3 hitDirection = (transform.forward + Vector3.up).normalized;
+
+            rb.AddForce(hitDirection * 1000f);
+            rb.useGravity = true;
+        }
+    }
+    /*
     IEnumerator MoveActor(GameObject actor, Vector3 position)
     {
         actor.transform.position = position;
@@ -123,7 +190,7 @@ public class ActivityManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         CameraController.Instance.FocusOn(Player);
-    }
+    }*/
     
 
     //For baseball minigame
@@ -132,6 +199,7 @@ public class ActivityManager : MonoBehaviour
         if(entity.tag == "BASEBALL")
         {
             inPlay = true;
+            hitLocation = entity.gameObject.transform;
             Debug.Log("NPC Triggered");
         }
 

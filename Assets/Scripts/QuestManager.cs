@@ -55,7 +55,7 @@ public class QuestManager : MonoBehaviour
         if (!inQuest)
         {
             inQuest = true;
-            UIController.Instance.SetQuest("A quest has begun");
+            UIController.Instance.SetQuest("Play Baseball with Archimedes");
             NonCombatant playerDialogue = Player.GetComponent<NonCombatant>();
             playerDialogue.GiveDialogue();
             questScript = 0;
@@ -99,14 +99,23 @@ public class QuestManager : MonoBehaviour
             questActionComplete = true;
         }
         else if(questScript == 4 && !questActionComplete){
-            StartCoroutine(MoveActor(Archimedes.gameObject, new Vector3(-10, 1, 30)));
+            StartCoroutine(MoveActor(Archimedes.gameObject, new Vector3(0, 1, 50)));
+            questActionComplete = true;
+            ContinueQuest();
+        }
+        if(questScript == 5 && !questActionComplete){
+            Archimedes.AdvanceDialogueGroup("QUEST2");
+            questActionComplete = true;
+        }
+        else if(questScript == 6 && !questActionComplete){
+            StartCoroutine(MoveActor(Archimedes.gameObject, new Vector3(0, 1, 73), true));
             questActionComplete = true;
         }
 
         
     }
 
-    IEnumerator MoveActor(GameObject actor, Vector3 position)
+    IEnumerator MoveActor(GameObject actor, Vector3 position, bool startBaseball = false)
     {
         actor.transform.position = position;
         CameraController.Instance.FocusOn(actor);
@@ -114,5 +123,9 @@ public class QuestManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         CameraController.Instance.FocusOn(Player);
+
+        if(startBaseball)
+            ActivityManager.Instance.StartBaseballMatch();
+
     }
 }
