@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 
-public class QuestManager : MonoBehaviour
+public class ActivityManager : MonoBehaviour
 {
 
     public enum CurrentMember
@@ -16,6 +17,9 @@ public class QuestManager : MonoBehaviour
     private GameObject Player;
 
     [SerializeField]
+    private GameObject Baseball;
+
+    [SerializeField]
     private NonCombatant Archimedes;
 
     private NonCombatant playerDialogue;
@@ -24,7 +28,7 @@ public class QuestManager : MonoBehaviour
     private float day;
 
     [SerializeField]
-    private bool inQuest = false;
+    private bool inPlay = false;
 
     [SerializeField]
     private float quest = 0;
@@ -34,7 +38,9 @@ public class QuestManager : MonoBehaviour
 
     [SerializeField]
     private bool questActionComplete = false;
-    public static QuestManager Instance { get; private set; }
+
+    bool usingController = false;
+    public static ActivityManager Instance { get; private set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -47,33 +53,36 @@ public class QuestManager : MonoBehaviour
     
     void Start()
     {
-        playerDialogue = Player.GetComponent<NonCombatant>();
+      
     }
 
-    public void StartQuest()
-    {
-        if (!inQuest)
-        {
-            inQuest = true;
-            UIController.Instance.SetQuest("A quest has begun");
-            NonCombatant playerDialogue = Player.GetComponent<NonCombatant>();
-            playerDialogue.GiveDialogue();
-            questScript = 0;
-            quest++;
-        }
-        else
-            Debug.Log("Currently in quest");
-    }
 
 
     // Update is called once per frame
     void Update()
     {
-        if(quest == 1)
-            Quest1();
+
+        if(Gamepad.current!=null){
+            usingController = true;
+        }
+        else if(Gamepad.current==null)
+        {
+            usingController = false;
+        }
+        if((inPlay && Input.GetKeyDown(KeyCode.I)) || (inPlay &&  usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
+        {
+            Debug.Log("BASEBALL HIT");
+
+        }
+        else if ((!inPlay && Input.GetKeyDown(KeyCode.I)) || (!inPlay &&  usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
+        {
+            Debug.Log("BASEBALL MISS");   
+        }
+       // if(quest == 1)
+       //     Quest1();
         //LookTowards(Eidos);
     }
-
+/*
     public void ContinueQuest()
     {
         questScript += 1;
@@ -105,7 +114,7 @@ public class QuestManager : MonoBehaviour
 
         
     }
-
+*/
     IEnumerator MoveActor(GameObject actor, Vector3 position)
     {
         actor.transform.position = position;
@@ -114,5 +123,25 @@ public class QuestManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         CameraController.Instance.FocusOn(Player);
+    }
+    
+
+    //For baseball minigame
+        void OnTriggerEnter(Collider entity)
+    {
+        if(entity.tag == "BASEBALL")
+        {
+            inPlay = true;
+            Debug.Log("NPC Triggered");
+        }
+
+    }
+
+    void OnTriggerExit(Collider entity)
+    {
+        if(entity.tag == "BASEBALL")
+        {
+            inPlay = false;
+        }
     }
 }

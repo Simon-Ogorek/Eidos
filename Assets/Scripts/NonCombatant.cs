@@ -98,7 +98,7 @@ public class NonCombatant : MonoBehaviour
         CameraController.Instance.FocusOn(gameObject);
         UIController.Instance.OpenDialogue(dialogue[i], name);
         inDialogue = true;
-        player.inDialogue = true;
+        player.cantMove = true;
         i += 1;
     }
 
@@ -111,7 +111,7 @@ public class NonCombatant : MonoBehaviour
     public void EndNPCDialogue()
     {
         inDialogue = false;
-        player.inDialogue = false;
+        player.cantMove = false;
         CameraController.Instance.FocusOn(player.gameObject);
         UIController.Instance.EndDialogue();
     }

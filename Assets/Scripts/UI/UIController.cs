@@ -15,7 +15,8 @@ public class UIController : MonoBehaviour
     {
         Exploring,
         Battle,
-        Battle_Selecting_Target
+        Battle_Selecting_Target,
+        Baseball
     }
     UIState current_state;
 
