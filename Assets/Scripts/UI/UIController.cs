@@ -15,7 +15,8 @@ public class UIController : MonoBehaviour
     {
         Exploring,
         Battle,
-        Battle_Selecting_Target
+        Battle_Selecting_Target,
+        Baseball
     }
     UIState current_state;
 
@@ -26,6 +27,9 @@ public class UIController : MonoBehaviour
     private GameObject BattleUI;
     [SerializeField]
     private GameObject DialogueUI;
+
+    [SerializeField]
+    private GameObject BaseballUI;
 
     [Header("Battle UI Panels")]
     [SerializeField]
@@ -40,6 +44,9 @@ public class UIController : MonoBehaviour
 
     [SerializeField]
     private UITextDisplay QuestBox;
+
+    public TMP_Text hits;
+    public TMP_Text strikes;
 
     bool usingController = false;
 
@@ -60,6 +67,7 @@ public class UIController : MonoBehaviour
         AdventureUI.SetActive(true);
         BattleUI.SetActive(false);
         DialogueUI.SetActive(false);
+        BaseballUI.SetActive(false);
     }
 
     void Update()
@@ -121,6 +129,7 @@ public class UIController : MonoBehaviour
         {
             AdventureUI.SetActive(false);
             BattleUI.SetActive(true);
+            BaseballUI.SetActive(false);
             MovePanel.UpdateMoveSelection(playerCombatant);
             PlayerPanel.UpdatePlayerInfo(playerCombatant);
         }
@@ -128,6 +137,13 @@ public class UIController : MonoBehaviour
         {
             AdventureUI.SetActive(true);
             BattleUI.SetActive(false);
+            BaseballUI.SetActive(false);
+        }
+        else if (current_state == UIState.Baseball)
+        {
+            AdventureUI.SetActive(false);
+            BattleUI.SetActive(false);
+            BaseballUI.SetActive(true);
         }
         
     }
@@ -154,10 +170,12 @@ public class UIController : MonoBehaviour
         MovePanel.setCooldownFalse();
     }
 
-    public void OpenDialogue(string dialogue)
+    public void OpenDialogue(string dialogue, string name)
     {
+        Debug.Log(name + "dialogue started");
         DialogueUI.SetActive(true);
         DialogueBox.SetText(dialogue);
+        DialogueBox.SetHeader(name);
     }
 
     public void EndDialogue()
@@ -168,5 +186,15 @@ public class UIController : MonoBehaviour
     public void SetQuest(string quest)
     {
         QuestBox.SetText(quest);
+    }
+
+    public void SetHit(float hit)
+    {
+        hits.SetText(hit.ToString());
+    }
+
+    public void SetStrike(float strike)
+    {
+        strikes.SetText(strike.ToString());
     }
 }

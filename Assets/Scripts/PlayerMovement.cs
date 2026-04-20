@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
     private bool grounded;
 
     /// @brief Player is in dialogue
-    public bool inDialogue = false;
+    public bool cantMove = false;
 
     /// @brief Camera tracking points to be rotated accoding to player input
     [SerializeField]
@@ -120,12 +120,12 @@ public class PlayerMovement : MonoBehaviour
             usingController = false;
         }
 
-        if(usingController && controllerMove() && !inDialogue)
+        if(usingController && controllerMove() && !cantMove)
         {
             inputVector += transform.forward;
         }
 
-        if(!inDialogue){
+        if(!cantMove){
         if (Input.GetKey(KeyCode.W))
         {
             matchRotation(Direction.Forward);

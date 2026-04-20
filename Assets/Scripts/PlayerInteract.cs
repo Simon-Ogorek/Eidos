@@ -44,6 +44,11 @@ public class PlayerInteract : MonoBehaviour
             lastTouchedNPC = entity.gameObject;
             Debug.Log("NPC Triggered");
         }
+        else if(entity.tag == "ITEM")
+        {
+            Debug.Log("Touched Item");
+            entity.gameObject.SetActive(false);
+        }
     }
 
     void OnTriggerExit(Collider entity)
