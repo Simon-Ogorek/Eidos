@@ -49,6 +49,10 @@ public class ActivityManager : MonoBehaviour
     private Transform hitLocation;
 
     bool usingController = false;
+
+    private float hits = 0;
+
+    private float strikes = 0;
     public static ActivityManager Instance { get; private set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -97,11 +101,15 @@ public class ActivityManager : MonoBehaviour
         {
             Debug.Log("BASEBALL HIT");
             HitBaseball();
+            hits+=1;
+            UIController.Instance.SetHit(hits);
 
         }
         else if ((!inPlay && Input.GetKeyDown(KeyCode.I)) || (!inPlay &&  usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
         {
             Debug.Log("BASEBALL MISS");   
+            strikes+=1;
+            UIController.Instance.SetStrike(strikes);
         }
         }
        // if(quest == 1)
@@ -144,6 +152,7 @@ public class ActivityManager : MonoBehaviour
 
     public void StartBaseballMatch()
     {
+        UIController.Instance.SetState(UIController.UIState.Baseball);
         gameObject.transform.position = new Vector3(Player.transform.position.x+2, Player.transform.position.y, Player.transform.position.z);
         Pitcher.transform.position = new Vector3(Player.transform.position.x+2, Player.transform.position.y, Player.transform.position.z+20);
         Player.GetComponent<PlayerMovement>().cantMove = true;
