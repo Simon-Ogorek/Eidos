@@ -10,7 +10,7 @@ Material:
   m_Name: PT_Grass_Mat
   m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
   m_Parent: {fileID: 2100000, guid: 33e92b212d568b844ae30511d6c23987, type: 2}
-  m_ModifiedSerializedProperties: 24
+  m_ModifiedSerializedProperties: 8
   m_ValidKeywords:
   - _ALPHATEST_ON
   - _DISABLE_SSR_TRANSPARENT
