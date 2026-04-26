@@ -23,6 +23,11 @@ public class ActivityManager : MonoBehaviour
     private GameObject Baseball;
 
     [SerializeField]
+    private GameObject Bat;
+
+
+
+    [SerializeField]
     private NonCombatant Archimedes;
 
     private NonCombatant playerDialogue;
@@ -154,6 +159,7 @@ public class ActivityManager : MonoBehaviour
     {
         UIController.Instance.SetState(UIController.UIState.Baseball);
         gameObject.transform.position = new Vector3(Player.transform.position.x+2, Player.transform.position.y, Player.transform.position.z);
+        Bat.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
         Pitcher.transform.position = new Vector3(Player.transform.position.x+2, Player.transform.position.y, Player.transform.position.z+20);
         Player.GetComponent<PlayerMovement>().cantMove = true;
         CameraController.Instance.FocusOn(gameObject);
