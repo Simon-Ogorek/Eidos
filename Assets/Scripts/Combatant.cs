@@ -25,6 +25,14 @@ public class Combatant : MonoBehaviour
     [field: SerializeField]
     public float speed { get; private set; } = 0.05f;
 
+     public float selfRealm { get; private set; } = 1f;
+    [field: SerializeField]
+    public float communityRealm { get; private set; } = 1f;
+
+     public float workRealm { get; private set; } = 1f;
+    [field: SerializeField]
+    public float familyRealm { get; private set; } = 1f;
+
     float defaultSpeed;
     [field: SerializeField]
     public float level { get; private set; } = 5f;

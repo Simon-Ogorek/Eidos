@@ -11,12 +11,17 @@ public class NonCombatant : MonoBehaviour
 
 //Array with all of the dialogue of the NPC
     [SerializeField]
-    protected string[] dialogue;
+    public string[] dialogue;
+
+    [SerializeField]
+    public string name;
 
     public PlayerMovement player;
 
     int i = 0;
     bool inDialogue = false;
+
+    bool questDialogue = false;
     bool usingController = false;
 
     
@@ -38,32 +43,90 @@ public class NonCombatant : MonoBehaviour
         }
         if(inDialogue)
         {
-        if(i < dialogue.Length)
+        if(i <= dialogue.Length)
         {
+            Debug.Log("Dialogue loop" + name);
             if(Input.GetKeyDown(KeyCode.I) || (usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
             {
+                Debug.Log(name + " dialogueI");
+                if(i <= dialogue.Length-1){
+                    if(dialogue[i] == "QUEST")
+                        {
+                            EndNPCDialogue();
+                            QuestManager.Instance.StartQuest();
+
+                        }
+                    else if(dialogue[i] == "CONTINUEQUEST")
+                        {
+                            EndNPCDialogue();
+                            QuestManager.Instance.ContinueQuest();
+
+                    }
+                    else if(dialogue[i] == "BASEBALL")
+                        {
+                            EndNPCDialogue();
+                            QuestManager.Instance.PlayBaseball(gameObject);
+
+                    }
+                    else
+                        {
+                            Debug.Log("Dialogue for" + name);
+                            UIController.Instance.OpenDialogue(dialogue[i], name);
+                        }
+                }
                 i+=1;
-                if(i<=dialogue.Length-1)
-                    UIController.Instance.OpenDialogue(dialogue[i]);
+                Debug.Log("The number is" + i);
             }
         }
         else
             {
-                inDialogue = false;
-                player.inDialogue = false;
+                EndNPCDialogue();
+            }
+        }
+        else if (questDialogue)
+        {
+            if(Input.GetKeyDown(KeyCode.I) || (usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
+            {
+                Debug.Log(name + " quest dialogue interaction");
+                questDialogue = false;
                 CameraController.Instance.FocusOn(player.gameObject);
                 UIController.Instance.EndDialogue();
+                QuestManager.Instance.ContinueQuest();
             }
+            
         }
     }
 
 //Starts a dialogue action from UI Controller
     public void GiveDialogue()
     {
-        i = 0;
+        Debug.Log("This happened" + name);
         CameraController.Instance.FocusOn(gameObject);
-        UIController.Instance.OpenDialogue(dialogue[i]);
+        UIController.Instance.OpenDialogue(dialogue[i], name);
         inDialogue = true;
-        player.inDialogue = true;
+        player.cantMove = true;
+        i += 1;
+    }
+
+    public void GiveQuestDialogue(string dialogue)
+    {
+        questDialogue = true;
+        UIController.Instance.OpenDialogue(dialogue, name);
+    }
+
+    public void EndNPCDialogue()
+    {
+        inDialogue = false;
+        i-=2;
+        player.cantMove = false;
+        CameraController.Instance.FocusOn(player.gameObject);
+        UIController.Instance.EndDialogue();
+    }
+
+    public void AdvanceDialogueGroup(string marker)
+    {
+        while(dialogue[i] != marker)
+            i++;
+        i+=1;
     }
 }

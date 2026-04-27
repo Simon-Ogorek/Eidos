@@ -16,7 +16,8 @@ public class UIController : MonoBehaviour
     {
         Exploring,
         Battle,
-        Battle_Selecting_Target
+        Battle_Selecting_Target,
+        Baseball
     }
     UIState current_state;
 
@@ -28,6 +29,12 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private GameObject DialogueUI;
 
+    [SerializeField]
+    private GameObject NotificationUI;
+
+    [SerializeField]
+    private GameObject BaseballUI;
+
     [Header("Battle UI Panels")]
     [SerializeField]
     private UIEnemyInfo EnemyPanel;
@@ -37,13 +44,35 @@ public class UIController : MonoBehaviour
     private UIMoveInfo MovePanel;
     
     [SerializeField]
-    private UIDialogue DialogueBox;
+    private UITextDisplay DialogueBox;
+
+    [SerializeField]
+    private UITextDisplay QuestBox;
+
+    [SerializeField]
+    private UITextDisplay NotificationBox;
+
+    [SerializeField]
+    private UITextDisplay DayBox;
+
+    public TMP_Text hits;
+    public TMP_Text strikes;
 
     bool usingController = false;
+
+    bool notif = false;
+
+    bool canCloseNotif = false;
+
+    bool quest = false;
 
     public static UIController Instance { get; private set; }
 
     public Combatant playerCombatant;
+
+    public PlayerMovement playerMovement;
+
+   
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -58,6 +87,8 @@ public class UIController : MonoBehaviour
         AdventureUI.SetActive(true);
         BattleUI.SetActive(false);
         DialogueUI.SetActive(false);
+        BaseballUI.SetActive(false);
+        playerMovement = playerCombatant.GetComponent<PlayerMovement>();
     }
 
     void Update()
@@ -124,6 +155,27 @@ public class UIController : MonoBehaviour
                 
             }
         }
+          //Hide Notification
+            if (Input.GetKeyDown(KeyCode.I) && notif)
+            {
+            if (!canCloseNotif)
+            {
+                canCloseNotif = true;
+                return;
+            }
+                if(NotificationUI.activeSelf){
+                    NotificationUI.SetActive(false);
+                    playerMovement.cantMove = false;
+                    notif = false;
+                    canCloseNotif = false;
+                    if(quest)
+                    {
+                        SetQuestTitle(NotificationBox.header.text);
+                        SetQuestObjective(NotificationBox.textBox.text);
+                        quest = false;
+                    }
+                }
+            }
     }
 
     public void SetState(UIState newState)
@@ -134,6 +186,7 @@ public class UIController : MonoBehaviour
         {
             AdventureUI.SetActive(false);
             BattleUI.SetActive(true);
+            BaseballUI.SetActive(false);
             MovePanel.UpdateMoveSelection(playerCombatant);
             PlayerPanel.UpdatePlayerInfo(playerCombatant);
         }
@@ -141,6 +194,13 @@ public class UIController : MonoBehaviour
         {
             AdventureUI.SetActive(true);
             BattleUI.SetActive(false);
+            BaseballUI.SetActive(false);
+        }
+        else if (current_state == UIState.Baseball)
+        {
+            AdventureUI.SetActive(false);
+            BattleUI.SetActive(false);
+            BaseballUI.SetActive(true);
         }
         
     }
@@ -167,14 +227,57 @@ public class UIController : MonoBehaviour
         MovePanel.setCooldownFalse();
     }
 
-    public void OpenDialogue(string dialogue)
+    public void OpenDialogue(string dialogue, string name)
     {
+        Debug.Log(name + "dialogue started");
         DialogueUI.SetActive(true);
-        DialogueBox.SetDialogue(dialogue);
+        DialogueBox.SetText(dialogue);
+        DialogueBox.SetHeader(name);
     }
 
     public void EndDialogue()
     {
         DialogueUI.SetActive(false);
+    }
+
+    public void SetQuestTitle(string title)
+    {
+        QuestBox.SetHeader(title);
+    }
+
+    public void SetQuestObjective(string objective)
+    {
+        QuestBox.SetText(objective);
+    }
+
+    public void SetDay(string day)
+    {
+        DayBox.SetText(day);
+    }
+
+    public void SetHit(float hit)
+    {
+        hits.SetText(hit.ToString());
+    }
+
+    public void SetStrike(float strike)
+    {
+        strikes.SetText(strike.ToString());
+    }
+
+    public void NotificationPop(string notifDetails, string notifHeader = "", bool Quest = false, bool fromDialogue = true)
+    {
+        if(!fromDialogue)
+            canCloseNotif = true;
+        else
+            canCloseNotif = false;
+        if(Quest)
+            quest = true;
+
+        NotificationBox.SetHeader(notifHeader);
+        NotificationBox.SetText(notifDetails);
+        NotificationUI.SetActive(true);
+        playerMovement.cantMove = true;
+        notif = true;
     }
 }
