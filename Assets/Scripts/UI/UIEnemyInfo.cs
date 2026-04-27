@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -23,11 +24,24 @@ public class UIEnemyInfo : MonoBehaviour
     [SerializeField]
     Transform origin;
 
+    [SerializeField]
+    Transform targettingArrow;
+    Vector3 targetArrowBasePosition;
+    int targetArrowidx;
     int countOfEnemiesBeingDeleted = 0;
+    
 
-    void Start()
+    void Awake()
     {
         combatantToUIMap = new Dictionary<Combatant, EnemyUI>();
+        targetArrowBasePosition = targettingArrow.transform.localPosition;
+        Reset();
+    }
+
+    public void Reset()
+    {
+        targetArrowidx = 0;
+        targettingArrow.localPosition = targetArrowBasePosition;
     }
 
     /// @brief !!Does not update portraits or name!!
@@ -56,6 +70,9 @@ public class UIEnemyInfo : MonoBehaviour
     }
     public void AddEnemyInfo(Combatant enemy)
     {
+        Debug.Assert(template);
+        Debug.Assert(combatantToUIMap != null);
+
         GameObject templateInstance = Instantiate(template,origin);
         templateInstance.transform.localPosition = new Vector3(0, combatantToUIMap.Count * -160, 0);
 
@@ -69,6 +86,32 @@ public class UIEnemyInfo : MonoBehaviour
         combatantToUIMap.Add(enemy, uiInstance);
 
         UpdateEnemyInfo(enemy);
+    }
+
+    IEnumerator repsositionArrowToIdx()
+    {
+        Vector3 finalVector = targetArrowBasePosition + new Vector3(0, targetArrowidx * -150, 0);
+        int dir = 1;
+
+        if (finalVector.y == targettingArrow.localPosition.y)
+            yield break;
+
+        if (targettingArrow.localPosition.y > finalVector.y)
+            dir = -1;
+
+        dir *= 5;
+
+        float totalDist = Mathf.Abs(targettingArrow.localPosition.y - finalVector.y);
+
+        while (Math.Abs(targettingArrow.localPosition.y - finalVector.y) >= 5)
+        {
+            targettingArrow.localPosition = new Vector3(
+                targettingArrow.localPosition.x,
+                targettingArrow.localPosition.y + dir * Mathf.Abs(targettingArrow.localPosition.y - finalVector.y) / totalDist,
+                targettingArrow.localPosition.z);
+
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     IEnumerator repositionUIElement(EnemyUI ui)
@@ -168,6 +211,52 @@ public class UIEnemyInfo : MonoBehaviour
     public void RemoveEnemyInfo(Combatant enemy)
     {
         StartCoroutine(EnemyInfoOffScreenAndDelete(enemy));
-        
+    }
+
+    public Combatant ChangeTargetUp()
+    {
+        if (targetArrowidx <= 0)
+        {
+            targetArrowidx = 0;
+        }
+        else
+        {
+            targetArrowidx--;
+        }
+
+        foreach (var pair in combatantToUIMap)
+        {
+            if (pair.Value.positionIdx == targetArrowidx)
+            {
+                StartCoroutine(repsositionArrowToIdx());
+                return pair.Key;
+            }
+        }
+
+        // at this point we have a bum index that cant be found
+        Debug.LogWarning("TODO: Rolling over arrow idx lower in hopes of finding a good idx");
+        return null;
+    }
+
+    public Combatant ChangeTargetDown()
+    {
+        targetArrowidx++;
+        if (targetArrowidx >= combatantToUIMap.Count)
+        {
+            targetArrowidx = combatantToUIMap.Count - 1;
+        }
+
+        foreach (var pair in combatantToUIMap)
+        {
+            if (pair.Value.positionIdx == targetArrowidx)
+            {
+                StartCoroutine(repsositionArrowToIdx());
+                return pair.Key;
+            }
+        }
+
+        // at this point we have a bum index that cant be found
+        Debug.LogWarning("TODO: Rolling over arrow idx lower in hopes of finding a good idx");
+        return null;
     }
 }

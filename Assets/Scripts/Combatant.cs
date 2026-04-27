@@ -10,6 +10,7 @@ using UnityEngine.AI;
 /// <summary>
 /// Any given entity that can enter combat is a combatant
 /// </summary>
+[RequireComponent(typeof(NavMeshAgent))]
 public class Combatant : MonoBehaviour
 {
     [field: SerializeField]
@@ -59,12 +60,14 @@ public class Combatant : MonoBehaviour
     public GameObject CombatColliders;
 
     bool AgentInControl = false;
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
+    public float agentSpeed;
 
     void Start()
     {
         defaultSpeed = speed;
         agent = GetComponent<NavMeshAgent>();
+        agentSpeed = agent.speed;
         agent.enabled = false;
     }
 
@@ -178,35 +181,45 @@ public class Combatant : MonoBehaviour
 
     public void HandoffControlToAgent()
     {
-        
-        AgentInControl = true;
+        if (agent)
+            agent = GetComponent<NavMeshAgent>();
+
         if (this is PlayerBattle)
         {
+            AgentInControl = true;
+            agent.enabled = true;
             GetComponent<PlayerMovement>().canMove = false;
         }
     }
 
     public void TakeBackControlFromAgent()
     {
+        if (agent)
+            agent = GetComponent<NavMeshAgent>();
         
-        AgentInControl = false;
+        
         if (this is PlayerBattle)
         {
+            AgentInControl = false;
             agent.enabled = false;
             GetComponent<PlayerMovement>().canMove = true;
         }
     }
 
-    public IEnumerator GetWithinRangeOfPoint(Transform point, float range)
+    public void SetAgentDest(Vector3 pos)
     {
-        agent.enabled = true;
-        AgentInControl = true;
-        HandoffControlToAgent();
-        while (Vector3.Distance(transform.position, point.position) < range)
-        {
-            agent.SetDestination(point.position);
-            yield return new WaitForFixedUpdate();
-        }
-        TakeBackControlFromAgent();
+        agent.SetDestination(pos);
+    }
+
+    // Not the same as taking back control, 
+    // agent still maintains control but it should stop tracking.
+    public void agentDisable()
+    {
+        agent.speed = 0;
+    }
+
+    public void agentReset()
+    {
+        agent.speed = agentSpeed;
     }
 }

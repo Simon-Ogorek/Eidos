@@ -18,9 +18,10 @@ public class DillyDally : MoveEffect
         randomPoint += battleManager.centerOfArena;
         
         NavMeshHit hit;
+        NavMeshAgent agent = user.GetComponent<NavMeshAgent>();
         if (NavMesh.SamplePosition(randomPoint, out hit, float.MaxValue, NavMesh.AllAreas))
         {
-            user.GetComponent<NavMeshAgent>().SetDestination(hit.position);
+            agent.SetDestination(hit.position);
         }
 
         

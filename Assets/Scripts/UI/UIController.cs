@@ -5,6 +5,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Scripting.APIUpdating;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 /// <summary>
 /// Controls all in-game aspects about the UI
@@ -80,20 +81,35 @@ public class UIController : MonoBehaviour
                 MovePanel.ChangeMove(false);
             }
 
-            if ((current_state == UIState.Battle && Input.GetKeyDown(KeyCode.Return)) || (current_state == UIState.Battle && usingController && Gamepad.current.rightTrigger.wasPressedThisFrame))
+
+            // TODO : Make controller binds
+            // Change the targeted combatant upwards relative to the Enemy UI
+            if (current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.R))
             {
-                Time.timeScale = 0.02f;
-                Time.fixedDeltaTime = 0.02f * Time.timeScale;
-                current_state = UIState.Battle_Selecting_Target;
-                
-                
+                EnemyPanel.ChangeTargetUp();
             }
+
+            // TODO : Make controller binds
+            // Change the targeted combatant downwards relative to the Enemy UI
+            if (current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.F))
+            {
+                EnemyPanel.ChangeTargetDown();
+            }
+
             if ((current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.Return)) || (current_state == UIState.Battle_Selecting_Target && usingController && Gamepad.current.rightTrigger.wasPressedThisFrame))
             {
                 Time.timeScale = 1f;
-                Time.fixedDeltaTime = 0.02f * Time.timeScale;
+                Time.fixedDeltaTime = 0.02f;
                 MovePanel.DoSelectedMove();
             }
+
+            if ((current_state == UIState.Battle && Input.GetKeyDown(KeyCode.Return)) || (current_state == UIState.Battle && usingController && Gamepad.current.rightTrigger.wasPressedThisFrame))
+            {
+                Time.timeScale = 0.05f;
+                Time.fixedDeltaTime *= Time.timeScale;
+                current_state = UIState.Battle_Selecting_Target;
+            }
+
 
             
             foreach (Combatant entity in GameObject.FindObjectsByType<Combatant>(FindObjectsSortMode.None))
