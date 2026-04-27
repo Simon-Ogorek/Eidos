@@ -72,6 +72,8 @@ public class QuestManager : MonoBehaviour
             //UIController.Instance.SetQuest("Discovering your Passions");
             NonCombatant playerDialogue = Player.GetComponent<NonCombatant>();
             ProgressDay();
+            ProgressDay();
+            ProgressDay();
             //playerDialogue.GiveDialogue();
             questScript = 0;
             quest++;
@@ -144,7 +146,13 @@ public class QuestManager : MonoBehaviour
 
     }
 
-    void ProgressDay()
+    public void PlayBaseball(GameObject pitcher)
+    {
+        if(inQuest){
+        //    StartCoroutine(MoveActor(pitcher.gameObject, new Vector3(pitcher.gameObject.transform.position.x + 10, pitcher.gameObject.transform.position.y, pitcher.gameObject.transform.position.x + 10), true));
+        ActivityManager.Instance.StartBaseballMatch();
+    }}
+    public void ProgressDay()
     {
         if (currentTime == TimeofDay.Morning)
         {
@@ -155,13 +163,13 @@ public class QuestManager : MonoBehaviour
         else if (currentTime == TimeofDay.Noon)
         {
             currentTime = TimeofDay.Evening;
-            Sun.intensity = 75000; 
+            Sun.intensity = 70000; 
             UIController.Instance.SetDay("Day " + day + ": Evening");
         }
         else if (currentTime == TimeofDay.Evening)
         {
             currentTime = TimeofDay.Night;
-            Sun.intensity = 50000; 
+            Sun.intensity = 30000; 
             UIController.Instance.SetDay("Day " + day + ": Night");
         }
         else

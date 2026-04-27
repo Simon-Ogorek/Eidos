@@ -62,6 +62,12 @@ public class NonCombatant : MonoBehaviour
                             QuestManager.Instance.ContinueQuest();
 
                     }
+                    else if(dialogue[i] == "BASEBALL")
+                        {
+                            EndNPCDialogue();
+                            QuestManager.Instance.PlayBaseball(gameObject);
+
+                    }
                     else
                         {
                             Debug.Log("Dialogue for" + name);
