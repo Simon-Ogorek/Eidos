@@ -11,6 +11,18 @@ public class QuestManager : MonoBehaviour
         Eidos
     }
 
+    //Day System
+    public enum TimeofDay
+    {
+        Morning,
+        Noon,
+        Evening,
+        Night
+    }
+
+    TimeofDay currentTime;
+
+    public Light Sun;
 
     [SerializeField]
     private GameObject Player;
@@ -21,7 +33,7 @@ public class QuestManager : MonoBehaviour
     private NonCombatant playerDialogue;
 
     [SerializeField]
-    private float day;
+    private float day = 1;
 
     [SerializeField]
     private bool inQuest = false;
@@ -43,6 +55,7 @@ public class QuestManager : MonoBehaviour
      void Awake()
     {
         Instance = this;
+        currentTime = TimeofDay.Morning;
     }
     
     void Start()
@@ -55,9 +68,11 @@ public class QuestManager : MonoBehaviour
         if (!inQuest)
         {
             inQuest = true;
-            UIController.Instance.SetQuest("Play Baseball with Archimedes");
+            UIController.Instance.NotificationPop("You are going to try out different activities!", "Main Quest: Discovering your Passions", true);
+            //UIController.Instance.SetQuest("Discovering your Passions");
             NonCombatant playerDialogue = Player.GetComponent<NonCombatant>();
-            playerDialogue.GiveDialogue();
+            ProgressDay();
+            //playerDialogue.GiveDialogue();
             questScript = 0;
             quest++;
         }
@@ -127,5 +142,34 @@ public class QuestManager : MonoBehaviour
         if(startBaseball)
             ActivityManager.Instance.StartBaseballMatch();
 
+    }
+
+    void ProgressDay()
+    {
+        if (currentTime == TimeofDay.Morning)
+        {
+            currentTime = TimeofDay.Noon;
+            Sun.intensity = 130000; 
+            UIController.Instance.SetDay("Day " + day + ": Noon");
+        }
+        else if (currentTime == TimeofDay.Noon)
+        {
+            currentTime = TimeofDay.Evening;
+            Sun.intensity = 75000; 
+            UIController.Instance.SetDay("Day " + day + ": Evening");
+        }
+        else if (currentTime == TimeofDay.Evening)
+        {
+            currentTime = TimeofDay.Night;
+            Sun.intensity = 50000; 
+            UIController.Instance.SetDay("Day " + day + ": Night");
+        }
+        else
+        {
+            currentTime = TimeofDay.Morning;
+            Sun.intensity = 100000; 
+            day+=1;
+            UIController.Instance.SetDay("Day " + day + ": Morning");
+        }
     }
 }

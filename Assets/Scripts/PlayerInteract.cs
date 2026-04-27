@@ -47,6 +47,7 @@ public class PlayerInteract : MonoBehaviour
         else if(entity.tag == "ITEM")
         {
             Debug.Log("Touched Item");
+            UIController.Instance.NotificationPop("You picked up a " + entity.gameObject.name,"", false, false);
             entity.gameObject.SetActive(false);
         }
     }
