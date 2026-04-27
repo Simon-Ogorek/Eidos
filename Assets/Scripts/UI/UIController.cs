@@ -29,6 +29,9 @@ public class UIController : MonoBehaviour
     private GameObject DialogueUI;
 
     [SerializeField]
+    private GameObject NotificationUI;
+
+    [SerializeField]
     private GameObject BaseballUI;
 
     [Header("Battle UI Panels")]
@@ -45,14 +48,30 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private UITextDisplay QuestBox;
 
+    [SerializeField]
+    private UITextDisplay NotificationBox;
+
+    [SerializeField]
+    private UITextDisplay DayBox;
+
     public TMP_Text hits;
     public TMP_Text strikes;
 
     bool usingController = false;
 
+    bool notif = false;
+
+    bool canCloseNotif = false;
+
+    bool quest = false;
+
     public static UIController Instance { get; private set; }
 
     public Combatant playerCombatant;
+
+    public PlayerMovement playerMovement;
+
+   
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -68,6 +87,7 @@ public class UIController : MonoBehaviour
         BattleUI.SetActive(false);
         DialogueUI.SetActive(false);
         BaseballUI.SetActive(false);
+        playerMovement = playerCombatant.GetComponent<PlayerMovement>();
     }
 
     void Update()
@@ -119,6 +139,27 @@ public class UIController : MonoBehaviour
                 
             }
         }
+          //Hide Notification
+            if (Input.GetKeyDown(KeyCode.I) && notif)
+            {
+            if (!canCloseNotif)
+            {
+                canCloseNotif = true;
+                return;
+            }
+                if(NotificationUI.activeSelf){
+                    NotificationUI.SetActive(false);
+                    playerMovement.cantMove = false;
+                    notif = false;
+                    canCloseNotif = false;
+                    if(quest)
+                    {
+                        SetQuestTitle(NotificationBox.header.text);
+                        SetQuestObjective(NotificationBox.textBox.text);
+                        quest = false;
+                    }
+                }
+            }
     }
 
     public void SetState(UIState newState)
@@ -183,9 +224,19 @@ public class UIController : MonoBehaviour
         DialogueUI.SetActive(false);
     }
 
-    public void SetQuest(string quest)
+    public void SetQuestTitle(string title)
     {
-        QuestBox.SetText(quest);
+        QuestBox.SetHeader(title);
+    }
+
+    public void SetQuestObjective(string objective)
+    {
+        QuestBox.SetText(objective);
+    }
+
+    public void SetDay(string day)
+    {
+        DayBox.SetText(day);
     }
 
     public void SetHit(float hit)
@@ -196,5 +247,21 @@ public class UIController : MonoBehaviour
     public void SetStrike(float strike)
     {
         strikes.SetText(strike.ToString());
+    }
+
+    public void NotificationPop(string notifDetails, string notifHeader = "", bool Quest = false, bool fromDialogue = true)
+    {
+        if(!fromDialogue)
+            canCloseNotif = true;
+        else
+            canCloseNotif = false;
+        if(Quest)
+            quest = true;
+
+        NotificationBox.SetHeader(notifHeader);
+        NotificationBox.SetText(notifDetails);
+        NotificationUI.SetActive(true);
+        playerMovement.cantMove = true;
+        notif = true;
     }
 }

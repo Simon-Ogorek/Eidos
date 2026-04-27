@@ -62,6 +62,12 @@ public class NonCombatant : MonoBehaviour
                             QuestManager.Instance.ContinueQuest();
 
                     }
+                    else if(dialogue[i] == "BASEBALL")
+                        {
+                            EndNPCDialogue();
+                            QuestManager.Instance.PlayBaseball(gameObject);
+
+                    }
                     else
                         {
                             Debug.Log("Dialogue for" + name);
@@ -111,6 +117,7 @@ public class NonCombatant : MonoBehaviour
     public void EndNPCDialogue()
     {
         inDialogue = false;
+        i-=2;
         player.cantMove = false;
         CameraController.Instance.FocusOn(player.gameObject);
         UIController.Instance.EndDialogue();

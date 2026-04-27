@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Science
+  m_Name: ScienceGlow
   m_Shader: {fileID: -6465566751694194690, guid: b1c1d183ba78a604b8935aab4a295a0d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0

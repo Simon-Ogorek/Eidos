@@ -23,6 +23,11 @@ public class ActivityManager : MonoBehaviour
     private GameObject Baseball;
 
     [SerializeField]
+    private GameObject Bat;
+
+
+
+    [SerializeField]
     private NonCombatant Archimedes;
 
     private NonCombatant playerDialogue;
@@ -103,12 +108,19 @@ public class ActivityManager : MonoBehaviour
             HitBaseball();
             hits+=1;
             UIController.Instance.SetHit(hits);
+            if(hits == 3)
+                finishBaseball();
 
         }
         else if ((!inPlay && Input.GetKeyDown(KeyCode.I)) || (!inPlay &&  usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
         {
             Debug.Log("BASEBALL MISS");   
             strikes+=1;
+            if(strikes == 3){
+                hits = 0;
+                strikes = 0;
+                UIController.Instance.SetHit(hits);
+            }
             UIController.Instance.SetStrike(strikes);
         }
         }
@@ -154,6 +166,7 @@ public class ActivityManager : MonoBehaviour
     {
         UIController.Instance.SetState(UIController.UIState.Baseball);
         gameObject.transform.position = new Vector3(Player.transform.position.x+2, Player.transform.position.y, Player.transform.position.z);
+        Bat.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
         Pitcher.transform.position = new Vector3(Player.transform.position.x+2, Player.transform.position.y, Player.transform.position.z+20);
         Player.GetComponent<PlayerMovement>().cantMove = true;
         CameraController.Instance.FocusOn(gameObject);
@@ -189,6 +202,16 @@ public class ActivityManager : MonoBehaviour
             rb.AddForce(hitDirection * 1000f);
             rb.useGravity = true;
         }
+    }
+
+     void finishBaseball()
+    {
+        inBaseball = false;
+        UIController.Instance.SetState(UIController.UIState.Exploring);
+        Player.GetComponent<PlayerMovement>().cantMove = false;
+        CameraController.Instance.FocusOn(Player);
+        QuestManager.Instance.ProgressDay();
+
     }
     /*
     IEnumerator MoveActor(GameObject actor, Vector3 position)
