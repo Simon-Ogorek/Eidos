@@ -81,6 +81,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ee3998604f4a02c41b97d02345ac19e3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bd99b790641b6c045ad63d33f5500136, type: 2}
     - target: {fileID: 919132149155446097, guid: ee3998604f4a02c41b97d02345ac19e3, type: 3}
       propertyPath: m_Name
       value: RoofLower
