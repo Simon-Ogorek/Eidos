@@ -58,15 +58,38 @@ public static class MoveCaster : object
             caster.StartCastMovement(data.castTime);
         }
 
-        if (data.manaChange != 0)
+        if (data.manaChange != 0 && caster.mana >= data.manaChange)
             caster.ChangeMana(data.manaChange);
-
-        yield return new WaitForSeconds(data.castTime);
+        Debug.Log($"casting spell type of {data.targetType}");
+        while (data.targetType != targetTypes.Self && Vector3.Distance(caster.target.transform.position, caster.transform.position) > data.range)
+        {
+            caster.HandoffControlToAgent();
+            caster.SetAgentDest(caster.target.transform.position);
+            yield return new WaitForNextFrameUnit(); 
+        }
+        caster.agentDisable();
+        float castingTime = 0;
+        while (castingTime < data.castTime)
+        {
+            castingTime += Time.deltaTime;
+            Vector3 lookPos = caster.target.transform.position - caster.transform.position;
+            lookPos.y = 0;
+            Quaternion targetRot = Quaternion.LookRotation(lookPos);
+            caster.transform.rotation = Quaternion.Slerp(caster.transform.rotation, targetRot, 0.01f);
+            yield return new WaitForNextFrameUnit();
+        }
+        
+        caster.agentReset();
+        caster.TakeBackControlFromAgent();
 
         Collider col = ActivateHurtCollider(caster,data);
         if (col == null)
         {
             Debug.Log("Casting a move with no collider");
+            foreach (MoveEffect effect in data.effects)
+            {
+                effect.Apply(caster, caster.target, data);
+            }
         }
 
         if (col != null)
