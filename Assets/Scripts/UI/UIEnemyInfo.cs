@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -23,11 +24,40 @@ public class UIEnemyInfo : MonoBehaviour
     [SerializeField]
     Transform origin;
 
+    [SerializeField]
+    Transform targettingArrow;
+    Vector3 targetArrowBasePosition;
+    int targetArrowidx;
     int countOfEnemiesBeingDeleted = 0;
 
-    void Start()
+    Coroutine arrowCoroutine;
+
+    public Combatant player;
+    
+
+    void Awake()
     {
         combatantToUIMap = new Dictionary<Combatant, EnemyUI>();
+        targetArrowBasePosition = targettingArrow.transform.localPosition;
+        Reset();
+    }
+
+    public void Reset()
+    {
+        if (combatantToUIMap.Count <= 1)
+        {
+            targetArrowidx = 0;
+        }
+        else
+        {
+            targetArrowidx = combatantToUIMap[player.target].positionIdx;
+        }
+        targettingArrow.localPosition = targetArrowBasePosition + new Vector3(0, targetArrowidx * -150, 0);;
+    }
+
+    public bool CheckIfEnemyInfoExists(Combatant enemy)
+    {
+        return combatantToUIMap.ContainsKey(enemy);
     }
 
     /// @brief !!Does not update portraits or name!!
@@ -56,6 +86,15 @@ public class UIEnemyInfo : MonoBehaviour
     }
     public void AddEnemyInfo(Combatant enemy)
     {
+        Debug.Assert(template);
+        Debug.Assert(combatantToUIMap != null);
+
+        if (combatantToUIMap.ContainsKey(enemy))
+        {
+            Debug.LogWarning($"{enemy.name} is already defined, cancelling add function");
+            return;
+        }
+
         GameObject templateInstance = Instantiate(template,origin);
         templateInstance.transform.localPosition = new Vector3(0, combatantToUIMap.Count * -160, 0);
 
@@ -69,6 +108,32 @@ public class UIEnemyInfo : MonoBehaviour
         combatantToUIMap.Add(enemy, uiInstance);
 
         UpdateEnemyInfo(enemy);
+    }
+
+    IEnumerator repsositionArrowToIdx()
+    {
+        Vector3 finalVector = targetArrowBasePosition + new Vector3(0, targetArrowidx * -150, 0);
+        int dir = 1;
+
+        if (finalVector.y == targettingArrow.localPosition.y)
+            yield break;
+
+        if (targettingArrow.localPosition.y > finalVector.y)
+            dir = -1;
+
+        dir *= 5;
+
+        float totalDist = Mathf.Abs(targettingArrow.localPosition.y - finalVector.y);
+
+        while (Math.Abs(targettingArrow.localPosition.y - finalVector.y) >= 5)
+        {
+            targettingArrow.localPosition = new Vector3(
+                targettingArrow.localPosition.x,
+                targettingArrow.localPosition.y + dir * Mathf.Abs(targettingArrow.localPosition.y - finalVector.y) / totalDist,
+                targettingArrow.localPosition.z);
+            Debug.Log("Iteration");
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     IEnumerator repositionUIElement(EnemyUI ui)
@@ -120,9 +185,15 @@ public class UIEnemyInfo : MonoBehaviour
                 ui.positionIdx--;
                 combatantToUIMap[enemy] = ui;
             }
+            if (ui.positionIdx == targetArrowidx)
+            {
+                player.target = enemy;
+            }
             Debug.Log($"{enemy.name} has an id of {ui.positionIdx}");
             StartCoroutine(repositionUIElement(combatantToUIMap[enemy]));
         }
+
+
     }
 
     IEnumerator EnemyInfoOffScreenAndDelete(Combatant enemy)
@@ -131,6 +202,7 @@ public class UIEnemyInfo : MonoBehaviour
         // If multiple enemies died, wait for them to finish their deletion from UI;
         // TODO
 
+   
 
         EnemyUI ui = combatantToUIMap[enemy];
         GameObject uiObj = ui.obj;
@@ -150,7 +222,7 @@ public class UIEnemyInfo : MonoBehaviour
             uiObj.transform.localPosition = Vector3.Slerp(uiObj.transform.localPosition, finalVector, 0.02f);
             uiGroup.alpha = distLeft / totalDist;
             distLeft = Vector3.Distance(uiObj.transform.localPosition, finalVector);
-            Debug.Log($"moving {enemy.name} off screen, dist: {distLeft} ");
+            //Debug.Log($"moving {enemy.name} off screen, dist: {distLeft} ");
             
             if (!calledToRepositionOthers && distLeft/totalDist <= 0.5f)
             {
@@ -159,8 +231,8 @@ public class UIEnemyInfo : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         Debug.Log("Destroying Enemy UI");
-        Destroy(ui.obj);
         combatantToUIMap.Remove(enemy);
+        Destroy(ui.obj);
         enemy.uiOutOfSync = false;
 
     }
@@ -168,6 +240,58 @@ public class UIEnemyInfo : MonoBehaviour
     public void RemoveEnemyInfo(Combatant enemy)
     {
         StartCoroutine(EnemyInfoOffScreenAndDelete(enemy));
-        
+    }
+
+    public Combatant ChangeTargetUp()
+    {
+        if (targetArrowidx <= 0)
+        {
+            targetArrowidx = 0;
+        }
+        else
+        {
+            targetArrowidx--;
+        }
+
+        foreach (var pair in combatantToUIMap)
+        {
+            if (pair.Value.positionIdx == targetArrowidx)
+            {
+                if (arrowCoroutine != null)
+                    StopCoroutine(arrowCoroutine);
+                arrowCoroutine = StartCoroutine(repsositionArrowToIdx());
+                Debug.Log($"Switching target to {pair.Key}");
+                return pair.Key;
+            }
+        }
+
+        // at this point we have a bum index that cant be found
+        Debug.LogWarning("TODO: Rolling over arrow idx lower in hopes of finding a good idx");
+        return null;
+    }
+
+    public Combatant ChangeTargetDown()
+    {
+        targetArrowidx++;
+        if (targetArrowidx >= combatantToUIMap.Count)
+        {
+            targetArrowidx = combatantToUIMap.Count - 1;
+        }
+
+        foreach (var pair in combatantToUIMap)
+        {
+            if (pair.Value.positionIdx == targetArrowidx)
+            {
+                if (arrowCoroutine != null)
+                    StopCoroutine(arrowCoroutine);
+                arrowCoroutine = StartCoroutine(repsositionArrowToIdx());
+                Debug.Log($"Switching target to {pair.Key}");
+                return pair.Key;
+            }
+        }
+
+        // at this point we have a bum index that cant be found
+        Debug.LogWarning("TODO: Rolling over arrow idx lower in hopes of finding a good idx");
+        return null;
     }
 }

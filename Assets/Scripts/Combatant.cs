@@ -10,6 +10,7 @@ using UnityEngine.AI;
 /// <summary>
 /// Any given entity that can enter combat is a combatant
 /// </summary>
+[RequireComponent(typeof(NavMeshAgent))]
 public class Combatant : MonoBehaviour
 {
     [field: SerializeField]
@@ -67,12 +68,23 @@ public class Combatant : MonoBehaviour
     public GameObject CombatColliders;
 
     bool AgentInControl = false;
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
+
+    public enum DeathType
+    {
+        Run_Away,
+        Run_Off_Arena,
+        Dissapear,
+        Player_Death
+    }
+
+    public DeathType deathType = DeathType.Dissapear; // TODO
 
     void Start()
     {
         defaultSpeed = speed;
         agent = GetComponent<NavMeshAgent>();
+        //agentSpeed = agent.speed;
         agent.enabled = false;
     }
 
@@ -122,6 +134,25 @@ public class Combatant : MonoBehaviour
     public void Die()
     {
         BattleManager.Instance.RemoveFromBattle(this);
+        Debug.Log($"{name} has died of death type ${deathType}");
+        switch (deathType)
+        {
+            case DeathType.Run_Away:
+                // TODO
+                break;
+            case DeathType.Run_Off_Arena:
+                // TODO
+                break;
+            case DeathType.Dissapear:
+                // Stupid Solution, Good Results
+                transform.position = new Vector3(0, -100, 0);
+                agent.enabled = false;
+                Destroy(gameObject, 10f);
+                break;
+            case DeathType.Player_Death:
+                // TODO
+                break;
+        }
     }
 
     public void ChangeHealth(float value)
@@ -186,35 +217,48 @@ public class Combatant : MonoBehaviour
 
     public void HandoffControlToAgent()
     {
-        
-        AgentInControl = true;
+        if (agent)
+            agent = GetComponent<NavMeshAgent>();
+
+        //agent.speed = agentSpeed;
         if (this is PlayerBattle)
         {
+            AgentInControl = true;
+            agent.enabled = true;
             GetComponent<PlayerMovement>().canMove = false;
         }
     }
 
     public void TakeBackControlFromAgent()
     {
+        if (agent)
+            agent = GetComponent<NavMeshAgent>();
         
-        AgentInControl = false;
+        
         if (this is PlayerBattle)
         {
+            AgentInControl = false;
             agent.enabled = false;
             GetComponent<PlayerMovement>().canMove = true;
         }
     }
 
-    public IEnumerator GetWithinRangeOfPoint(Transform point, float range)
+    public void SetAgentDest(Vector3 pos)
     {
+        agent.SetDestination(pos);
+    }
+
+    // Not the same as taking back control, 
+    // agent still maintains control but it should stop tracking.
+    public void agentDisable()
+    {
+        //agent.speed = 0;
+        agent.enabled = false;
+    }
+
+    public void agentReset()
+    {
+        //agent.speed = agentSpeed;
         agent.enabled = true;
-        AgentInControl = true;
-        HandoffControlToAgent();
-        while (Vector3.Distance(transform.position, point.position) < range)
-        {
-            agent.SetDestination(point.position);
-            yield return new WaitForFixedUpdate();
-        }
-        TakeBackControlFromAgent();
     }
 }
