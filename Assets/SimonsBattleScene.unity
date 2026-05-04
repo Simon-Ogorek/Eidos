@@ -940,7 +940,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6d227ce0d05cc3e4e8d39449876c201a, type: 2}
   CombatColliders: {fileID: 369041003}
   agent: {fileID: 0}
-  agentSpeed: 0
+  deathType: 0
   awarenessRange: 5
   movementOpportunityInterval: 5
   movementOpportunityChance: 0.1
@@ -2338,6 +2338,7 @@ MonoBehaviour:
   template: {fileID: 3792136537733430244, guid: 95dda17287654344990664d329959576, type: 3}
   origin: {fileID: 252418484}
   targettingArrow: {fileID: 1364065146}
+  player: {fileID: 1766572881}
 --- !u!1 &190258476
 GameObject:
   m_ObjectHideFlags: 0
@@ -5399,7 +5400,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6d227ce0d05cc3e4e8d39449876c201a, type: 2}
   CombatColliders: {fileID: 1193542804}
   agent: {fileID: 0}
-  agentSpeed: 0
+  deathType: 2
   awarenessRange: 5
   movementOpportunityInterval: 5
   movementOpportunityChance: 0.1
@@ -7588,7 +7589,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6d227ce0d05cc3e4e8d39449876c201a, type: 2}
   CombatColliders: {fileID: 545354854}
   agent: {fileID: 0}
-  agentSpeed: 0
+  deathType: 2
   awarenessRange: 5
   movementOpportunityInterval: 5
   movementOpportunityChance: 0.1
@@ -9910,7 +9911,7 @@ MonoBehaviour:
   moves: []
   CombatColliders: {fileID: 0}
   agent: {fileID: 0}
-  agentSpeed: 0
+  deathType: 0
 --- !u!195 &693177763
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -25639,7 +25640,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8bd1d3f5b2f731f49a55e120bc8d5b39, type: 2}
   CombatColliders: {fileID: 1279302127}
   agent: {fileID: 0}
-  agentSpeed: 0
+  deathType: 0
 --- !u!114 &1766572882
 MonoBehaviour:
   m_ObjectHideFlags: 0
