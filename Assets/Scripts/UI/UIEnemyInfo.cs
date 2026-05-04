@@ -29,6 +29,10 @@ public class UIEnemyInfo : MonoBehaviour
     Vector3 targetArrowBasePosition;
     int targetArrowidx;
     int countOfEnemiesBeingDeleted = 0;
+
+    Coroutine arrowCoroutine;
+
+    public Combatant player;
     
 
     void Awake()
@@ -40,8 +44,20 @@ public class UIEnemyInfo : MonoBehaviour
 
     public void Reset()
     {
-        targetArrowidx = 0;
-        targettingArrow.localPosition = targetArrowBasePosition;
+        if (combatantToUIMap.Count <= 1)
+        {
+            targetArrowidx = 0;
+        }
+        else
+        {
+            targetArrowidx = combatantToUIMap[player.target].positionIdx;
+        }
+        targettingArrow.localPosition = targetArrowBasePosition + new Vector3(0, targetArrowidx * -150, 0);;
+    }
+
+    public bool CheckIfEnemyInfoExists(Combatant enemy)
+    {
+        return combatantToUIMap.ContainsKey(enemy);
     }
 
     /// @brief !!Does not update portraits or name!!
@@ -72,6 +88,12 @@ public class UIEnemyInfo : MonoBehaviour
     {
         Debug.Assert(template);
         Debug.Assert(combatantToUIMap != null);
+
+        if (combatantToUIMap.ContainsKey(enemy))
+        {
+            Debug.LogWarning($"{enemy.name} is already defined, cancelling add function");
+            return;
+        }
 
         GameObject templateInstance = Instantiate(template,origin);
         templateInstance.transform.localPosition = new Vector3(0, combatantToUIMap.Count * -160, 0);
@@ -109,7 +131,7 @@ public class UIEnemyInfo : MonoBehaviour
                 targettingArrow.localPosition.x,
                 targettingArrow.localPosition.y + dir * Mathf.Abs(targettingArrow.localPosition.y - finalVector.y) / totalDist,
                 targettingArrow.localPosition.z);
-
+            Debug.Log("Iteration");
             yield return new WaitForEndOfFrame();
         }
     }
@@ -163,9 +185,15 @@ public class UIEnemyInfo : MonoBehaviour
                 ui.positionIdx--;
                 combatantToUIMap[enemy] = ui;
             }
+            if (ui.positionIdx == targetArrowidx)
+            {
+                player.target = enemy;
+            }
             Debug.Log($"{enemy.name} has an id of {ui.positionIdx}");
             StartCoroutine(repositionUIElement(combatantToUIMap[enemy]));
         }
+
+
     }
 
     IEnumerator EnemyInfoOffScreenAndDelete(Combatant enemy)
@@ -174,6 +202,7 @@ public class UIEnemyInfo : MonoBehaviour
         // If multiple enemies died, wait for them to finish their deletion from UI;
         // TODO
 
+   
 
         EnemyUI ui = combatantToUIMap[enemy];
         GameObject uiObj = ui.obj;
@@ -193,7 +222,7 @@ public class UIEnemyInfo : MonoBehaviour
             uiObj.transform.localPosition = Vector3.Slerp(uiObj.transform.localPosition, finalVector, 0.02f);
             uiGroup.alpha = distLeft / totalDist;
             distLeft = Vector3.Distance(uiObj.transform.localPosition, finalVector);
-            Debug.Log($"moving {enemy.name} off screen, dist: {distLeft} ");
+            //Debug.Log($"moving {enemy.name} off screen, dist: {distLeft} ");
             
             if (!calledToRepositionOthers && distLeft/totalDist <= 0.5f)
             {
@@ -202,8 +231,8 @@ public class UIEnemyInfo : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         Debug.Log("Destroying Enemy UI");
-        Destroy(ui.obj);
         combatantToUIMap.Remove(enemy);
+        Destroy(ui.obj);
         enemy.uiOutOfSync = false;
 
     }
@@ -228,7 +257,10 @@ public class UIEnemyInfo : MonoBehaviour
         {
             if (pair.Value.positionIdx == targetArrowidx)
             {
-                StartCoroutine(repsositionArrowToIdx());
+                if (arrowCoroutine != null)
+                    StopCoroutine(arrowCoroutine);
+                arrowCoroutine = StartCoroutine(repsositionArrowToIdx());
+                Debug.Log($"Switching target to {pair.Key}");
                 return pair.Key;
             }
         }
@@ -250,7 +282,10 @@ public class UIEnemyInfo : MonoBehaviour
         {
             if (pair.Value.positionIdx == targetArrowidx)
             {
-                StartCoroutine(repsositionArrowToIdx());
+                if (arrowCoroutine != null)
+                    StopCoroutine(arrowCoroutine);
+                arrowCoroutine = StartCoroutine(repsositionArrowToIdx());
+                Debug.Log($"Switching target to {pair.Key}");
                 return pair.Key;
             }
         }

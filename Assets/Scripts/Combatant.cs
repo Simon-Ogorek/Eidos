@@ -69,13 +69,22 @@ public class Combatant : MonoBehaviour
 
     bool AgentInControl = false;
     public NavMeshAgent agent;
-    public float agentSpeed;
+
+    public enum DeathType
+    {
+        Run_Away,
+        Run_Off_Arena,
+        Dissapear,
+        Player_Death
+    }
+
+    public DeathType deathType = DeathType.Dissapear; // TODO
 
     void Start()
     {
         defaultSpeed = speed;
         agent = GetComponent<NavMeshAgent>();
-        agentSpeed = agent.speed;
+        //agentSpeed = agent.speed;
         agent.enabled = false;
     }
 
@@ -125,6 +134,25 @@ public class Combatant : MonoBehaviour
     public void Die()
     {
         BattleManager.Instance.RemoveFromBattle(this);
+        Debug.Log($"{name} has died of death type ${deathType}");
+        switch (deathType)
+        {
+            case DeathType.Run_Away:
+                // TODO
+                break;
+            case DeathType.Run_Off_Arena:
+                // TODO
+                break;
+            case DeathType.Dissapear:
+                // Stupid Solution, Good Results
+                transform.position = new Vector3(0, -100, 0);
+                agent.enabled = false;
+                Destroy(gameObject, 10f);
+                break;
+            case DeathType.Player_Death:
+                // TODO
+                break;
+        }
     }
 
     public void ChangeHealth(float value)
@@ -192,6 +220,7 @@ public class Combatant : MonoBehaviour
         if (agent)
             agent = GetComponent<NavMeshAgent>();
 
+        //agent.speed = agentSpeed;
         if (this is PlayerBattle)
         {
             AgentInControl = true;
@@ -223,11 +252,13 @@ public class Combatant : MonoBehaviour
     // agent still maintains control but it should stop tracking.
     public void agentDisable()
     {
-        agent.speed = 0;
+        //agent.speed = 0;
+        agent.enabled = false;
     }
 
     public void agentReset()
     {
-        agent.speed = agentSpeed;
+        //agent.speed = agentSpeed;
+        agent.enabled = true;
     }
 }

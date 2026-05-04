@@ -72,10 +72,7 @@ public class UIController : MonoBehaviour
 
     public PlayerMovement playerMovement;
 
-   
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-
     void Awake()
     {
         Instance = this;
@@ -117,14 +114,14 @@ public class UIController : MonoBehaviour
             // Change the targeted combatant upwards relative to the Enemy UI
             if (current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.R))
             {
-                EnemyPanel.ChangeTargetUp();
+                playerCombatant.target = EnemyPanel.ChangeTargetUp();
             }
 
             // TODO : Make controller binds
             // Change the targeted combatant downwards relative to the Enemy UI
             if (current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.F))
             {
-                EnemyPanel.ChangeTargetDown();
+                playerCombatant.target = EnemyPanel.ChangeTargetDown();
             }
 
             if ((current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.Return)) || (current_state == UIState.Battle_Selecting_Target && usingController && Gamepad.current.rightTrigger.wasPressedThisFrame))
@@ -207,7 +204,7 @@ public class UIController : MonoBehaviour
 
     public void AddToEnemyPanel(Combatant combatant)
     {
-        if (combatant.isEnemy)
+        if (combatant.isEnemy && !EnemyPanel.CheckIfEnemyInfoExists(combatant))
         {
             EnemyPanel.AddEnemyInfo(combatant);
         }
@@ -224,6 +221,7 @@ public class UIController : MonoBehaviour
 
     public void endCooldown()
     {
+        current_state = UIState.Battle;
         MovePanel.setCooldownFalse();
     }
 
@@ -279,5 +277,21 @@ public class UIController : MonoBehaviour
         NotificationUI.SetActive(true);
         playerMovement.cantMove = true;
         notif = true;
+    }
+
+    public void hideBattleUI()
+    {
+        if (current_state == UIState.Exploring || current_state == UIState.Baseball)
+        {
+            Debug.LogWarning("Trying to end a battle in a non battle state");
+            return;
+        }
+
+        current_state = UIState.Exploring;
+
+        AdventureUI.SetActive(true);
+        BattleUI.SetActive(false);
+        DialogueUI.SetActive(false);
+        BaseballUI.SetActive(false);
     }
 }

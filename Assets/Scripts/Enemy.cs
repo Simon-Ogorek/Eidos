@@ -18,6 +18,7 @@ public class Enemy : Combatant
 
     private float movementOpportunityChance = 0.4f;
     Coroutine currentMove;
+    private bool hasTriggeredBattle = false;
 
     
 
@@ -32,8 +33,9 @@ public class Enemy : Combatant
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(player.position, transform.position) < awarenessRange)
+        if (Vector3.Distance(player.position, transform.position) < awarenessRange && !hasTriggeredBattle)
         {
+            hasTriggeredBattle = true;
             battleManager.GetComponent<BattleManager>().StartBattle();
         }
     }
