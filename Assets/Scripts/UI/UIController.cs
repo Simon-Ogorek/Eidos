@@ -5,6 +5,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Scripting.APIUpdating;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 /// <summary>
 /// Controls all in-game aspects about the UI
@@ -71,10 +72,7 @@ public class UIController : MonoBehaviour
 
     public PlayerMovement playerMovement;
 
-   
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-
     void Awake()
     {
         Instance = this;
@@ -111,20 +109,35 @@ public class UIController : MonoBehaviour
                 MovePanel.ChangeMove(false);
             }
 
-            if ((current_state == UIState.Battle && Input.GetKeyDown(KeyCode.Return)) || (current_state == UIState.Battle && usingController && Gamepad.current.rightTrigger.wasPressedThisFrame))
+
+            // TODO : Make controller binds
+            // Change the targeted combatant upwards relative to the Enemy UI
+            if (current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.R))
             {
-                Time.timeScale = 0.02f;
-                Time.fixedDeltaTime = 0.02f * Time.timeScale;
-                current_state = UIState.Battle_Selecting_Target;
-                
-                
+                playerCombatant.target = EnemyPanel.ChangeTargetUp();
             }
+
+            // TODO : Make controller binds
+            // Change the targeted combatant downwards relative to the Enemy UI
+            if (current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.F))
+            {
+                playerCombatant.target = EnemyPanel.ChangeTargetDown();
+            }
+
             if ((current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.Return)) || (current_state == UIState.Battle_Selecting_Target && usingController && Gamepad.current.rightTrigger.wasPressedThisFrame))
             {
                 Time.timeScale = 1f;
-                Time.fixedDeltaTime = 0.02f * Time.timeScale;
+                Time.fixedDeltaTime = 0.02f;
                 MovePanel.DoSelectedMove();
             }
+
+            if ((current_state == UIState.Battle && Input.GetKeyDown(KeyCode.Return)) || (current_state == UIState.Battle && usingController && Gamepad.current.rightTrigger.wasPressedThisFrame))
+            {
+                Time.timeScale = 0.05f;
+                Time.fixedDeltaTime *= Time.timeScale;
+                current_state = UIState.Battle_Selecting_Target;
+            }
+
 
             
             foreach (Combatant entity in GameObject.FindObjectsByType<Combatant>(FindObjectsSortMode.None))
@@ -168,6 +181,7 @@ public class UIController : MonoBehaviour
 
         if (current_state == UIState.Battle)
         {
+            AudioController.Instance.PlayCombatMusic();
             AdventureUI.SetActive(false);
             BattleUI.SetActive(true);
             BaseballUI.SetActive(false);
@@ -176,6 +190,7 @@ public class UIController : MonoBehaviour
         }
         else if (current_state == UIState.Exploring)
         {
+            AudioController.Instance.PlayAdventureMusic();
             AdventureUI.SetActive(true);
             BattleUI.SetActive(false);
             BaseballUI.SetActive(false);
@@ -191,7 +206,7 @@ public class UIController : MonoBehaviour
 
     public void AddToEnemyPanel(Combatant combatant)
     {
-        if (combatant.isEnemy)
+        if (combatant.isEnemy && !EnemyPanel.CheckIfEnemyInfoExists(combatant))
         {
             EnemyPanel.AddEnemyInfo(combatant);
         }
@@ -208,6 +223,7 @@ public class UIController : MonoBehaviour
 
     public void endCooldown()
     {
+        current_state = UIState.Battle;
         MovePanel.setCooldownFalse();
     }
 
@@ -263,5 +279,21 @@ public class UIController : MonoBehaviour
         NotificationUI.SetActive(true);
         playerMovement.cantMove = true;
         notif = true;
+    }
+
+    public void hideBattleUI()
+    {
+        if (current_state == UIState.Exploring || current_state == UIState.Baseball)
+        {
+            Debug.LogWarning("Trying to end a battle in a non battle state");
+            return;
+        }
+
+        current_state = UIState.Exploring;
+
+        AdventureUI.SetActive(true);
+        BattleUI.SetActive(false);
+        DialogueUI.SetActive(false);
+        BaseballUI.SetActive(false);
     }
 }

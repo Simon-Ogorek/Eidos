@@ -107,49 +107,49 @@ public class BattleManager : MonoBehaviour
     {
         
         if(state == BattleState.Inactive){
-        state = BattleState.Active;
+            state = BattleState.Active;
 
 
-        Combatant[] allCombatants = FindObjectsByType<Combatant>(FindObjectsSortMode.None);
-        combatantList = new List<Transform>();
+            Combatant[] allCombatants = FindObjectsByType<Combatant>(FindObjectsSortMode.None);
+            combatantList = new List<Transform>();
 
-        foreach (Combatant combatant in allCombatants)
-        {
-            if (Vector3.Distance(combatant.transform.position, playerMovement.transform.position) < enemyAttentionRadius)
+            foreach (Combatant combatant in allCombatants)
             {
-                combatantList.Add(combatant.transform);
-                if (combatant is Enemy enemyClass)
+                if (Vector3.Distance(combatant.transform.position, playerMovement.transform.position) < enemyAttentionRadius)
                 {
-                    StartCoroutine(enemyClass.TryForMovement());
-                    UIController.Instance.AddToEnemyPanel(combatant);
+                    combatantList.Add(combatant.transform);
+                    if (combatant is Enemy enemyClass)
+                    {
+                        StartCoroutine(enemyClass.TryForMovement());
+                        UIController.Instance.AddToEnemyPanel(combatant);
+                    }
+                        
                 }
-                    
             }
-        }
 
-        UIController.Instance.SetState(UIController.UIState.Battle);
+            UIController.Instance.SetState(UIController.UIState.Battle);
 
-        Debug.LogWarning(combatantList.Count);
+            Debug.LogWarning(combatantList.Count);
 
-        centerOfArena = DetermineCenterOfBattle(combatantList);
-        Debug.Log("Center: " + centerOfArena);
-        arenaRadius = Vector3.Distance(centerOfArena, playerMovement.transform.position);
+            centerOfArena = DetermineCenterOfBattle(combatantList);
+            Debug.Log("Center: " + centerOfArena);
+            arenaRadius = Vector3.Distance(centerOfArena, playerMovement.transform.position);
 
-        arenaRadius += arenaRadiusExpansionRelativeToPlayer;
-        
-        CapsuleCollider arenaCollider = gameObject.AddComponent<CapsuleCollider>();
+            arenaRadius += arenaRadiusExpansionRelativeToPlayer;
+            
+            CapsuleCollider arenaCollider = gameObject.AddComponent<CapsuleCollider>();
 
-        arenaCollider.isTrigger = true;
-        arenaCollider.radius = arenaRadius;
-        arenaCollider.center = centerOfArena;
-        arenaCollider.height = 100;
+            arenaCollider.isTrigger = true;
+            arenaCollider.radius = arenaRadius;
+            arenaCollider.center = centerOfArena;
+            arenaCollider.height = 100;
 
-        arenaVisualInstance = Instantiate(arenaVisualPrefab);
-        arenaVisualInstance.transform.position = centerOfArena;
-        arenaVisualInstance.transform.localScale = new Vector3(arenaRadius * 2, 1000, arenaRadius * 2);
+            arenaVisualInstance = Instantiate(arenaVisualPrefab);
+            arenaVisualInstance.transform.position = centerOfArena;
+            arenaVisualInstance.transform.localScale = new Vector3(arenaRadius * 2, 1000, arenaRadius * 2);
 
-        arenaVisualMat = arenaVisualInstance.GetComponentInChildren<Renderer>().material;
-        
+            arenaVisualMat = arenaVisualInstance.GetComponentInChildren<Renderer>().material;
+            
 
         }
         else
@@ -161,7 +161,10 @@ public class BattleManager : MonoBehaviour
 
     public void EndBattle()
     {
+        Destroy(arenaVisualInstance);
         state = BattleState.Inactive;
+        UIController.Instance.hideBattleUI();
+        UIController.Instance.SetState(UIController.UIState.Exploring);
     }
 
     public void RemoveFromBattle(Combatant ent)
@@ -184,7 +187,6 @@ public class BattleManager : MonoBehaviour
             }
 
             // There are no enemies left in the battle.
-
             EndBattle();
         }
     }

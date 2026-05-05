@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using Unity.VisualScripting;
-using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : Combatant
 {
@@ -18,6 +18,7 @@ public class Enemy : Combatant
 
     private float movementOpportunityChance = 0.4f;
     Coroutine currentMove;
+    private bool hasTriggeredBattle = false;
 
     
 
@@ -26,13 +27,15 @@ public class Enemy : Combatant
     void Start()
     {
         target = FindAnyObjectByType<PlayerBattle>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(player.position, transform.position) < awarenessRange)
+        if (Vector3.Distance(player.position, transform.position) < awarenessRange && !hasTriggeredBattle)
         {
+            hasTriggeredBattle = true;
             battleManager.GetComponent<BattleManager>().StartBattle();
         }
     }
@@ -66,9 +69,9 @@ public class Enemy : Combatant
 
         currentMove = null;
 
-        if (UnityEngine.Random.Range(0,1) < movementOpportunityChance)
+        if (UnityEngine.Random.value < movementOpportunityChance)
         {
-            Debug.Log("Movement opportunity passed, doing some action");
+            
 
             int i = 0;
             int totalWeights = 0;
@@ -85,12 +88,15 @@ public class Enemy : Combatant
                 weightToFind -= moves[i].castWeight;
             }
 
+            Debug.Log($"Movement opportunity passed, doing {moves[i].name} ");
+
             ExecuteMove(moves[i]);
 
         }
         else
         {
             Debug.Log("Movement opportunity didnt succeed for enemy, Idling");
+            StartCoroutine(TryForMovement());
         }
 
 
