@@ -95,10 +95,6 @@ public class PlayerMovement : MonoBehaviour
 
     bool sprinting = false;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 08b428de2a848bb3909686156d174e973bf0bddd
     void Start()
     {
         defaultSpeed = speed;
@@ -108,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         playerDirection = Direction.Forward;
     }
+
 
     void Update()
     {
@@ -175,6 +172,11 @@ public class PlayerMovement : MonoBehaviour
             
             return inputDir;
         }   
+    }
+
+    public void StopMovement()
+    {
+        velocityVector = Vector3.zero;
     }
     /*
     void FixedUpdate()
