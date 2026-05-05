@@ -3649,6 +3649,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309486676}
   m_Mesh: {fileID: 5011909460060281222, guid: e0185beace16842488ae10e51dc597b1, type: 3}
+<<<<<<< HEAD
+=======
 --- !u!1 &322953833
 GameObject:
   m_ObjectHideFlags: 0
@@ -3899,6 +3901,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> 08b428de2a848bb3909686156d174e973bf0bddd
 --- !u!1 &330764528 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 420364cf6876d124e8298e37e7e30d5a, type: 3}
@@ -25977,7 +25980,11 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
+<<<<<<< HEAD
+  m_BaseOffset: 0
+=======
   m_BaseOffset: 1
+>>>>>>> 08b428de2a848bb3909686156d174e973bf0bddd
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &1767339182
@@ -32161,7 +32168,10 @@ SceneRoots:
   - {fileID: 394115877}
   - {fileID: 1004547475}
   - {fileID: 467331963}
+<<<<<<< HEAD
+=======
   - {fileID: 322953837}
+>>>>>>> 08b428de2a848bb3909686156d174e973bf0bddd
   - {fileID: 1267703086}
   - {fileID: 1431773189}
   - {fileID: 1746743046}

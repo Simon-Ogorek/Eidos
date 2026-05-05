@@ -86,7 +86,10 @@ public static class MoveCaster : object
         if (col == null)
         {
             Debug.Log("Casting a move with no collider");
+<<<<<<< HEAD
+=======
             AudioController.Instance.BattlePlayHurt();
+>>>>>>> 08b428de2a848bb3909686156d174e973bf0bddd
             foreach (MoveEffect effect in data.effects)
             {
                 effect.Apply(caster, caster.target, data);

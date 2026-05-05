@@ -153,6 +153,29 @@ public class UIController : MonoBehaviour
                 MovePanel.DoSelectedMove();
             }
 
+
+            // TODO : Make controller binds
+            // Change the targeted combatant upwards relative to the Enemy UI
+            if (current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.R))
+            {
+<<<<<<< HEAD
+                playerCombatant.target = EnemyPanel.ChangeTargetUp();
+            }
+
+            // TODO : Make controller binds
+            // Change the targeted combatant downwards relative to the Enemy UI
+            if (current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.F))
+            {
+                playerCombatant.target = EnemyPanel.ChangeTargetDown();
+            }
+
+            if ((current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.Return)) || (current_state == UIState.Battle_Selecting_Target && usingController && Gamepad.current.rightTrigger.wasPressedThisFrame))
+            {
+                Time.timeScale = 1f;
+                Time.fixedDeltaTime = 0.02f;
+                MovePanel.DoSelectedMove();
+            }
+
             if ((current_state == UIState.Battle && Input.GetKeyDown(KeyCode.Return)) || (current_state == UIState.Battle && usingController && Gamepad.current.rightTrigger.wasPressedThisFrame))
             {
                 Time.timeScale = 0.05f;
@@ -160,6 +183,13 @@ public class UIController : MonoBehaviour
                 current_state = UIState.Battle_Selecting_Target;
             }
 
+=======
+                Time.timeScale = 0.05f;
+                Time.fixedDeltaTime *= Time.timeScale;
+                current_state = UIState.Battle_Selecting_Target;
+            }
+
+>>>>>>> 08b428de2a848bb3909686156d174e973bf0bddd
 
             
             foreach (Combatant entity in GameObject.FindObjectsByType<Combatant>(FindObjectsSortMode.None))
