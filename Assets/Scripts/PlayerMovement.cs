@@ -93,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool canMove = true;
 
+    bool sprinting = false;
 
     void Start()
     {
@@ -176,6 +177,7 @@ public class PlayerMovement : MonoBehaviour
     /*
     void FixedUpdate()
     {
+        sprinting = Input.GetKey(KeyCode.LeftShift);
         velocityVector *= friction;
         // Change this out for the new input system 
         inputVector = Vector3.zero;
@@ -198,33 +200,43 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if(!cantMove){
-        if (Input.GetKey(KeyCode.W))
+        bool w = Input.GetKey(KeyCode.W);
+        bool s = Input.GetKey(KeyCode.S);
+        bool a = Input.GetKey(KeyCode.A);
+        bool d = Input.GetKey(KeyCode.D);
+
+        if (w && !s)
         {
             matchRotation(Direction.Forward);
             inputVector += transform.forward;
         }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            matchRotation(Direction.Left);
-            inputVector += transform.forward;
-        }
-
-        if (Input.GetKey(KeyCode.S))
+        else if (s && !w)
         {
             matchRotation(Direction.Backward);
             inputVector += transform.forward;
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (a && !d)
+        {
+            matchRotation(Direction.Left);
+            inputVector += transform.forward;
+        }
+
+
+        if (d && !a)
         {
             matchRotation(Direction.Right);
             inputVector += transform.forward;
         }
         }
+
         inputVector = Vector3.Normalize(inputVector);
         
-        velocityVector += inputVector * speed;
+        if(!sprinting)
+            velocityVector += inputVector * speed;
+        else
+            velocityVector += inputVector * speed * 5;
 
         Debug.DrawRay(transform.position, Vector3.down * transform.localScale.y * 1.1f, Color.green);
         if (Physics.Raycast(transform.position, Vector3.down, transform.localScale.y * 1.1f, Physics.DefaultRaycastLayers))
@@ -244,9 +256,18 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log(grounded);
 
-        Mathf.Clamp(velocityVector.x,-1*maxWalkVelocity,maxWalkVelocity);
-        Mathf.Clamp(velocityVector.z,-1*maxWalkVelocity,maxWalkVelocity);
-        Mathf.Clamp(velocityVector.y,-1*maxFallSpeed,maxFallSpeed);
+        float maxVelocity = sprinting ? maxSprintVelocity : maxWalkVelocity;
+
+        //Clamp horizontal velocity together so it feels better and doesn't sum up.
+        Vector3 horizontalVelocity = new Vector3(velocityVector.x, 0, velocityVector.z);
+
+        horizontalVelocity = Vector3.ClampMagnitude(horizontalVelocity, maxVelocity);
+
+        velocityVector.x = horizontalVelocity.x;
+        velocityVector.z = horizontalVelocity.z;
+
+        if(!grounded)
+            velocityVector.y = Mathf.Clamp(velocityVector.y,-1*maxFallSpeed,maxFallSpeed);
 
         controller.Move(velocityVector * Time.deltaTime);
 

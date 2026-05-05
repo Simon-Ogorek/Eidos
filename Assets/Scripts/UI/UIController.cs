@@ -181,6 +181,7 @@ public class UIController : MonoBehaviour
 
         if (current_state == UIState.Battle)
         {
+            AudioController.Instance.PlayCombatMusic();
             AdventureUI.SetActive(false);
             BattleUI.SetActive(true);
             BaseballUI.SetActive(false);
@@ -189,6 +190,7 @@ public class UIController : MonoBehaviour
         }
         else if (current_state == UIState.Exploring)
         {
+            AudioController.Instance.PlayAdventureMusic();
             AdventureUI.SetActive(true);
             BattleUI.SetActive(false);
             BaseballUI.SetActive(false);
