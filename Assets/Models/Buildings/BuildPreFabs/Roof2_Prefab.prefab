@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &799011255054628929
 Transform:
@@ -90,6 +90,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoofRight
       objectReference: {fileID: 0}
+    - target: {fileID: 1967142182719857581, guid: 63f137d5f9171f14ca726b8d640b4a61, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -115,6 +119,10 @@ PrefabInstance:
     - target: {fileID: 1590253135523794604, guid: bfc693e7eea43f74182ce3aef5116297, type: 3}
       propertyPath: m_Name
       value: RoofWallSmall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590253135523794604, guid: bfc693e7eea43f74182ce3aef5116297, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2115115544073507862, guid: bfc693e7eea43f74182ce3aef5116297, type: 3}
       propertyPath: m_LocalScale.y
@@ -181,6 +189,10 @@ PrefabInstance:
     - target: {fileID: 4979972613759910259, guid: d1ce9a6df416ecc419e56053eece3ebc, type: 3}
       propertyPath: m_Name
       value: RoofLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 4979972613759910259, guid: d1ce9a6df416ecc419e56053eece3ebc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5645185276900088777, guid: d1ce9a6df416ecc419e56053eece3ebc, type: 3}
       propertyPath: m_LocalPosition.x
