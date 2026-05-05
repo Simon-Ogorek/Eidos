@@ -161,6 +161,7 @@ public class BattleManager : MonoBehaviour
 
     public void EndBattle()
     {
+        AudioController.Instance.BattlePlayWin();
         Destroy(arenaVisualInstance);
         state = BattleState.Inactive;
         UIController.Instance.hideBattleUI();

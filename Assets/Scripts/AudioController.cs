@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -11,7 +13,14 @@ public class AudioController : MonoBehaviour
     [SerializeField] private AudioClip adventureMusic;
     [SerializeField] private AudioClip combatMusic;
 
+    [SerializeField] private AudioClip combatMoveUp;
+    [SerializeField] private AudioClip combatMoveDown;
+    [SerializeField] private AudioClip combatSelectUp;
+    [SerializeField] private AudioClip combatSelectDown;
+    [SerializeField] private AudioClip combatHurt;
+    [SerializeField] private AudioClip combatWin;
 
+    
     public static AudioController Instance { get; private set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -54,8 +63,30 @@ public class AudioController : MonoBehaviour
         PlayMusic(adventureMusic);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void BattlePlayMoveUp()
     {
+        PlaySFX(combatMoveUp);
     }
+
+    public void BattlePlayMoveDown()
+    {
+        PlaySFX(combatMoveDown);
+    }
+
+    public void BattlePlaySelectUp()
+    {
+        PlaySFX(combatSelectUp);
+    }
+
+        public void BattlePlaySelectDown()
+    {
+        PlaySFX(combatSelectDown);
+    }
+        public void BattlePlayHurt()
+    {
+        PlaySFX(combatHurt);
+    }    public void BattlePlayWin()
+    {
+        PlaySFX(combatWin);
+}
 }
