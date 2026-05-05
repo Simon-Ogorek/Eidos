@@ -86,6 +86,7 @@ public static class MoveCaster : object
         if (col == null)
         {
             Debug.Log("Casting a move with no collider");
+            AudioController.Instance.BattlePlayHurt();
             foreach (MoveEffect effect in data.effects)
             {
                 effect.Apply(caster, caster.target, data);
@@ -102,6 +103,7 @@ public static class MoveCaster : object
                 timeLeft -= Time.deltaTime;
                 if (colQuereyer.collidedCombatant != null)
                 {
+                    AudioController.Instance.BattlePlayHurt();
                     foreach (MoveEffect effect in data.effects)
                     {
                         effect.Apply(caster, colQuereyer.collidedCombatant.gameObject.GetComponent<Combatant>(), data);

@@ -139,13 +139,11 @@ public class PlayerMovement : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 
-        //transform.Rotate(new Vector3(0, mouseX * cameraRotationY, 0));
-
         cameraTrackingPoints.transform.Rotate(new Vector3(-mouseX * cameraRotationX,0,0));
-
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(velocityVector), Time.deltaTime * 5);
-        
-        
+        Debug.Log(velocityVector);
+        Vector3 XYDir = new Vector3(velocityVector.x, 0, velocityVector.z);
+        if (XYDir.sqrMagnitude >= 0.001f)
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(XYDir), Time.deltaTime * 10);
     }
     /// @brief returns the input vector in respect to the camera
 
@@ -333,8 +331,8 @@ public class PlayerMovement : MonoBehaviour
             return true;
         }
         return false;
-    }
-    */
+    }*/
+    
 
     IEnumerator CastMovement(float time)
     {
