@@ -126,7 +126,7 @@ public class QuestManager : MonoBehaviour
         }
         if(questScript == 4 && !questActionComplete){
             UIController.Instance.FadeOut();  
-            Captain.transform.position = new Vector3(361.08, 1.201, -48.85);          
+            //Captain.transform.position = new Vector3(361.08, 1.201, -48.85);          
             questActionComplete = true;
         }
         

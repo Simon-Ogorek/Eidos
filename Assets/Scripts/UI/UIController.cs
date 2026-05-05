@@ -158,7 +158,6 @@ public class UIController : MonoBehaviour
             // Change the targeted combatant upwards relative to the Enemy UI
             if (current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.R))
             {
-<<<<<<< HEAD
                 playerCombatant.target = EnemyPanel.ChangeTargetUp();
             }
 
@@ -183,13 +182,6 @@ public class UIController : MonoBehaviour
                 current_state = UIState.Battle_Selecting_Target;
             }
 
-=======
-                Time.timeScale = 0.05f;
-                Time.fixedDeltaTime *= Time.timeScale;
-                current_state = UIState.Battle_Selecting_Target;
-            }
-
->>>>>>> 08b428de2a848bb3909686156d174e973bf0bddd
 
             
             foreach (Combatant entity in GameObject.FindObjectsByType<Combatant>(FindObjectsSortMode.None))

@@ -95,10 +95,6 @@ public class PlayerMovement : MonoBehaviour
 
     bool sprinting = false;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 08b428de2a848bb3909686156d174e973bf0bddd
     void Start()
     {
         defaultSpeed = speed;
