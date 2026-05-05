@@ -103,10 +103,12 @@ public class UIController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.RightArrow) || (usingController && Gamepad.current.rightShoulder.wasPressedThisFrame))
             {
                 MovePanel.ChangeMove(true);
+                AudioController.Instance.BattlePlayMoveUp();
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow) || (usingController && Gamepad.current.leftShoulder.wasPressedThisFrame))
             {
                 MovePanel.ChangeMove(false);
+                AudioController.Instance.BattlePlayMoveDown();
             }
 
 
@@ -114,6 +116,31 @@ public class UIController : MonoBehaviour
             // Change the targeted combatant upwards relative to the Enemy UI
             if (current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.R))
             {
+                playerCombatant.target = EnemyPanel.ChangeTargetUp();
+                AudioController.Instance.BattlePlaySelectUp();
+            }
+
+            // TODO : Make controller binds
+            // Change the targeted combatant downwards relative to the Enemy UI
+            if (current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.F))
+            {
+                playerCombatant.target = EnemyPanel.ChangeTargetDown();
+                AudioController.Instance.BattlePlaySelectDown();
+            }
+
+            if ((current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.Return)) || (current_state == UIState.Battle_Selecting_Target && usingController && Gamepad.current.rightTrigger.wasPressedThisFrame))
+            {
+                Time.timeScale = 1f;
+                Time.fixedDeltaTime = 0.02f;
+                MovePanel.DoSelectedMove();
+            }
+
+
+            // TODO : Make controller binds
+            // Change the targeted combatant upwards relative to the Enemy UI
+            if (current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.R))
+            {
+<<<<<<< HEAD
                 playerCombatant.target = EnemyPanel.ChangeTargetUp();
             }
 
@@ -138,6 +165,13 @@ public class UIController : MonoBehaviour
                 current_state = UIState.Battle_Selecting_Target;
             }
 
+=======
+                Time.timeScale = 0.05f;
+                Time.fixedDeltaTime *= Time.timeScale;
+                current_state = UIState.Battle_Selecting_Target;
+            }
+
+>>>>>>> 08b428de2a848bb3909686156d174e973bf0bddd
 
             
             foreach (Combatant entity in GameObject.FindObjectsByType<Combatant>(FindObjectsSortMode.None))

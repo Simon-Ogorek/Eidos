@@ -4,6 +4,7 @@ using System;
 using Unity.VisualScripting;
 using System.Collections;
 
+
 /// <summary>
 /// Moves the player around using a Character Controller
 /// </summary>
@@ -94,7 +95,10 @@ public class PlayerMovement : MonoBehaviour
 
     bool sprinting = false;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 08b428de2a848bb3909686156d174e973bf0bddd
     void Start()
     {
         defaultSpeed = speed;
@@ -105,11 +109,79 @@ public class PlayerMovement : MonoBehaviour
         playerDirection = Direction.Forward;
     }
 
+    void Update()
+    {
+        sprinting = Input.GetKey(KeyCode.LeftShift);
+        velocityVector *= friction;
+
+        if (cantMove || !canMove)
+            return;
+
+        usingController = Gamepad.current != null;
+        
+        Vector3 movemntDir = GetCameraOrientedInput(usingController);
+        velocityVector += movemntDir * speed * Time.deltaTime;
+
+        if (Physics.Raycast(transform.position, Vector3.down, transform.localScale.y * 1.1f, Physics.DefaultRaycastLayers))
+        {
+            grounded = true;
+            velocityVector.y = -0.1f;
+            if (Input.GetKey(KeyCode.Space) || (usingController && Gamepad.current.buttonSouth.isPressed))
+                velocityVector.y += jumpForce;
+        }
+        else
+        {
+            grounded = false;
+            velocityVector.y -= gravity;
+        }
+
+        Mathf.Clamp(velocityVector.x,-1*maxWalkVelocity,maxWalkVelocity);
+        Mathf.Clamp(velocityVector.z,-1*maxWalkVelocity,maxWalkVelocity);
+        Mathf.Clamp(velocityVector.y,-1*maxFallSpeed,maxFallSpeed);
+
+        controller.Move(velocityVector);
+        
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+
+        cameraTrackingPoints.transform.Rotate(new Vector3(-mouseX * cameraRotationX,0,0));
+        Vector3 XYDir = new Vector3(movemntDir.x, 0, movemntDir.z);
+        if (XYDir.sqrMagnitude >= 0.001f)
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(XYDir), Time.deltaTime * 10);
+    }
+    /// @brief returns the input vector in respect to the camera
+
+    Vector3 GetCameraOrientedInput(bool usingController)
+    {
+        if (usingController)
+        {
+            Gamepad controller = Gamepad.current;
+            Vector3 inputDir = controller.leftStick.ReadValue();
+
+            inputDir = freeLookCamera.transform.TransformDirection(inputDir.normalized);
+
+            return inputDir;
+        }
+        else // using keyboard
+        {
+            Vector3 inputDir = Vector3.zero;
+
+            inputDir.z += Input.GetKey(KeyCode.W) ? 1 : 0;
+            inputDir.z += Input.GetKey(KeyCode.S) ? -1 : 0;
+            inputDir.x += Input.GetKey(KeyCode.A) ? -1 : 0;
+            inputDir.x += Input.GetKey(KeyCode.D) ? 1 : 0;
+            
+            inputDir = freeLookCamera.transform.TransformDirection(inputDir.normalized);
+            
+            return inputDir;
+        }   
+    }
+    /*
     void FixedUpdate()
     {
         sprinting = Input.GetKey(KeyCode.LeftShift);
         velocityVector *= friction;
-        /* Change this out for the new input system */
+        // Change this out for the new input system 
         inputVector = Vector3.zero;
 
         if (!canMove)
@@ -201,7 +273,7 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(velocityVector * Time.deltaTime);
 
-        /*
+        
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 
@@ -209,7 +281,7 @@ public class PlayerMovement : MonoBehaviour
 
         cameraTrackingPoints.transform.Rotate(new Vector3(-mouseX * cameraRotationX,0,0));
 
-        */
+        
     }
 
     /// @brief maches the rotation of the player relative to the rotation of the camera
@@ -263,7 +335,8 @@ public class PlayerMovement : MonoBehaviour
             return true;
         }
         return false;
-    }
+    }*/
+    
 
     IEnumerator CastMovement(float time)
     {
