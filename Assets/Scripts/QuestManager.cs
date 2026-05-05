@@ -86,7 +86,9 @@ public class QuestManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(quest == 1)
+        if(quest == 0)
+            Quest0();
+        else if(quest == 1)
             Quest1();
         //LookTowards(Eidos);
     }
@@ -96,6 +98,19 @@ public class QuestManager : MonoBehaviour
         questScript += 1;
         questActionComplete = false;
         Debug.Log("continued quest" + questScript);
+    }
+
+    public void Quest0()
+    {
+        if(questScript == 0 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("I should walk towards the forest. Press KEY I to continue.", "Thought");
+            questActionComplete = true;
+        }
+        if(questScript == 1 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("Use WASD to move and the MOUSE for camera control.", "Thought");
+            questActionComplete = true;
+        }
+        
     }
     public void Quest1()
     {

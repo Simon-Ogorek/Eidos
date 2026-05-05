@@ -11,6 +11,10 @@ public class AudioController : MonoBehaviour
     [SerializeField] private AudioClip adventureMusic;
     [SerializeField] private AudioClip combatMusic;
 
+    [SerializeField] private AudioClip interactSound;
+
+    [SerializeField] private AudioClip popupSound;
+
 
     public static AudioController Instance { get; private set; }
 
@@ -47,6 +51,16 @@ public class AudioController : MonoBehaviour
     public void PlayAdventureMusic()
     {
         PlayMusic(adventureMusic);
+    }
+
+    public void PlayPopUp()
+    {
+        PlaySFX(popupSound);
+    }
+
+    public void PlayInteract()
+    {
+        PlaySFX(interactSound);
     }
  
     void Start()
