@@ -3581,7 +3581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a69865ccf2ca6eb45a7b856a1a0ab111, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.445
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a69865ccf2ca6eb45a7b856a1a0ab111, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3589,7 +3589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a69865ccf2ca6eb45a7b856a1a0ab111, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.095
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a69865ccf2ca6eb45a7b856a1a0ab111, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8025,6 +8025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestManager
   Sun: {fileID: 152675008}
   Player: {fileID: 1301514102}
+  Ship: {fileID: 1459007920}
   Archimedes: {fileID: 824683816}
   Captain: {fileID: 1388473679}
   Navigator: {fileID: 1449758124}
@@ -11420,7 +11421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   speed: 1
-  gravity: 0.5
+  gravity: 5
   jumpForce: 12
   friction: 0.9
   maxFallSpeed: 5
@@ -13348,7 +13349,7 @@ Transform:
   m_GameObject: {fileID: 1449758123}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.032586105, z: -0, w: 0.9994689}
-  m_LocalPosition: {x: 361.08, y: 1.201, z: -133.85}
+  m_LocalPosition: {x: 362.62, y: 1.201, z: -133.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

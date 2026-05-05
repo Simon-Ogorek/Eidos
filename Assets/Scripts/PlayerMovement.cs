@@ -105,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
         playerDirection = Direction.Forward;
     }
 
+
     void Update()
     {
         sprinting = Input.GetKey(KeyCode.LeftShift);
@@ -171,6 +172,11 @@ public class PlayerMovement : MonoBehaviour
             
             return inputDir;
         }   
+    }
+
+    public void StopMovement()
+    {
+        velocityVector = Vector3.zero;
     }
     /*
     void FixedUpdate()
