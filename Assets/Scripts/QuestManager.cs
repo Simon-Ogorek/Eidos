@@ -30,6 +30,12 @@ public class QuestManager : MonoBehaviour
     [SerializeField]
     private NonCombatant Archimedes;
 
+    [SerializeField]
+    private NonCombatant Captain;
+
+    [SerializeField]
+    private NonCombatant Navigator;
+
     private NonCombatant playerDialogue;
 
     [SerializeField]
@@ -103,11 +109,24 @@ public class QuestManager : MonoBehaviour
     public void Quest0()
     {
         if(questScript == 0 && !questActionComplete){
-            playerDialogue.GiveQuestDialogue("I should walk towards the forest. Press KEY I to continue.", "Thought");
+            playerDialogue.GiveQuestDialogue("Look! I think we're almost there!", "Speech");
             questActionComplete = true;
         }
         if(questScript == 1 && !questActionComplete){
-            playerDialogue.GiveQuestDialogue("Use WASD to move and the MOUSE for camera control.", "Thought");
+            Captain.GiveQuestDialogue("It is an extraordinary view, isn't it?", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 2 && !questActionComplete){
+            Navigator.GiveQuestDialogue("Yes, and after all these years, I still remember the mix of emotions I felt when I first arrived. Excitement, energy and a little fear", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 3 && !questActionComplete){
+            Captain.GiveQuestDialogue("It feels good, helping this young adventurer begin his own quest.", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 4 && !questActionComplete){
+            UIController.Instance.FadeOut();  
+            Captain.transform.position = new Vector3(361.08, 1.201, -48.85);          
             questActionComplete = true;
         }
         

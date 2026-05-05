@@ -68,6 +68,9 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private UITextDisplay DayBox;
 
+    [SerializeField]
+    private UITransition Fade;
+
     public TMP_Text hits;
     public TMP_Text strikes;
 
@@ -331,5 +334,15 @@ public class UIController : MonoBehaviour
         BattleUI.SetActive(false);
         DialogueUI.SetActive(false);
         BaseballUI.SetActive(false);
+    }
+
+    public void FadeOut()
+    {
+        StartCoroutine(Fade.FadeOut());
+    }
+
+    public void FadeIn()
+    {
+        StartCoroutine(Fade.FadeIn());
     }
 }
