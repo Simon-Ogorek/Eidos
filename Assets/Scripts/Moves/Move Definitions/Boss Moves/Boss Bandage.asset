@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc3bc598696cd8c438657b304755ee89, type: 3}
-  m_Name: Punch
+  m_Name: Boss Bandage
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
-  moveName: Speak
-  castTime: 2
-  output: -5
-  cooldown: 0.5
-  range: 4
-  manaChange: 0
-  targetType: 1
+  moveName: Compose
+  castTime: 5
+  output: 1
+  cooldown: 3
+  range: 0
+  manaChange: -2
+  targetType: 0
   effects:
-  - {fileID: 11400000, guid: 484ae6214e4f3a644acf3f059bfb12c9, type: 2}
-  collider: 0
-  colliderTTL: 1
-  hurtBoxrange: 5
-  hurtBoxWidth: 2
+  - {fileID: 11400000, guid: f02f1b56da28b9f4dbebd1c830f350d9, type: 2}
+  collider: 3
+  colliderTTL: 0
+  hurtBoxrange: 0
+  hurtBoxWidth: 0
   spreadRange: 0
   spreadWidth: 0
   projectileObj: {fileID: 0}
   projectileForce: 0
-  castWeight: 100
+  castWeight: 200
   visual: {fileID: 0}
   timeToWaitForVisual: 0

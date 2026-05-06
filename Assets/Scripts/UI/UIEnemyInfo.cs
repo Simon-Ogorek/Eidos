@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -293,5 +294,15 @@ public class UIEnemyInfo : MonoBehaviour
         // at this point we have a bum index that cant be found
         Debug.LogWarning("TODO: Rolling over arrow idx lower in hopes of finding a good idx");
         return null;
+    }
+
+    public void RemoveAllEnemyInfo()
+    {
+        var list = combatantToUIMap.Values.ToList<EnemyUI>();
+        foreach (EnemyUI ui in list)
+        {
+            Destroy(ui.obj);
+        }
+        combatantToUIMap.Clear();
     }
 }

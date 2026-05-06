@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc3bc598696cd8c438657b304755ee89, type: 3}
-  m_Name: Punch
+  m_Name: Boss Punch
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
   moveName: Speak
   castTime: 2

@@ -12,13 +12,18 @@ public class Enemy : Combatant
     [SerializeField]
     private float awarenessRange = 5f;
 
+    // For telling when a enemy should forget that they have already triggered a battle with the player
+    [SerializeField]
+    private float forgetRange = 40f;
+
+
     [SerializeField]
     private float movementOpportunityInterval = 3f;
     [SerializeField]
 
     private float movementOpportunityChance = 0.4f;
     Coroutine currentMove;
-    private bool hasTriggeredBattle = false;
+    public bool hasTriggeredBattle = false;
 
     
 
@@ -33,10 +38,17 @@ public class Enemy : Combatant
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(player.position, transform.position) < awarenessRange && !hasTriggeredBattle)
+        float dist = Vector3.Distance(player.position, transform.position);
+        if (dist < awarenessRange && !hasTriggeredBattle)
         {
-            hasTriggeredBattle = true;
+            
             battleManager.GetComponent<BattleManager>().StartBattle();
+            hasTriggeredBattle = true;
+        }
+        if (dist > forgetRange)
+        {
+            hasTriggeredBattle = false;
+            health = maxHealth;
         }
     }
 
