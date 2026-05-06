@@ -25,6 +25,10 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private CinemachineCamera Camera;
 
+    [SerializeField]
+    private CinemachineCamera SceneCamera;
+    private CinemachineCamera currentCamera;
+
     public static CameraController Instance { get; private set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,17 +43,32 @@ public class CameraController : MonoBehaviour
     //FocusOn has the camera look at a certain target.
     public void FocusOn(GameObject Target)
     {
-        Camera.Follow = Target.transform;  
+        currentCamera.Follow = Target.transform;  
     }
 
     public void LookTowards(GameObject Target)
     {
         focusPoint.transform.position = (Target.transform.position + Player.transform.position) * 0.5f;
-        Camera.LookAt = focusPoint.transform;  
+        currentCamera.LookAt = focusPoint.transform;  
         //Camera.Transform = Player.transform;
+    }
+
+    public void UseSceneCamera()
+    {
+        Camera.Priority = 0;
+        //SceneCamera.Priority = 20;
+        currentCamera = SceneCamera;
+    }
+
+    public void UseCamera()
+    {
+        Camera.Priority = 20;
+        SceneCamera.Priority = 0;
+        currentCamera = Camera;
     }
     void Start()
     {
+        UseCamera();
     }
 
     // Update is called once per frame

@@ -70,6 +70,7 @@ public class NonCombatant : MonoBehaviour
                     }
                     else
                         {
+                            AudioController.Instance.PlayInteract();
                             Debug.Log("Dialogue for" + name);
                             UIController.Instance.OpenDialogue(dialogue[i], name);
                         }
@@ -92,6 +93,7 @@ public class NonCombatant : MonoBehaviour
                 CameraController.Instance.FocusOn(player.gameObject);
                 UIController.Instance.EndDialogue();
                 QuestManager.Instance.ContinueQuest();
+                player.cantMove = false;
             }
             
         }
@@ -100,6 +102,7 @@ public class NonCombatant : MonoBehaviour
 //Starts a dialogue action from UI Controller
     public void GiveDialogue()
     {
+        AudioController.Instance.PlayInteract();
         Debug.Log("This happened" + name);
         CameraController.Instance.FocusOn(gameObject);
         UIController.Instance.OpenDialogue(dialogue[i], name);
@@ -108,10 +111,12 @@ public class NonCombatant : MonoBehaviour
         i += 1;
     }
 
-    public void GiveQuestDialogue(string dialogue)
+    public void GiveQuestDialogue(string dialogue, string type = "Dialogue")
     {
+        AudioController.Instance.PlayInteract();
         questDialogue = true;
-        UIController.Instance.OpenDialogue(dialogue, name);
+        player.cantMove = true;
+        UIController.Instance.OpenDialogue(dialogue, name, type);
     }
 
     public void EndNPCDialogue()

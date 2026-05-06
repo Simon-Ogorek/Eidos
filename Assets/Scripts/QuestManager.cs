@@ -28,9 +28,20 @@ public class QuestManager : MonoBehaviour
     private GameObject Player;
 
     [SerializeField]
+    private GameObject Ship;
+
+    [SerializeField]
     private NonCombatant Archimedes;
 
+    [SerializeField]
+    private NonCombatant Captain;
+
+    [SerializeField]
+    private NonCombatant Navigator;
+
     private NonCombatant playerDialogue;
+
+    private PlayerMovement movement;
 
     [SerializeField]
     private float day = 1;
@@ -61,6 +72,7 @@ public class QuestManager : MonoBehaviour
     void Start()
     {
         playerDialogue = Player.GetComponent<NonCombatant>();
+        movement = Player.GetComponent<PlayerMovement>();
     }
 
     public void StartQuest()
@@ -86,7 +98,9 @@ public class QuestManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(quest == 1)
+        if(quest == 0)
+            Quest0();
+        else if(quest == 1)
             Quest1();
         //LookTowards(Eidos);
     }
@@ -96,6 +110,85 @@ public class QuestManager : MonoBehaviour
         questScript += 1;
         questActionComplete = false;
         Debug.Log("continued quest" + questScript);
+    }
+
+    public void Quest0()
+    {
+        if(questScript == 0 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("Look! I think we're almost there!", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 1 && !questActionComplete){
+            Captain.GiveQuestDialogue("It is an extraordinary view, isn't it?", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 2 && !questActionComplete){
+            Navigator.GiveQuestDialogue("Yes, and after all these years, I still remember the mix of emotions I felt when I first arrived. Excitement, energy and a little fear", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 3 && !questActionComplete){
+            Captain.GiveQuestDialogue("It feels good, helping this young adventurer begin his own quest.", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 4 && !questActionComplete){
+            UIController.Instance.FadeOut();  
+            Ship.transform.position = new Vector3(361.76f, -3.21f, -43.35f); 
+            Captain.transform.position = new Vector3(361.08f, 1.201f, -38.85f);  
+            Navigator.transform.position = new Vector3(362.62f, 1.201f, -38.85f);
+            movement.enabled = false;
+            Player.GetComponent<CharacterController>().enabled = false;
+            Player.transform.position = new Vector3(361.82f, 1.186385f, -38.35f); 
+            Player.GetComponent<CharacterController>().enabled = true;
+            movement.enabled = true;
+            UIController.Instance.FadeIn();         
+            questActionComplete = true;
+            ContinueQuest();
+        }
+        if(questScript == 5 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("Are there other voyagers on boats starting their own quests?", "Thought");
+            questActionComplete = true;
+        }
+        if(questScript == 6 && !questActionComplete){
+            Navigator.GiveQuestDialogue("Though your paths may cross, you must undertake this quest independently. The lessons you learn must be your own.", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 7 && !questActionComplete){
+            Captain.GiveQuestDialogue("However, that doesn’t mean you’ll be alone. We’ve arranged for someone to accompany you. His name is Archimedes.", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 7 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("Wasn’t Archimedes the ancient Greek mathematician who invented ways to accomplish difficult things easily–like lifting heavy objects and pumping water from a deep well?", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 8 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("Exactly. Like his Greek namesake, our Archimedes will give you tools to make your work easier and more effective. But you must make the effort yourself.", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 9 && !questActionComplete){
+            UIController.Instance.FadeOut();  
+            Ship.SetActive(false); 
+            Captain.gameObject.SetActive(false);  
+            Navigator.gameObject.SetActive(false);  
+            movement.enabled = false;
+            Player.GetComponent<CharacterController>().enabled = false;
+            Player.transform.position = new Vector3(361.82f, 1.08f, 8.271f); 
+            Player.GetComponent<CharacterController>().enabled = true;
+            movement.enabled = true;
+            UIController.Instance.FadeIn();         
+            questActionComplete = true;
+            ContinueQuest();
+        }
+        if(questScript == 10 && !questActionComplete){
+        playerDialogue.GiveQuestDialogue("Those were some nice sailors, maybe I should look around for this Archimedes.", "Thought");
+        playerDialogue.GiveQuestDialogue("Use WASD to walk around and the MOUSE for camera control. Press LEFT SHIFT to run.", "Thought");
+        questActionComplete = true;
+        }
+        if(questScript == 11 && !questActionComplete){
+        playerDialogue.GiveQuestDialogue("Use WASD to walk around and the MOUSE for camera control. Press LEFT SHIFT to run.", "Thought");
+        questActionComplete = true;
+        }
+
+        
     }
     public void Quest1()
     {

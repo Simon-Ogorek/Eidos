@@ -30,6 +30,12 @@ public class UIController : MonoBehaviour
     private GameObject DialogueUI;
 
     [SerializeField]
+    private GameObject ThoughtUI;
+
+    [SerializeField]
+    private GameObject SpeechUI;
+
+    [SerializeField]
     private GameObject NotificationUI;
 
     [SerializeField]
@@ -46,6 +52,13 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private UITextDisplay DialogueBox;
 
+    //UI before Tessamark is receieved
+    [SerializeField]
+    private UITextDisplay ThoughtBox;
+
+    [SerializeField]
+    private UITextDisplay SpeechBox;
+
     [SerializeField]
     private UITextDisplay QuestBox;
 
@@ -54,6 +67,9 @@ public class UIController : MonoBehaviour
 
     [SerializeField]
     private UITextDisplay DayBox;
+
+    [SerializeField]
+    private UITransition Fade;
 
     public TMP_Text hits;
     public TMP_Text strikes;
@@ -81,9 +97,11 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        AdventureUI.SetActive(true);
+        AdventureUI.SetActive(false);
         BattleUI.SetActive(false);
         DialogueUI.SetActive(false);
+        ThoughtUI.SetActive(false);
+        SpeechUI.SetActive(false);
         BaseballUI.SetActive(false);
         playerMovement = playerCombatant.GetComponent<PlayerMovement>();
     }
@@ -126,6 +144,28 @@ public class UIController : MonoBehaviour
             {
                 playerCombatant.target = EnemyPanel.ChangeTargetDown();
                 AudioController.Instance.BattlePlaySelectDown();
+            }
+
+            if ((current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.Return)) || (current_state == UIState.Battle_Selecting_Target && usingController && Gamepad.current.rightTrigger.wasPressedThisFrame))
+            {
+                Time.timeScale = 1f;
+                Time.fixedDeltaTime = 0.02f;
+                MovePanel.DoSelectedMove();
+            }
+
+
+            // TODO : Make controller binds
+            // Change the targeted combatant upwards relative to the Enemy UI
+            if (current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.R))
+            {
+                playerCombatant.target = EnemyPanel.ChangeTargetUp();
+            }
+
+            // TODO : Make controller binds
+            // Change the targeted combatant downwards relative to the Enemy UI
+            if (current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.F))
+            {
+                playerCombatant.target = EnemyPanel.ChangeTargetDown();
             }
 
             if ((current_state == UIState.Battle_Selecting_Target && Input.GetKeyDown(KeyCode.Return)) || (current_state == UIState.Battle_Selecting_Target && usingController && Gamepad.current.rightTrigger.wasPressedThisFrame))
@@ -231,17 +271,33 @@ public class UIController : MonoBehaviour
         MovePanel.setCooldownFalse();
     }
 
-    public void OpenDialogue(string dialogue, string name)
+    public void OpenDialogue(string dialogue, string name, string type = "Dialogue")
     {
         Debug.Log(name + "dialogue started");
+        if(type == "Dialogue"){
         DialogueUI.SetActive(true);
         DialogueBox.SetText(dialogue);
         DialogueBox.SetHeader(name);
+        }
+        if(type == "Thought"){
+        Debug.Log("Thought Happened");
+        ThoughtUI.SetActive(true);
+        ThoughtBox.SetText(dialogue);
+        ThoughtBox.SetHeader(name);
+        }
+        if(type == "Speech"){
+        SpeechUI.SetActive(true);
+        SpeechBox.SetText(dialogue);
+        SpeechBox.SetHeader(name);
+        }
     }
 
     public void EndDialogue()
     {
+        Debug.Log("Thought Ended");
         DialogueUI.SetActive(false);
+        ThoughtUI.SetActive(false);
+        SpeechUI.SetActive(false);
     }
 
     public void SetQuestTitle(string title)
@@ -271,6 +327,7 @@ public class UIController : MonoBehaviour
 
     public void NotificationPop(string notifDetails, string notifHeader = "", bool Quest = false, bool fromDialogue = true)
     {
+        AudioController.Instance.PlayPopUp();
         if(!fromDialogue)
             canCloseNotif = true;
         else
@@ -299,5 +356,15 @@ public class UIController : MonoBehaviour
         BattleUI.SetActive(false);
         DialogueUI.SetActive(false);
         BaseballUI.SetActive(false);
+    }
+
+    public void FadeOut()
+    {
+        StartCoroutine(Fade.FadeOut());
+    }
+
+    public void FadeIn()
+    {
+        StartCoroutine(Fade.FadeIn());
     }
 }
