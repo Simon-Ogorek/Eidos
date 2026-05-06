@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3bc598696cd8c438657b304755ee89, type: 3}
+  m_Name: Boss Punch
+  m_EditorClassIdentifier: Assembly-CSharp::MoveData
+  moveName: Speak
+  castTime: 2
+  output: -5
+  cooldown: 0.5
+  range: 4
+  manaChange: 0
+  targetType: 1
+  effects:
+  - {fileID: 11400000, guid: 484ae6214e4f3a644acf3f059bfb12c9, type: 2}
+  collider: 0
+  colliderTTL: 1
+  hurtBoxrange: 5
+  hurtBoxWidth: 2
+  spreadRange: 0
+  spreadWidth: 0
+  projectileObj: {fileID: 0}
+  projectileForce: 0
+  castWeight: 100
+  visual: {fileID: 0}
+  timeToWaitForVisual: 0
