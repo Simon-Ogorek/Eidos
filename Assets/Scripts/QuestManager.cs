@@ -80,12 +80,12 @@ public class QuestManager : MonoBehaviour
         if (!inQuest)
         {
             inQuest = true;
-            UIController.Instance.NotificationPop("You are going to try out different activities!", "Main Quest: Discovering your Passions", true);
+            //UIController.Instance.NotificationPop("You are going to try out different activities!", "Main Quest: Discovering your Passions", true);
             //UIController.Instance.SetQuest("Discovering your Passions");
-            NonCombatant playerDialogue = Player.GetComponent<NonCombatant>();
-            ProgressDay();
-            ProgressDay();
-            ProgressDay();
+            //NonCombatant playerDialogue = Player.GetComponent<NonCombatant>();
+            //ProgressDay();
+            //ProgressDay();
+            //ProgressDay();
             //playerDialogue.GiveDialogue();
             questScript = 0;
             quest++;
@@ -115,7 +115,8 @@ public class QuestManager : MonoBehaviour
     public void Quest0()
     {
         if(questScript == 0 && !questActionComplete){
-            playerDialogue.GiveQuestDialogue("Look! I think we're almost there!", "Speech");
+            StartCoroutine(UIController.Instance.FadeIn());
+            playerDialogue.GiveQuestDialogue("Look! I think we're almost there! (Press KEY I to Interact)", "Speech");
             questActionComplete = true;
         }
         if(questScript == 1 && !questActionComplete){
@@ -131,17 +132,14 @@ public class QuestManager : MonoBehaviour
             questActionComplete = true;
         }
         if(questScript == 4 && !questActionComplete){
-            UIController.Instance.FadeOut();  
-            Ship.transform.position = new Vector3(361.76f, -3.21f, -43.35f); 
-            Captain.transform.position = new Vector3(361.08f, 1.201f, -38.85f);  
-            Navigator.transform.position = new Vector3(362.62f, 1.201f, -38.85f);
-            movement.enabled = false;
-            Player.GetComponent<CharacterController>().enabled = false;
-            Player.transform.position = new Vector3(361.82f, 1.186385f, -38.35f); 
-            Player.GetComponent<CharacterController>().enabled = true;
-            movement.enabled = true;
-            UIController.Instance.FadeIn();         
-            questActionComplete = true;
+            StartCoroutine(UIController.Instance.FadeOut());  
+            Ship.transform.position = new Vector3(361.76f, -2f, -43.35f); 
+            Captain.transform.position = new Vector3(361.08f, 2.411f, -38.85f);  
+            Navigator.transform.position = new Vector3(362.62f, 2.411f, -38.85f);
+            SetPlayerPosition(new Vector3(361.82f, 2.411f, -38.35f));
+            ProgressDay();
+            StartCoroutine(UIController.Instance.FadeIn());      
+            questActionComplete = true;   
             ContinueQuest();
         }
         if(questScript == 5 && !questActionComplete){
@@ -156,34 +154,30 @@ public class QuestManager : MonoBehaviour
             Captain.GiveQuestDialogue("However, that doesn’t mean you’ll be alone. We’ve arranged for someone to accompany you. His name is Archimedes.", "Speech");
             questActionComplete = true;
         }
-        if(questScript == 7 && !questActionComplete){
+        if(questScript == 8 && !questActionComplete){
             playerDialogue.GiveQuestDialogue("Wasn’t Archimedes the ancient Greek mathematician who invented ways to accomplish difficult things easily–like lifting heavy objects and pumping water from a deep well?", "Speech");
             questActionComplete = true;
         }
-        if(questScript == 8 && !questActionComplete){
-            playerDialogue.GiveQuestDialogue("Exactly. Like his Greek namesake, our Archimedes will give you tools to make your work easier and more effective. But you must make the effort yourself.", "Speech");
+        if(questScript == 9 && !questActionComplete){
+            Navigator.GiveQuestDialogue("Exactly. Like his Greek namesake, our Archimedes will give you tools to make your work easier and more effective. But you must make the effort yourself.", "Speech");
             questActionComplete = true;
         }
-        if(questScript == 9 && !questActionComplete){
-            UIController.Instance.FadeOut();  
+        if(questScript == 10 && !questActionComplete){
+            StartCoroutine(UIController.Instance.FadeOut());  
             Ship.SetActive(false); 
             Captain.gameObject.SetActive(false);  
             Navigator.gameObject.SetActive(false);  
-            movement.enabled = false;
-            Player.GetComponent<CharacterController>().enabled = false;
-            Player.transform.position = new Vector3(361.82f, 1.08f, 8.271f); 
-            Player.GetComponent<CharacterController>().enabled = true;
-            movement.enabled = true;
-            UIController.Instance.FadeIn();         
-            questActionComplete = true;
+            SetPlayerPosition(new Vector3(375.723f, 2.334757f, 81.34109f));
+            ProgressDay();
+            StartCoroutine(UIController.Instance.FadeIn());      
+            questActionComplete = true;   
             ContinueQuest();
         }
-        if(questScript == 10 && !questActionComplete){
+        if(questScript == 11 && !questActionComplete){
         playerDialogue.GiveQuestDialogue("Those were some nice sailors, maybe I should look around for this Archimedes.", "Thought");
-        playerDialogue.GiveQuestDialogue("Use WASD to walk around and the MOUSE for camera control. Press LEFT SHIFT to run.", "Thought");
         questActionComplete = true;
         }
-        if(questScript == 11 && !questActionComplete){
+        if(questScript == 12 && !questActionComplete){
         playerDialogue.GiveQuestDialogue("Use WASD to walk around and the MOUSE for camera control. Press LEFT SHIFT to run.", "Thought");
         questActionComplete = true;
         }
@@ -193,33 +187,117 @@ public class QuestManager : MonoBehaviour
     public void Quest1()
     {
         if(questScript == 0 && !questActionComplete){
-            Archimedes.AdvanceDialogueGroup("QUEST1");
+            Archimedes.GiveQuestDialogue("Hello, Marketus. My name is Archimedes.", "Speech");
             questActionComplete = true;
         }
-        else if(questScript == 1 && !questActionComplete){
-            playerDialogue.GiveQuestDialogue("This is true!");
+        if(questScript == 1 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("Hello. The captain and navigator told me to expect you. Are you an inventor, too, like the other Archimedes?", "Speech");
             questActionComplete = true;
         }
-        else if(questScript == 2 && !questActionComplete){
-            Archimedes.GiveQuestDialogue("Wow it worked!");
+        if(questScript == 2 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("Nowhere near as accomplished as he was, but I have invented this.", "Speech");
             questActionComplete = true;
         }
-        else if(questScript == 3 && !questActionComplete){
-            Archimedes.GiveQuestDialogue("I cant believe this worked but what is the limit for the amount of words that one can have in this discussion of what one may call life!");
+        if(questScript == 3 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("Archimedes gives me an item and I unwrap it, it fits in my palm.", "Thought"); 
             questActionComplete = true;
         }
-        else if(questScript == 4 && !questActionComplete){
-            StartCoroutine(MoveActor(Archimedes.gameObject, new Vector3(0, 1, 50)));
+        if(questScript == 4 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("It is a tessares makhana. In Greek, that means ‘a machine of four elements.’ But for simplicity, I just call it a Tessamark.", "Speech"); 
             questActionComplete = true;
-            ContinueQuest();
         }
         if(questScript == 5 && !questActionComplete){
-            Archimedes.AdvanceDialogueGroup("QUEST2");
+            playerDialogue.GiveQuestDialogue("What’s it do?", "Speech"); 
             questActionComplete = true;
         }
-        else if(questScript == 6 && !questActionComplete){
-            StartCoroutine(MoveActor(Archimedes.gameObject, new Vector3(0, 1, 73), true));
+        if(questScript == 6 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("At the moment, nothing. By the time we reach the other side of that mountain range, though, you will see what it can do.", "Speech"); 
             questActionComplete = true;
+        }
+        if(questScript == 7 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("In fact, learning to use the Tessamark is key to your quest’s success. For now, put it your pocket and keep it safe. Let's start going to the forest.", "Speech"); 
+            questActionComplete = true;
+        }
+        if(questScript == 8 && !questActionComplete){
+            StartCoroutine(MoveActor(Archimedes.gameObject, new Vector3(355.59f,6.21f,154.76f)));
+            questActionComplete = true;
+            ContinueQuest();        }
+        if(questScript == 9 && !questActionComplete){
+            Archimedes.AdvanceDialogueGroup("QUEST1"); 
+            questActionComplete = true;
+        }
+        if(questScript == 10 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("Will all the incoming voyagers have a guide too?", "Speech"); 
+            questActionComplete = true;
+        }
+        if(questScript == 11 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("Unfortunately, no. Many will wander about fruitlessly and miss out on the knowledge this land offers. Lets continue now, the journey is long.", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 12 && !questActionComplete){
+            StartCoroutine(MoveActor(Archimedes.gameObject, new Vector3(318.4f,8.49f,227.05f))); 
+            ProgressDay();
+            questActionComplete = true;
+        }
+        if(questScript == 13 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("Several hours have passed. It’s been a long day for you, and the sun will soon set. We’ll rest here for the night. You will want plenty of energy for tomorrow.", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 14 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("Here, I have a gift for you. Take care: what is inside is very small and very precious.", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 15 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("A pea? A dried green pea?", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 16 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("No normal pea, I assure you. Take out the Tessamark and carefully place the pea into the small indentation above the center.", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 17 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("I put it in the top indentation, and it glowed as I thought about the future. Press Key ESC.", "Thought");
+            UIController.Instance.unlockedTessamark = true; 
+            questActionComplete = true;
+        }
+        if(questScript == 18 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("Congratulations for discovering the first purpose of the Tessamark: to remind you to stop and think–to reflect on your experiences and the lessons they offer.(You can toggle the pause menu with KEY ESC)");          
+            questActionComplete = true;
+        }
+        if(questScript == 19 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("Woah, is it reading my mind?");
+            questActionComplete = true;
+        }
+        if(questScript == 20 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("It gathers thoughts in which you have invested intellectual or emotional energy. Initially, it will help you view, consider, and compare all the passions you’ve identified.");
+            questActionComplete = true;
+        }
+        if(questScript == 21 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("In the next stages of your quest, you’ll place three more peas in the Tessamark. Then you will really see what it can do.");
+            questActionComplete = true;
+        }
+        if(questScript == 22 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("Pretty cool. Where does its power come from? Some tiny battery?");
+            questActionComplete = true;
+        }
+        if(questScript == 23 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("No battery. The Tessamark is driven solely by your intellectual and emotional energies. And as you pursue this quest, you’ll see it grow in power.");
+            questActionComplete = true;}
+        if(questScript == 24 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("Let us sleep, tomorrow you will really see what it can do.");
+            questActionComplete = true;
+        }
+        if(questScript == 25 && !questActionComplete){
+            questActionComplete = true;
+            StartCoroutine(Sleep());
+        }
+        if(questScript == 26 && !questActionComplete){
+            questActionComplete = true;
+            Archimedes.GiveQuestDialogue("Here we go!");
+        }
+        if(questScript == 27 && !questActionComplete){
+            questActionComplete = true;
+            Archimedes.becomeEnemy();
         }
 
         
@@ -227,15 +305,18 @@ public class QuestManager : MonoBehaviour
 
     IEnumerator MoveActor(GameObject actor, Vector3 position, bool startBaseball = false)
     {
+        yield return StartCoroutine(UIController.Instance.FadeOut());
         actor.transform.position = position;
-        CameraController.Instance.FocusOn(actor);
+        //CameraController.Instance.FocusOn(actor);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
 
-        CameraController.Instance.FocusOn(Player);
+        //CameraController.Instance.FocusOn(Player);
 
         if(startBaseball)
             ActivityManager.Instance.StartBaseballMatch();
+        
+        yield return StartCoroutine(UIController.Instance.FadeIn());
 
     }
 
@@ -245,6 +326,15 @@ public class QuestManager : MonoBehaviour
         //    StartCoroutine(MoveActor(pitcher.gameObject, new Vector3(pitcher.gameObject.transform.position.x + 10, pitcher.gameObject.transform.position.y, pitcher.gameObject.transform.position.x + 10), true));
         ActivityManager.Instance.StartBaseballMatch();
     }}
+
+    public void SetPlayerPosition(Vector3 position)
+    {
+         movement.enabled = false;
+            Player.GetComponent<CharacterController>().enabled = false;
+            Player.transform.position = position;
+            Player.GetComponent<CharacterController>().enabled = true;
+            movement.enabled = true;
+    }
     public void ProgressDay()
     {
         if (currentTime == TimeofDay.Morning)
@@ -272,5 +362,16 @@ public class QuestManager : MonoBehaviour
             day+=1;
             UIController.Instance.SetDay("Day " + day + ": Morning");
         }
+    }
+
+    private IEnumerator Sleep()
+    {
+        yield return StartCoroutine(UIController.Instance.FadeOut());
+
+        ProgressDay();
+
+        yield return new WaitForSeconds(1f);
+
+        yield return StartCoroutine(UIController.Instance.FadeIn());
     }
 }

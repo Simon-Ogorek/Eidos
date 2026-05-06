@@ -75,7 +75,8 @@ public class Combatant : MonoBehaviour
         Run_Away,
         Run_Off_Arena,
         Dissapear,
-        Player_Death
+        Player_Death,
+        Become_NPC
     }
 
     public DeathType deathType = DeathType.Dissapear; // TODO
@@ -153,8 +154,13 @@ public class Combatant : MonoBehaviour
                 BattleManager.Instance.EndBattle();
                 health = maxHealth;
                 break;
+            case DeathType.Become_NPC:
+                agent.enabled = false;
+                becomeNPC();
+                break;
         }
     }
+    
 
     public void ChangeHealth(float value)
     {
@@ -268,6 +274,32 @@ public class Combatant : MonoBehaviour
         //agent.speed = agentSpeed;
         agent.enabled = true;
     }
+
+    public void becomeNPC()
+    {
+        gameObject.tag = "NPC";
+        isEnemy = false;
+        target = null;
+
+        agent.enabled = false;
+        DisableColliders();
+
+        Enemy enemy = GetComponent<Enemy>();
+        if(enemy != null)
+        {
+            enemy.enabled = false;
+            enemy.isEnemy = false;
+        }
+        BattleManager.Instance.RemoveFromBattle(this);
+
+        NonCombatant NPC = gameObject.GetComponent<NonCombatant>();
+
+        if(NPC != null){
+        NPC.enabled = true;
+        }
+        
+        this.enabled = false;
+    }
     public void CreateVisual(GameObject prefab)
     {
         StartCoroutine(CreateVisualHelper(prefab));
@@ -350,4 +382,5 @@ public class Combatant : MonoBehaviour
         agent.updateRotation = true;
     }
     #endregion
+
 }

@@ -114,6 +114,8 @@ public class Enemy : Combatant
 
     }
 
+
+
     public void UpdateBattle()
     {
         

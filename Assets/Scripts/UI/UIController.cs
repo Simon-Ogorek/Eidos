@@ -66,6 +66,9 @@ public class UIController : MonoBehaviour
     private UITextDisplay NotificationBox;
 
     [SerializeField]
+    private GameObject SelfUI;
+
+    [SerializeField]
     private UITextDisplay DayBox;
 
     [SerializeField]
@@ -82,11 +85,17 @@ public class UIController : MonoBehaviour
 
     bool quest = false;
 
+    bool isPaused = false;
+
     public static UIController Instance { get; private set; }
 
     public Combatant playerCombatant;
 
     public PlayerMovement playerMovement;
+
+    public bool unlockedTessamark = false;
+     
+    bool tessamarkQuest = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -217,6 +226,14 @@ public class UIController : MonoBehaviour
                     }
                 }
             }
+            if(Input.GetKeyDown(KeyCode.Escape) && unlockedTessamark)
+        {
+            TogglePause();
+            if(tessamarkQuest){
+                tessamarkQuest = false;
+                QuestManager.Instance.ContinueQuest();
+            }
+        }
     }
 
     public Combatant ResetTarget()
@@ -285,6 +302,8 @@ public class UIController : MonoBehaviour
     {
         Debug.Log(name + "dialogue started");
         if(type == "Dialogue"){
+        SpeechUI.SetActive(false);
+        ThoughtUI.SetActive(false);
         DialogueUI.SetActive(true);
         DialogueBox.SetText(dialogue);
         DialogueBox.SetHeader(name);
@@ -368,13 +387,37 @@ public class UIController : MonoBehaviour
         BaseballUI.SetActive(false);
     }
 
-    public void FadeOut()
+    public IEnumerator FadeOut()
     {
-        StartCoroutine(Fade.FadeOut());
+        yield return StartCoroutine(Fade.FadeOut());
     }
 
-    public void FadeIn()
+    public IEnumerator FadeIn()
     {
-        StartCoroutine(Fade.FadeIn());
+        yield return StartCoroutine(Fade.FadeIn());
+    }
+
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+
+        if (isPaused)
+        {
+            SelfUI.SetActive(true);
+            Time.timeScale = 0f;
+            Time.fixedDeltaTime = 0f;
+            playerMovement.cantMove = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            SelfUI.SetActive(false);
+            Time.timeScale = 1f;
+            Time.fixedDeltaTime = 0.02f;
+            playerMovement.cantMove = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 }

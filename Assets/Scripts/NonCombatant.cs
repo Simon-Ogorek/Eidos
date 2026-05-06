@@ -24,6 +24,10 @@ public class NonCombatant : MonoBehaviour
     bool questDialogue = false;
     bool usingController = false;
 
+    float questDialogueStartTime;
+
+    float normalDialogueStartTime;
+
     
 
     void Start()
@@ -50,7 +54,7 @@ public class NonCombatant : MonoBehaviour
             {
                 Debug.Log(name + " dialogueI");
                 if(i <= dialogue.Length-1){
-                    if(dialogue[i] == "QUEST")
+                    if(dialogue[i] == "STARTQUEST")
                         {
                             EndNPCDialogue();
                             QuestManager.Instance.StartQuest();
@@ -67,6 +71,11 @@ public class NonCombatant : MonoBehaviour
                             EndNPCDialogue();
                             QuestManager.Instance.PlayBaseball(gameObject);
 
+                    }
+                    else if(dialogue[i] == "ENEMY")
+                        {
+                            EndNPCDialogue();
+                            becomeEnemy();
                     }
                     else
                         {
@@ -86,6 +95,8 @@ public class NonCombatant : MonoBehaviour
         }
         else if (questDialogue)
         {
+            if(Time.time - questDialogueStartTime < 0.2f)
+                return;
             if(Input.GetKeyDown(KeyCode.I) || (usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
             {
                 Debug.Log(name + " quest dialogue interaction");
@@ -102,19 +113,61 @@ public class NonCombatant : MonoBehaviour
 //Starts a dialogue action from UI Controller
     public void GiveDialogue()
     {
+        if(Time.time - normalDialogueStartTime < 0.2f)
+            return;
         AudioController.Instance.PlayInteract();
-        Debug.Log("This happened" + name);
+        Debug.Log("This happened" + name + dialogue[i]);
+        
+        while (i < dialogue.Length && dialogue[i].StartsWith("QUEST"))
+        {
+            i++;
+        }
+
+        if(i >= dialogue.Length)
+            return;
+
+        if(dialogue[i] == "STARTQUEST")
+        {
+            EndNPCDialogue();
+            QuestManager.Instance.StartQuest();
+            i+=1;
+            return;
+        }
+        if(dialogue[i] == "CONTINUEQUEST")
+        {
+            EndNPCDialogue();
+            QuestManager.Instance.ContinueQuest();
+            i+=1;
+            return;
+        }
+        if(dialogue[i] == "BASEBALL")
+        {
+            EndNPCDialogue();
+            QuestManager.Instance.PlayBaseball(gameObject);
+            i+=1;
+            return;
+        }
+        if(dialogue[i] == "ENEMY")
+        {
+            EndNPCDialogue();
+            becomeEnemy();
+        }
+        else{
         CameraController.Instance.FocusOn(gameObject);
         UIController.Instance.OpenDialogue(dialogue[i], name);
         inDialogue = true;
+        normalDialogueStartTime = Time.time;
         player.cantMove = true;
-        i += 1;
+        i += 1;}
     }
 
     public void GiveQuestDialogue(string dialogue, string type = "Dialogue")
     {
+        inDialogue = false;
         AudioController.Instance.PlayInteract();
         questDialogue = true;
+        questDialogueStartTime = Time.time;
+
         player.cantMove = true;
         UIController.Instance.OpenDialogue(dialogue, name, type);
     }
@@ -122,7 +175,11 @@ public class NonCombatant : MonoBehaviour
     public void EndNPCDialogue()
     {
         inDialogue = false;
-        i-=2;
+
+       // if(i >= 2)
+       //     i-=2;
+        //else
+        //    i = 0;
         player.cantMove = false;
         CameraController.Instance.FocusOn(player.gameObject);
         UIController.Instance.EndDialogue();
@@ -130,8 +187,30 @@ public class NonCombatant : MonoBehaviour
 
     public void AdvanceDialogueGroup(string marker)
     {
-        while(dialogue[i] != marker)
+        while(i < dialogue.Length && dialogue[i] != marker)
             i++;
+
         i+=1;
+        if(i >= dialogue.Length)
+        {
+            Debug.LogWarning(name + "couldn't find dialogue marker: " + marker);
+            return;
+        }
+    }
+
+    public void becomeEnemy()
+    {
+        gameObject.tag = "Enemy";
+        Enemy enemy = gameObject.GetComponent<Enemy>();
+
+        if(enemy != null){
+        enemy.enabled = true;
+        enemy.isEnemy = true;
+
+        UIController.Instance.AddToEnemyPanel(enemy);
+        UIController.Instance.playerCombatant.target = enemy;
+        }
+        
+        this.enabled = false;
     }
 }
