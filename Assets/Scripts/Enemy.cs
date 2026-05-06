@@ -50,6 +50,20 @@ public class Enemy : Combatant
             hasTriggeredBattle = false;
             health = maxHealth;
         }
+
+        if (isBoss)
+        {
+            bossAnimationController bossAnimation = GetComponentInChildren<bossAnimationController>();
+
+            if (agent.velocity.magnitude > 0.1f)
+            {
+                bossAnimation.SetIsWalking(true);
+            }
+            else
+            {
+                bossAnimation.SetIsWalking(false);
+            }
+        }
     }
 
     void ExecuteMove(MoveData move)

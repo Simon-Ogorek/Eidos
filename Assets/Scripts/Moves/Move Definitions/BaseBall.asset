@@ -17,7 +17,7 @@ MonoBehaviour:
   output: -3
   cooldown: 4
   range: 10
-  manaChange: 3
+  manaChange: -1
   targetType: 1
   effects:
   - {fileID: 11400000, guid: 484ae6214e4f3a644acf3f059bfb12c9, type: 2}

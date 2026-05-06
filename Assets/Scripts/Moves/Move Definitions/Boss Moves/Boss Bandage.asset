@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Boss Bandage
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
   moveName: Compose
-  castTime: 5
-  output: 1
-  cooldown: 3
+  castTime: 1
+  output: 5
+  cooldown: 2
   range: 0
-  manaChange: -2
+  manaChange: -1
   targetType: 0
   effects:
   - {fileID: 11400000, guid: f02f1b56da28b9f4dbebd1c830f350d9, type: 2}
@@ -29,6 +29,6 @@ MonoBehaviour:
   spreadWidth: 0
   projectileObj: {fileID: 0}
   projectileForce: 0
-  castWeight: 200
-  visual: {fileID: 0}
-  timeToWaitForVisual: 0
+  castWeight: 100
+  visual: {fileID: 2983893621417059760, guid: 857a4cc4e03c99d42ac9d40d3b407e99, type: 3}
+  timeToWaitForVisual: 2
