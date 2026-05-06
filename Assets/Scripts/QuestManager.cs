@@ -80,6 +80,7 @@ public class QuestManager : MonoBehaviour
         if (!inQuest)
         {
             inQuest = true;
+            questActionComplete = false;
             //UIController.Instance.NotificationPop("You are going to try out different activities!", "Main Quest: Discovering your Passions", true);
             //UIController.Instance.SetQuest("Discovering your Passions");
             //NonCombatant playerDialogue = Player.GetComponent<NonCombatant>();
@@ -104,6 +105,8 @@ public class QuestManager : MonoBehaviour
             Quest1();
         else if(quest == 2)
             Quest2();
+        else if(quest == 3)
+            Quest3();
         //LookTowards(Eidos);
     }
 
@@ -295,7 +298,7 @@ public class QuestManager : MonoBehaviour
         }
         if(questScript == 26 && !questActionComplete){
             questActionComplete = true;
-            UIController.Instance.NotificationPop("You are going to have a visual dialogue with Archimedes!", "Main Quest: Discovering Magic", true);
+            UIController.Instance.NotificationPop("You are going to have a visual dialogue with Archimedes!", "Main Quest: Discovering Magic", true, false);
             UIController.Instance.SetState(UIController.UIState.Exploring);
             inQuest = false;
             StartQuest();
@@ -322,9 +325,11 @@ public class QuestManager : MonoBehaviour
         }
         if(questScript == 4 && !questActionComplete){
             questActionComplete = true;
-            UIController.Instance.NotificationPop("COMPLETE!", "Main Quest: Discovering Magic", true);
+            UIController.Instance.NotificationPop("COMPLETE!", "Main Quest: Discovering Magic", true, false);
             Archimedes.AdvanceDialogueGroup("QUEST2"); 
+            ProgressDay();
             inQuest = false;
+            StartQuest();
         }
     }
 
@@ -344,7 +349,7 @@ public class QuestManager : MonoBehaviour
         }
         if(questScript == 3 && !questActionComplete){
             questActionComplete = true;
-            UIController.Instance.NotificationPop("Discover your Passions!", "Main Quest: The Village of Passions", true);
+            UIController.Instance.NotificationPop("Discover your Passions!", "Main Quest: The Village of Passions", true, false);
         }
      
     }

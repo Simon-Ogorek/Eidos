@@ -399,6 +399,8 @@ public class UIController : MonoBehaviour
 
     public void TogglePause()
     {
+        AudioController.Instance.PlayPopUp();
+
         isPaused = !isPaused;
 
         if (isPaused)

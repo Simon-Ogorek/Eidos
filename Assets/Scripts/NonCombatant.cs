@@ -28,6 +28,8 @@ public class NonCombatant : MonoBehaviour
 
     float normalDialogueStartTime;
 
+    private float blockNormalDialogueUntil = 0f;
+
     
 
     void Start()
@@ -47,7 +49,7 @@ public class NonCombatant : MonoBehaviour
         }
         if(inDialogue)
         {
-        if(i <= dialogue.Length)
+        if(i < dialogue.Length)
         {
             Debug.Log("Dialogue loop" + name);
             if(Input.GetKeyDown(KeyCode.I) || (usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
@@ -105,6 +107,8 @@ public class NonCombatant : MonoBehaviour
                 UIController.Instance.EndDialogue();
                 QuestManager.Instance.ContinueQuest();
                 player.cantMove = false;
+
+                blockNormalDialogueUntil = Time.time + 0.25f;
             }
             
         }
@@ -115,6 +119,10 @@ public class NonCombatant : MonoBehaviour
     {
         if(Time.time - normalDialogueStartTime < 0.2f)
             return;
+
+        if(Time.time < blockNormalDialogueUntil)
+            return;
+            
         AudioController.Instance.PlayInteract();
         Debug.Log("This happened" + name + dialogue[i]);
         
@@ -187,15 +195,17 @@ public class NonCombatant : MonoBehaviour
 
     public void AdvanceDialogueGroup(string marker)
     {
+        i = 0;
         while(i < dialogue.Length && dialogue[i] != marker)
             i++;
 
-        i+=1;
         if(i >= dialogue.Length)
         {
             Debug.LogWarning(name + "couldn't find dialogue marker: " + marker);
             return;
         }
+
+        i+=1;
     }
 
     public void becomeEnemy()
