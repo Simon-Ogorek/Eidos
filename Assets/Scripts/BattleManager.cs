@@ -181,7 +181,8 @@ public class BattleManager : MonoBehaviour
             // Check if we have any enemies left in the battle;
             foreach (Transform combatant in combatantList)
             {
-                if (combatant.gameObject.GetComponent<Enemy>())
+                Enemy enemy = combatant.gameObject.GetComponent<Enemy>();
+                if (enemy != null && enemy.enabled)
                 {
                     return;
                 }

@@ -291,6 +291,14 @@ public class QuestManager : MonoBehaviour
             questActionComplete = true;
             StartCoroutine(Sleep());
         }
+        if(questScript == 26 && !questActionComplete){
+            questActionComplete = true;
+            Archimedes.GiveQuestDialogue("Here we go!");
+        }
+        if(questScript == 27 && !questActionComplete){
+            questActionComplete = true;
+            Archimedes.becomeEnemy();
+        }
 
         
     }
@@ -365,7 +373,5 @@ public class QuestManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         yield return StartCoroutine(UIController.Instance.FadeIn());
-
-        ContinueQuest();
     }
 }

@@ -26,6 +26,8 @@ public class NonCombatant : MonoBehaviour
 
     float questDialogueStartTime;
 
+    float normalDialogueStartTime;
+
     
 
     void Start()
@@ -58,17 +60,22 @@ public class NonCombatant : MonoBehaviour
                             QuestManager.Instance.StartQuest();
 
                         }
-                    if(dialogue[i] == "CONTINUEQUEST")
+                    else if(dialogue[i] == "CONTINUEQUEST")
                         {
                             EndNPCDialogue();
                             QuestManager.Instance.ContinueQuest();
 
                     }
-                    if(dialogue[i] == "BASEBALL")
+                    else if(dialogue[i] == "BASEBALL")
                         {
                             EndNPCDialogue();
                             QuestManager.Instance.PlayBaseball(gameObject);
 
+                    }
+                    else if(dialogue[i] == "ENEMY")
+                        {
+                            EndNPCDialogue();
+                            becomeEnemy();
                     }
                     else
                         {
@@ -106,8 +113,10 @@ public class NonCombatant : MonoBehaviour
 //Starts a dialogue action from UI Controller
     public void GiveDialogue()
     {
+        if(Time.time - normalDialogueStartTime < 0.2f)
+            return;
         AudioController.Instance.PlayInteract();
-        Debug.Log("This happened" + name);
+        Debug.Log("This happened" + name + dialogue[i]);
         
         while (i < dialogue.Length && dialogue[i].StartsWith("QUEST"))
         {
@@ -116,7 +125,7 @@ public class NonCombatant : MonoBehaviour
 
         if(i >= dialogue.Length)
             return;
-            
+
         if(dialogue[i] == "STARTQUEST")
         {
             EndNPCDialogue();
@@ -138,10 +147,16 @@ public class NonCombatant : MonoBehaviour
             i+=1;
             return;
         }
+        if(dialogue[i] == "ENEMY")
+        {
+            EndNPCDialogue();
+            becomeEnemy();
+        }
         else{
         CameraController.Instance.FocusOn(gameObject);
         UIController.Instance.OpenDialogue(dialogue[i], name);
         inDialogue = true;
+        normalDialogueStartTime = Time.time;
         player.cantMove = true;
         i += 1;}
     }
@@ -161,10 +176,10 @@ public class NonCombatant : MonoBehaviour
     {
         inDialogue = false;
 
-        if(i >= 2)
-            i-=2;
-        else
-            i = 0;
+       // if(i >= 2)
+       //     i-=2;
+        //else
+        //    i = 0;
         player.cantMove = false;
         CameraController.Instance.FocusOn(player.gameObject);
         UIController.Instance.EndDialogue();
@@ -181,5 +196,21 @@ public class NonCombatant : MonoBehaviour
             Debug.LogWarning(name + "couldn't find dialogue marker: " + marker);
             return;
         }
+    }
+
+    public void becomeEnemy()
+    {
+        gameObject.tag = "Enemy";
+        Enemy enemy = gameObject.GetComponent<Enemy>();
+
+        if(enemy != null){
+        enemy.enabled = true;
+        enemy.isEnemy = true;
+
+        UIController.Instance.AddToEnemyPanel(enemy);
+        UIController.Instance.playerCombatant.target = enemy;
+        }
+        
+        this.enabled = false;
     }
 }
