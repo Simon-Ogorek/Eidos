@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &858266224022355104
 Transform:
@@ -250,6 +250,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CornerWall (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1a631461762f8564b853ec7190047acc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -272,13 +276,25 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bd99b790641b6c045ad63d33f5500136, type: 2}
+    - target: {fileID: 2040144521955326148, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2326818379267409337, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bd99b790641b6c045ad63d33f5500136, type: 2}
+    - target: {fileID: 4272359742958609516, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_Name
       value: RoofWalllShort
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8049743134487683682, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -394,6 +410,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeamCorner (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -467,6 +487,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
       propertyPath: m_Name
       value: BeamCorner (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -542,6 +566,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CornerWall (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1a631461762f8564b853ec7190047acc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -615,6 +643,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
       propertyPath: m_Name
       value: FlatWall (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -690,6 +722,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlatWall (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -755,6 +791,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
       propertyPath: m_Name
       value: LWoodBeam (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -834,6 +874,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LWoodBeam (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -899,6 +943,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
       propertyPath: m_Name
       value: LWoodBeam (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -966,6 +1014,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SWoodBeam (08)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1032,6 +1084,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlatWall (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1097,6 +1153,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
       propertyPath: m_Name
       value: SWoodBeam (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1172,6 +1232,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeamCorner (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1242,6 +1306,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CornerWall (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1a631461762f8564b853ec7190047acc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1308,6 +1376,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SWoodBeam (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1373,6 +1445,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
       propertyPath: m_Name
       value: MWoodBeam (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1444,6 +1520,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CornerWall (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1a631461762f8564b853ec7190047acc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1509,6 +1589,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
       propertyPath: m_Name
       value: SWoodBeam (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1584,6 +1668,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlatWall (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1649,6 +1737,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
       propertyPath: m_Name
       value: SWoodBeam (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1724,6 +1816,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CornerWall (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1a631461762f8564b853ec7190047acc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1789,6 +1885,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7d442cf1d13048b4ea9c086e85897597, type: 3}
       propertyPath: m_Name
       value: WoodPillar (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d442cf1d13048b4ea9c086e85897597, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1856,6 +1956,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LWoodBeam (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1921,6 +2025,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
       propertyPath: m_Name
       value: SWoodBeam (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1996,6 +2104,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlatWall (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2062,6 +2174,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlatWall (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2127,6 +2243,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1a631461762f8564b853ec7190047acc, type: 3}
       propertyPath: m_Name
       value: CornerWall (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1a631461762f8564b853ec7190047acc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2202,6 +2322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlatWall (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2268,6 +2392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodPillar (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d442cf1d13048b4ea9c086e85897597, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2333,6 +2461,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
       propertyPath: m_Name
       value: MWoodBeam (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2412,6 +2544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LWoodBeam (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2486,6 +2622,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlatWall (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2551,6 +2691,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
       propertyPath: m_Name
       value: SWoodBeam (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2630,6 +2774,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LWoodBeam (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2695,6 +2843,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
       propertyPath: m_Name
       value: BeamCorner (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2770,6 +2922,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlatWall (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2844,6 +3000,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CornerWall (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1a631461762f8564b853ec7190047acc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2909,6 +3069,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
       propertyPath: m_Name
       value: SWoodBeam (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2980,6 +3144,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CornerWall (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1a631461762f8564b853ec7190047acc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3045,6 +3213,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
       propertyPath: m_Name
       value: LWoodBeam (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3112,6 +3284,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chimmy1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7a1c160b592960c42925376c8573c1b1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3177,6 +3353,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
       propertyPath: m_Name
       value: SWoodBeam (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3244,6 +3424,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Window1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be1573a68830b504ca642e442eed4abe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3310,6 +3494,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MWoodBeam (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3375,6 +3563,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
       propertyPath: m_Name
       value: BeamCorner (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3450,6 +3642,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlatWall (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3524,6 +3720,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlatWall (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3590,6 +3790,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodPillar (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d442cf1d13048b4ea9c086e85897597, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3612,13 +3816,25 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bd99b790641b6c045ad63d33f5500136, type: 2}
+    - target: {fileID: 2040144521955326148, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2326818379267409337, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bd99b790641b6c045ad63d33f5500136, type: 2}
+    - target: {fileID: 4272359742958609516, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_Name
       value: RoofWalllShort (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8049743134487683682, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3726,6 +3942,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SWoodBeam (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3800,6 +4020,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeamCorner (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3866,6 +4090,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SWoodBeam (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3884,9 +4112,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 858266224022355104}
     m_Modifications:
+    - target: {fileID: 2040144521955326148, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272359742958609516, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_Name
       value: RoofWalllShort (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8049743134487683682, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3994,6 +4234,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SWoodBeam (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4068,6 +4312,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeamCorner (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4137,6 +4385,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1a631461762f8564b853ec7190047acc, type: 3}
       propertyPath: m_Name
       value: CornerWall (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1a631461762f8564b853ec7190047acc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4208,6 +4460,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CornerWall (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1a631461762f8564b853ec7190047acc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4270,10 +4526,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7688600008849256955, guid: bb89875246a312b40924c05e1883562f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -4486469398250783502, guid: bb89875246a312b40924c05e1883562f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -3446471092978359002, guid: bb89875246a312b40924c05e1883562f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -1278585854416800091, guid: bb89875246a312b40924c05e1883562f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f32e1c8b695ea7947a0d3b8ca1de4165, type: 2}
+    - target: {fileID: -626976303136536480, guid: bb89875246a312b40924c05e1883562f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 195671337490510198, guid: bb89875246a312b40924c05e1883562f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -4286,14 +4558,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: SignPost
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bb89875246a312b40924c05e1883562f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081400562621939690, guid: bb89875246a312b40924c05e1883562f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1291520513065899430, guid: bb89875246a312b40924c05e1883562f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f32e1c8b695ea7947a0d3b8ca1de4165, type: 2}
+    - target: {fileID: 1462091821145754565, guid: bb89875246a312b40924c05e1883562f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963267943483152696, guid: bb89875246a312b40924c05e1883562f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2578353138874473824, guid: bb89875246a312b40924c05e1883562f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f32e1c8b695ea7947a0d3b8ca1de4165, type: 2}
+    - target: {fileID: 3130826141231469132, guid: bb89875246a312b40924c05e1883562f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3808373391711239009, guid: bb89875246a312b40924c05e1883562f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -4302,6 +4594,26 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f32e1c8b695ea7947a0d3b8ca1de4165, type: 2}
+    - target: {fileID: 4710182128846045294, guid: bb89875246a312b40924c05e1883562f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853262688856411530, guid: bb89875246a312b40924c05e1883562f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435399250663189564, guid: bb89875246a312b40924c05e1883562f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7832211902729451555, guid: bb89875246a312b40924c05e1883562f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170630131318920624, guid: bb89875246a312b40924c05e1883562f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8243220932023295415, guid: bb89875246a312b40924c05e1883562f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -4310,6 +4622,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f32e1c8b695ea7947a0d3b8ca1de4165, type: 2}
+    - target: {fileID: 8510547655166014356, guid: bb89875246a312b40924c05e1883562f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4375,6 +4691,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
       propertyPath: m_Name
       value: BeamCorner (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4442,6 +4762,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LWoodBeam (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4507,6 +4831,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6ccc1096aa6f9964cbaaf5a20b2a09ca, type: 3}
       propertyPath: m_Name
       value: Window2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6ccc1096aa6f9964cbaaf5a20b2a09ca, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4574,6 +4902,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SWoodBeam (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4639,6 +4971,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be1573a68830b504ca642e442eed4abe, type: 3}
       propertyPath: m_Name
       value: Window1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be1573a68830b504ca642e442eed4abe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4718,6 +5054,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LWoodBeam (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4783,6 +5123,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
       propertyPath: m_Name
       value: LWoodBeam (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4850,6 +5194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Window1 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be1573a68830b504ca642e442eed4abe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4915,6 +5263,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
       propertyPath: m_Name
       value: SWoodBeam (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4982,6 +5334,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LWoodBeam (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5047,6 +5403,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be1573a68830b504ca642e442eed4abe, type: 3}
       propertyPath: m_Name
       value: Window1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be1573a68830b504ca642e442eed4abe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5114,6 +5474,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Window1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be1573a68830b504ca642e442eed4abe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5180,6 +5544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeamCorner (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5245,6 +5613,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
       propertyPath: m_Name
       value: MWoodBeam (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5320,6 +5692,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlatWall (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5385,6 +5761,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
       propertyPath: m_Name
       value: MWoodBeam (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5460,6 +5840,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeamCorner (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5522,9 +5906,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4294533036015203127, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5126813284321459577, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
       propertyPath: m_Name
       value: Roof2_Prefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126813284321459577, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940285783203350151, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850820042063091798, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5591,6 +5991,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6ccc1096aa6f9964cbaaf5a20b2a09ca, type: 3}
       propertyPath: m_Name
       value: Window2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6ccc1096aa6f9964cbaaf5a20b2a09ca, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5666,6 +6070,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeamCorner (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5684,9 +6092,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 858266224022355104}
     m_Modifications:
+    - target: {fileID: 2040144521955326148, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272359742958609516, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_Name
       value: RoofWalllShort (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8049743134487683682, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_LocalScale.x
@@ -5750,9 +6170,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 858266224022355104}
     m_Modifications:
+    - target: {fileID: 2040144521955326148, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272359742958609516, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_Name
       value: RoofWalllShort (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8049743134487683682, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_LocalScale.x
@@ -5864,6 +6296,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeamCorner (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5930,6 +6366,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MWoodBeam (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5952,13 +6392,25 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bd99b790641b6c045ad63d33f5500136, type: 2}
+    - target: {fileID: 2040144521955326148, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2326818379267409337, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bd99b790641b6c045ad63d33f5500136, type: 2}
+    - target: {fileID: 4272359742958609516, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_Name
       value: RoofWalllShort (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8049743134487683682, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6066,6 +6518,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LWoodBeam (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6131,6 +6587,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
       propertyPath: m_Name
       value: SWoodBeam (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6198,6 +6658,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodPillar
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d442cf1d13048b4ea9c086e85897597, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6256,9 +6720,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4294533036015203127, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5126813284321459577, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
       propertyPath: m_Name
       value: Roof2_Prefab (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126813284321459577, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940285783203350151, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850820042063091798, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6322,9 +6802,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4294533036015203127, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5126813284321459577, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
       propertyPath: m_Name
       value: Roof2_Prefab (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126813284321459577, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940285783203350151, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850820042063091798, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6392,6 +6888,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MWoodBeam (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6458,6 +6958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodPillar (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d442cf1d13048b4ea9c086e85897597, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6523,6 +7027,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
       propertyPath: m_Name
       value: SWoodBeam (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6594,6 +7102,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlatWall (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6659,6 +7171,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6ccc1096aa6f9964cbaaf5a20b2a09ca, type: 3}
       propertyPath: m_Name
       value: Window2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6ccc1096aa6f9964cbaaf5a20b2a09ca, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6726,6 +7242,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Window1 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be1573a68830b504ca642e442eed4abe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6791,6 +7311,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
       propertyPath: m_Name
       value: SWoodBeam (09)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6870,6 +7394,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LWoodBeam (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6948,6 +7476,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LWoodBeam (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7006,9 +7538,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4294533036015203127, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5126813284321459577, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
       propertyPath: m_Name
       value: Roof2_Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126813284321459577, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940285783203350151, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850820042063091798, guid: 83df121e02aa7fc4583ee467f16bba1c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7032,13 +7580,25 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bd99b790641b6c045ad63d33f5500136, type: 2}
+    - target: {fileID: 2040144521955326148, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2326818379267409337, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bd99b790641b6c045ad63d33f5500136, type: 2}
+    - target: {fileID: 4272359742958609516, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_Name
       value: RoofWalllShort (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8049743134487683682, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7150,6 +7710,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlatWall (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7215,6 +7779,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
       propertyPath: m_Name
       value: SWoodBeam (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7282,6 +7850,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LWoodBeam (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7300,9 +7872,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 858266224022355104}
     m_Modifications:
+    - target: {fileID: 2040144521955326148, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272359742958609516, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_Name
       value: RoofWalllShort (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8049743134487683682, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_LocalScale.x
@@ -7414,6 +7998,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodPillar (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d442cf1d13048b4ea9c086e85897597, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7479,6 +8067,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
       propertyPath: m_Name
       value: MWoodBeam (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7546,6 +8138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SWoodBeam (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7612,6 +8208,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LWoodBeam (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7677,6 +8277,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
       propertyPath: m_Name
       value: SWoodBeam (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7752,6 +8356,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeamCorner (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7817,6 +8425,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7d442cf1d13048b4ea9c086e85897597, type: 3}
       propertyPath: m_Name
       value: WoodPillar (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d442cf1d13048b4ea9c086e85897597, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7884,6 +8496,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SWoodBeam (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7950,6 +8566,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodPillar (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d442cf1d13048b4ea9c086e85897597, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8015,6 +8635,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7d442cf1d13048b4ea9c086e85897597, type: 3}
       propertyPath: m_Name
       value: WoodPillar (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d442cf1d13048b4ea9c086e85897597, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8086,6 +8710,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CornerWall (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1a631461762f8564b853ec7190047acc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8151,6 +8779,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
       propertyPath: m_Name
       value: MWoodBeam (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8218,6 +8850,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MWoodBeam (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8236,9 +8872,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 858266224022355104}
     m_Modifications:
+    - target: {fileID: 2040144521955326148, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272359742958609516, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_Name
       value: RoofWalllShort (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8049743134487683682, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_LocalScale.x
@@ -8350,6 +8998,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SWoodBeam (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8415,6 +9067,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
       propertyPath: m_Name
       value: LWoodBeam (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8482,6 +9138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LWoodBeam (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8548,6 +9208,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Window1 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be1573a68830b504ca642e442eed4abe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8613,6 +9277,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
       propertyPath: m_Name
       value: LWoodBeam (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8692,6 +9360,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LWoodBeam (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8757,6 +9429,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
       propertyPath: m_Name
       value: MWoodBeam (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8824,6 +9500,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MWoodBeam (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8842,9 +9522,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 858266224022355104}
     m_Modifications:
+    - target: {fileID: 2040144521955326148, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272359742958609516, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_Name
       value: RoofWalllShort (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8049743134487683682, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_LocalScale.x
@@ -8956,6 +9648,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SWoodBeam (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9022,6 +9718,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SWoodBeam (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9087,6 +9787,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7a1c160b592960c42925376c8573c1b1, type: 3}
       propertyPath: m_Name
       value: Chimmy1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7a1c160b592960c42925376c8573c1b1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9158,6 +9862,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlatWall (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9223,6 +9931,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6ccc1096aa6f9964cbaaf5a20b2a09ca, type: 3}
       propertyPath: m_Name
       value: Window2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6ccc1096aa6f9964cbaaf5a20b2a09ca, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9290,6 +10002,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SWoodBeam (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9308,9 +10024,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 858266224022355104}
     m_Modifications:
+    - target: {fileID: 2040144521955326148, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272359742958609516, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_Name
       value: RoofWalllShort (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8049743134487683682, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9418,6 +10146,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeamCorner (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9483,6 +10215,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
       propertyPath: m_Name
       value: SWoodBeam (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9550,6 +10286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodPillar (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d442cf1d13048b4ea9c086e85897597, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9615,6 +10355,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
       propertyPath: m_Name
       value: BeamCorner (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9682,6 +10426,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MWoodBeam (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9748,6 +10496,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Window1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be1573a68830b504ca642e442eed4abe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9766,9 +10518,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 858266224022355104}
     m_Modifications:
+    - target: {fileID: 2040144521955326148, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272359742958609516, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_Name
       value: RoofWalllShort (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8049743134487683682, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9876,6 +10640,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LWoodBeam (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9942,6 +10710,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MWoodBeam (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10004,10 +10776,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6139195988475724753, guid: cc583f0a06a5ccf4ba22c5a491cc5cea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -3753039034769860738, guid: cc583f0a06a5ccf4ba22c5a491cc5cea, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: c640203effcb64547854b258c7177a7f, type: 2}
+    - target: {fileID: -1881643221426435966, guid: cc583f0a06a5ccf4ba22c5a491cc5cea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -1803650468444035059, guid: cc583f0a06a5ccf4ba22c5a491cc5cea, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -10016,14 +10796,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: door (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cc583f0a06a5ccf4ba22c5a491cc5cea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 965846327462158582, guid: cc583f0a06a5ccf4ba22c5a491cc5cea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3272222565179009857, guid: cc583f0a06a5ccf4ba22c5a491cc5cea, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: c640203effcb64547854b258c7177a7f, type: 2}
+    - target: {fileID: 5100908114469127496, guid: cc583f0a06a5ccf4ba22c5a491cc5cea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5546025156912822150, guid: cc583f0a06a5ccf4ba22c5a491cc5cea, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: c640203effcb64547854b258c7177a7f, type: 2}
+    - target: {fileID: 6174980944969878060, guid: cc583f0a06a5ccf4ba22c5a491cc5cea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10089,6 +10885,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1a631461762f8564b853ec7190047acc, type: 3}
       propertyPath: m_Name
       value: CornerWall (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1a631461762f8564b853ec7190047acc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10156,6 +10956,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SWoodBeam (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10221,6 +11025,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: be1573a68830b504ca642e442eed4abe, type: 3}
       propertyPath: m_Name
       value: Window1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be1573a68830b504ca642e442eed4abe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10288,6 +11096,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LWoodBeam (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10306,13 +11118,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 858266224022355104}
     m_Modifications:
+    - target: {fileID: 2040144521955326148, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2326818379267409337, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bd99b790641b6c045ad63d33f5500136, type: 2}
+    - target: {fileID: 4272359742958609516, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_Name
       value: RoofWalllShort (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8049743134487683682, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_LocalScale.x
@@ -10424,6 +11248,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SWoodBeam (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10489,6 +11317,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7d442cf1d13048b4ea9c086e85897597, type: 3}
       propertyPath: m_Name
       value: WoodPillar (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d442cf1d13048b4ea9c086e85897597, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10556,6 +11388,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SWoodBeam (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10622,6 +11458,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MWoodBeam (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5aecf30270d7b9241a997a01e256f844, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10640,9 +11480,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 858266224022355104}
     m_Modifications:
+    - target: {fileID: 2040144521955326148, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272359742958609516, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_Name
       value: RoofWalllShort (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8049743134487683682, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_LocalScale.x
@@ -10762,6 +11614,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlatWall (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10840,6 +11696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LWoodBeam (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a5c3e280a3c2c424fa119b764c3bc96a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10906,6 +11766,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeamCorner (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed945b1612983b74b8f607f4029b2909, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10924,9 +11788,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 858266224022355104}
     m_Modifications:
+    - target: {fileID: 2040144521955326148, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272359742958609516, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_Name
       value: RoofWalllShort (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8049743134487683682, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11034,6 +11910,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodPillar (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d442cf1d13048b4ea9c086e85897597, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11099,6 +11979,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
       propertyPath: m_Name
       value: SWoodBeam (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22ccc8a481a11f4a91225dfd32c545c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11166,6 +12050,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlatWall (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11184,13 +12072,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 858266224022355104}
     m_Modifications:
+    - target: {fileID: 2040144521955326148, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2326818379267409337, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bd99b790641b6c045ad63d33f5500136, type: 2}
+    - target: {fileID: 4272359742958609516, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_Name
       value: RoofWalllShort (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857773972221727945, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8049743134487683682, guid: 9257050b68bb67a44a2304ce727cb98c, type: 3}
       propertyPath: m_LocalScale.x
@@ -11309,6 +12209,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
       propertyPath: m_Name
       value: FlatWall (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1178eccea678c2e478a3c60132cc7007, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
