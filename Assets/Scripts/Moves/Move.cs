@@ -41,6 +41,7 @@ public static class MoveCaster : object
         else if (data.collider == BattleManager.ColliderTypes.Projectile)
         {
             Vector3 force = new Vector3(UnityEngine.Random.Range(-0.01f,0.01f), UnityEngine.Random.Range(-0.01f,0.01f), data.projectileForce);
+            force = caster.transform.TransformDirection(force);
             return caster.ShootProjectile(data.projectileObj, force);
         }
         return null;
@@ -69,9 +70,22 @@ public static class MoveCaster : object
         }
         caster.agentDisable();
         float castingTime = 0;
+        float visualSpawnTimeLeft = -1f;
+        bool createdVisual = true;
+        if (data.visual != null)
+        {
+            createdVisual = false;
+            visualSpawnTimeLeft = data.timeToWaitForVisual;
+        }
         while (castingTime < data.castTime)
         {
             castingTime += Time.deltaTime;
+            visualSpawnTimeLeft -= Time.deltaTime;
+            if (!createdVisual && visualSpawnTimeLeft < 0)
+            {
+                createdVisual = true;
+                caster.CreateVisual(data.visual);
+            }
             Vector3 lookPos = caster.target.transform.position - caster.transform.position;
             lookPos.y = 0;
             Quaternion targetRot = Quaternion.LookRotation(lookPos);
