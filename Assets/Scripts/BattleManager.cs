@@ -118,9 +118,10 @@ public class BattleManager : MonoBehaviour
                 if (Vector3.Distance(combatant.transform.position, playerMovement.transform.position) < enemyAttentionRadius)
                 {
                     combatantList.Add(combatant.transform);
-                    if (combatant is Enemy enemyClass)
+                    if (combatant is Enemy enemyClass && !enemyClass.hasTriggeredBattle)
                     {
                         StartCoroutine(enemyClass.TryForMovement());
+                        enemyClass.hasTriggeredBattle = true;
                         UIController.Instance.AddToEnemyPanel(combatant);
                     }
                     if (combatant is PlayerBattle playerBattle)
@@ -172,6 +173,14 @@ public class BattleManager : MonoBehaviour
         state = BattleState.Inactive;
         UIController.Instance.hideBattleUI();
         UIController.Instance.SetState(UIController.UIState.Exploring);
+
+        Enemy[] allEnemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
+        foreach (Enemy enemy in allEnemies)
+        {
+            enemy.StopAllCoroutines();
+        }
+
+        UIController.Instance.RemoveAllFromEnemyPanel();
     }
 
     public void RemoveFromBattle(Combatant ent)
