@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
   moveName: Speak
   castTime: 2
-  output: -5
+  output: -1
   cooldown: 0.5
   range: 4
   manaChange: 0

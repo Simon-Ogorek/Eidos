@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1553106520090273271, guid: b424f481566cdd1438c5f7cd78af543a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: b1c1d183ba78a604b8935aab4a295a0d, type: 3}
     - target: {fileID: 919132149155446097, guid: b424f481566cdd1438c5f7cd78af543a, type: 3}
       propertyPath: m_Name
       value: testtube_anim
