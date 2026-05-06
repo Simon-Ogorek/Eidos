@@ -442,6 +442,28 @@ MonoBehaviour:
   directionalLightsOnly:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-3729755438362679909
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76fd08475e21554b8f284f723dd7cf8, type: 3}
+  m_Name: WaterRendering
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.WaterRendering
+  active: 1
+  enable:
+    m_OverrideState: 0
+    m_Value: 0
+  triangleSize:
+    m_OverrideState: 0
+    m_Value: 30
+  ambientProbeDimmer:
+    m_OverrideState: 0
+    m_Value: 0.5
 --- !u!114 &-2932190937829518653
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -746,6 +768,7 @@ MonoBehaviour:
   - {fileID: -1555980707235121066}
   - {fileID: 1714166668216578544}
   - {fileID: -2170327774135752491}
+  - {fileID: -3729755438362679909}
 --- !u!114 &1032458718724551256
 MonoBehaviour:
   m_ObjectHideFlags: 3
