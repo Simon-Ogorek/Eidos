@@ -358,13 +358,13 @@ public class UIController : MonoBehaviour
         BaseballUI.SetActive(false);
     }
 
-    public void FadeOut()
+    public IEnumerator FadeOut()
     {
-        StartCoroutine(Fade.FadeOut());
+        yield return StartCoroutine(Fade.FadeOut());
     }
 
-    public void FadeIn()
+    public IEnumerator FadeIn()
     {
-        StartCoroutine(Fade.FadeIn());
+        yield return StartCoroutine(Fade.FadeIn());
     }
 }

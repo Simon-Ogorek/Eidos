@@ -80,12 +80,12 @@ public class QuestManager : MonoBehaviour
         if (!inQuest)
         {
             inQuest = true;
-            UIController.Instance.NotificationPop("You are going to try out different activities!", "Main Quest: Discovering your Passions", true);
+            //UIController.Instance.NotificationPop("You are going to try out different activities!", "Main Quest: Discovering your Passions", true);
             //UIController.Instance.SetQuest("Discovering your Passions");
-            NonCombatant playerDialogue = Player.GetComponent<NonCombatant>();
-            ProgressDay();
-            ProgressDay();
-            ProgressDay();
+            //NonCombatant playerDialogue = Player.GetComponent<NonCombatant>();
+            //ProgressDay();
+            //ProgressDay();
+            //ProgressDay();
             //playerDialogue.GiveDialogue();
             questScript = 0;
             quest++;
@@ -115,6 +115,7 @@ public class QuestManager : MonoBehaviour
     public void Quest0()
     {
         if(questScript == 0 && !questActionComplete){
+            StartCoroutine(UIController.Instance.FadeIn());
             playerDialogue.GiveQuestDialogue("Look! I think we're almost there!", "Speech");
             questActionComplete = true;
         }
@@ -131,17 +132,13 @@ public class QuestManager : MonoBehaviour
             questActionComplete = true;
         }
         if(questScript == 4 && !questActionComplete){
-            UIController.Instance.FadeOut();  
+            StartCoroutine(UIController.Instance.FadeOut());  
             Ship.transform.position = new Vector3(361.76f, -3.21f, -43.35f); 
             Captain.transform.position = new Vector3(361.08f, 1.201f, -38.85f);  
             Navigator.transform.position = new Vector3(362.62f, 1.201f, -38.85f);
-            movement.enabled = false;
-            Player.GetComponent<CharacterController>().enabled = false;
-            Player.transform.position = new Vector3(361.82f, 1.186385f, -38.35f); 
-            Player.GetComponent<CharacterController>().enabled = true;
-            movement.enabled = true;
-            UIController.Instance.FadeIn();         
-            questActionComplete = true;
+            SetPlayerPosition(new Vector3(361.82f, 1.186385f, -38.35f));
+            StartCoroutine(UIController.Instance.FadeIn());      
+            questActionComplete = true;   
             ContinueQuest();
         }
         if(questScript == 5 && !questActionComplete){
@@ -156,34 +153,29 @@ public class QuestManager : MonoBehaviour
             Captain.GiveQuestDialogue("However, that doesn’t mean you’ll be alone. We’ve arranged for someone to accompany you. His name is Archimedes.", "Speech");
             questActionComplete = true;
         }
-        if(questScript == 7 && !questActionComplete){
+        if(questScript == 8 && !questActionComplete){
             playerDialogue.GiveQuestDialogue("Wasn’t Archimedes the ancient Greek mathematician who invented ways to accomplish difficult things easily–like lifting heavy objects and pumping water from a deep well?", "Speech");
             questActionComplete = true;
         }
-        if(questScript == 8 && !questActionComplete){
-            playerDialogue.GiveQuestDialogue("Exactly. Like his Greek namesake, our Archimedes will give you tools to make your work easier and more effective. But you must make the effort yourself.", "Speech");
+        if(questScript == 9 && !questActionComplete){
+            Navigator.GiveQuestDialogue("Exactly. Like his Greek namesake, our Archimedes will give you tools to make your work easier and more effective. But you must make the effort yourself.", "Speech");
             questActionComplete = true;
         }
-        if(questScript == 9 && !questActionComplete){
-            UIController.Instance.FadeOut();  
+        if(questScript == 10 && !questActionComplete){
+            StartCoroutine(UIController.Instance.FadeOut());  
             Ship.SetActive(false); 
             Captain.gameObject.SetActive(false);  
             Navigator.gameObject.SetActive(false);  
-            movement.enabled = false;
-            Player.GetComponent<CharacterController>().enabled = false;
-            Player.transform.position = new Vector3(361.82f, 1.08f, 8.271f); 
-            Player.GetComponent<CharacterController>().enabled = true;
-            movement.enabled = true;
-            UIController.Instance.FadeIn();         
-            questActionComplete = true;
+            SetPlayerPosition(new Vector3(361.82f, 1.08f, 8.271f));
+            StartCoroutine(UIController.Instance.FadeIn());      
+            questActionComplete = true;   
             ContinueQuest();
         }
-        if(questScript == 10 && !questActionComplete){
+        if(questScript == 11 && !questActionComplete){
         playerDialogue.GiveQuestDialogue("Those were some nice sailors, maybe I should look around for this Archimedes.", "Thought");
-        playerDialogue.GiveQuestDialogue("Use WASD to walk around and the MOUSE for camera control. Press LEFT SHIFT to run.", "Thought");
         questActionComplete = true;
         }
-        if(questScript == 11 && !questActionComplete){
+        if(questScript == 12 && !questActionComplete){
         playerDialogue.GiveQuestDialogue("Use WASD to walk around and the MOUSE for camera control. Press LEFT SHIFT to run.", "Thought");
         questActionComplete = true;
         }
@@ -193,32 +185,15 @@ public class QuestManager : MonoBehaviour
     public void Quest1()
     {
         if(questScript == 0 && !questActionComplete){
-            Archimedes.AdvanceDialogueGroup("QUEST1");
+            Archimedes.GiveQuestDialogue("Hello, Marketus. My name is Archimedes.", "Speech");
             questActionComplete = true;
         }
-        else if(questScript == 1 && !questActionComplete){
-            playerDialogue.GiveQuestDialogue("This is true!");
+        if(questScript == 1 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("Hello. The captain and navigator told me to expect you. Are you an inventor, too, like the other Archimedes?", "Speech");
             questActionComplete = true;
         }
-        else if(questScript == 2 && !questActionComplete){
-            Archimedes.GiveQuestDialogue("Wow it worked!");
-            questActionComplete = true;
-        }
-        else if(questScript == 3 && !questActionComplete){
-            Archimedes.GiveQuestDialogue("I cant believe this worked but what is the limit for the amount of words that one can have in this discussion of what one may call life!");
-            questActionComplete = true;
-        }
-        else if(questScript == 4 && !questActionComplete){
-            StartCoroutine(MoveActor(Archimedes.gameObject, new Vector3(0, 1, 50)));
-            questActionComplete = true;
-            ContinueQuest();
-        }
-        if(questScript == 5 && !questActionComplete){
-            Archimedes.AdvanceDialogueGroup("QUEST2");
-            questActionComplete = true;
-        }
-        else if(questScript == 6 && !questActionComplete){
-            StartCoroutine(MoveActor(Archimedes.gameObject, new Vector3(0, 1, 73), true));
+        if(questScript == 2 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("Nowhere near as accomplished as he was, but I have invented this.", "Speech");
             questActionComplete = true;
         }
 
@@ -245,6 +220,15 @@ public class QuestManager : MonoBehaviour
         //    StartCoroutine(MoveActor(pitcher.gameObject, new Vector3(pitcher.gameObject.transform.position.x + 10, pitcher.gameObject.transform.position.y, pitcher.gameObject.transform.position.x + 10), true));
         ActivityManager.Instance.StartBaseballMatch();
     }}
+
+    public void SetPlayerPosition(Vector3 position)
+    {
+         movement.enabled = false;
+            Player.GetComponent<CharacterController>().enabled = false;
+            Player.transform.position = position;
+            Player.GetComponent<CharacterController>().enabled = true;
+            movement.enabled = true;
+    }
     public void ProgressDay()
     {
         if (currentTime == TimeofDay.Morning)

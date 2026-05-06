@@ -24,6 +24,8 @@ public class NonCombatant : MonoBehaviour
     bool questDialogue = false;
     bool usingController = false;
 
+    float questDialogueStartTime;
+
     
 
     void Start()
@@ -86,6 +88,8 @@ public class NonCombatant : MonoBehaviour
         }
         else if (questDialogue)
         {
+            if(Time.time - questDialogueStartTime < 0.2f)
+                return;
             if(Input.GetKeyDown(KeyCode.I) || (usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
             {
                 Debug.Log(name + " quest dialogue interaction");
@@ -104,17 +108,28 @@ public class NonCombatant : MonoBehaviour
     {
         AudioController.Instance.PlayInteract();
         Debug.Log("This happened" + name);
+        if(dialogue[i] == "QUEST")
+        {
+            EndNPCDialogue();
+            QuestManager.Instance.StartQuest();
+            i+=1;
+            return;
+        }
+        else{
         CameraController.Instance.FocusOn(gameObject);
         UIController.Instance.OpenDialogue(dialogue[i], name);
         inDialogue = true;
         player.cantMove = true;
-        i += 1;
+        i += 1;}
     }
 
     public void GiveQuestDialogue(string dialogue, string type = "Dialogue")
     {
+        inDialogue = false;
         AudioController.Instance.PlayInteract();
         questDialogue = true;
+        questDialogueStartTime = Time.time;
+
         player.cantMove = true;
         UIController.Instance.OpenDialogue(dialogue, name, type);
     }
