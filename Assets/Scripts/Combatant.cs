@@ -251,6 +251,12 @@ public class Combatant : MonoBehaviour
 
     public void SetAgentDest(Vector3 pos)
     {
+        if (!agent.isOnNavMesh)
+        {
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(transform.position, out hit, 5f, NavMesh.AllAreas))
+                agent.Warp(hit.position);
+        }
         agent.SetDestination(pos);
     }
 
@@ -292,5 +298,24 @@ public class Combatant : MonoBehaviour
         }
         
         this.enabled = false;
+    public void CreateVisual(GameObject prefab)
+    {
+        StartCoroutine(CreateVisualHelper(prefab));
     }
+    public IEnumerator CreateVisualHelper(GameObject prefab)
+    {
+        GameObject visual = Instantiate(prefab, transform);
+        visual.transform.localPosition = new Vector3(0,0,1);
+        yield return null;
+        Animator animator = visual.GetComponentInChildren<Animator>();
+        AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
+
+        while (state.normalizedTime < 1f)
+        {
+            state = animator.GetCurrentAnimatorStateInfo(0);
+            yield return new WaitForNextFrameUnit();
+        }
+
+        Destroy(visual);
+    } 
 }

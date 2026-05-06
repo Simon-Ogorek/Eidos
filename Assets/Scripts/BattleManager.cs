@@ -105,7 +105,7 @@ public class BattleManager : MonoBehaviour
 
     public void StartBattle()
     {
-        
+        PlayerBattle player = null;
         if(state == BattleState.Inactive){
             state = BattleState.Active;
 
@@ -122,6 +122,10 @@ public class BattleManager : MonoBehaviour
                     {
                         StartCoroutine(enemyClass.TryForMovement());
                         UIController.Instance.AddToEnemyPanel(combatant);
+                    }
+                    if (combatant is PlayerBattle playerBattle)
+                    {
+                        player = playerBattle;
                     }
                         
                 }
@@ -149,6 +153,8 @@ public class BattleManager : MonoBehaviour
             arenaVisualInstance.transform.localScale = new Vector3(arenaRadius * 2, 1000, arenaRadius * 2);
 
             arenaVisualMat = arenaVisualInstance.GetComponentInChildren<Renderer>().material;
+
+            player.target = UIController.Instance.ResetTarget();
             
 
         }

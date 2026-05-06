@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc3bc598696cd8c438657b304755ee89, type: 3}
-  m_Name: BaseBall
+  m_Name: Science
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
-  moveName: Curveball
-  castTime: 2
-  output: -3
-  cooldown: 4
+  moveName: Solution
+  castTime: 3
+  output: -1
+  cooldown: 8
   range: 10
-  manaChange: 3
+  manaChange: 2
   targetType: 1
   effects:
   - {fileID: 11400000, guid: 484ae6214e4f3a644acf3f059bfb12c9, type: 2}
-  collider: 2
-  colliderTTL: 3
-  hurtBoxrange: 0
-  hurtBoxWidth: 0
+  collider: 0
+  colliderTTL: 0.5
+  hurtBoxrange: 15
+  hurtBoxWidth: 1
   spreadRange: 0
   spreadWidth: 0
-  projectileObj: {fileID: 7377806702426059609, guid: bfe83b86e2c969f45820454827b447b2, type: 3}
-  projectileForce: 3000
-  castWeight: 1
-  visual: {fileID: 2983893621417059760, guid: 857a4cc4e03c99d42ac9d40d3b407e99, type: 3}
-  timeToWaitForVisual: 0
+  projectileObj: {fileID: 0}
+  projectileForce: 0
+  castWeight: 30
+  visual: {fileID: 6690584682991860262, guid: bfcaedeac097ed048ba64f1bdafc382f, type: 3}
+  timeToWaitForVisual: 1
