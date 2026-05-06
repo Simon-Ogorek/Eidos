@@ -261,6 +261,10 @@ public class UIController : MonoBehaviour
             EnemyPanel.AddEnemyInfo(combatant);
         }
     }
+    public void RemoveAllFromEnemyPanel()
+    {
+        EnemyPanel.RemoveAllEnemyInfo();
+    }
     public void RemoveFromEnemyPanel(Combatant combatant)
     {
         EnemyPanel.RemoveEnemyInfo(combatant);

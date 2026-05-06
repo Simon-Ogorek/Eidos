@@ -1666,8 +1666,7 @@ MonoBehaviour:
   target: {fileID: 1301514103}
   uiOutOfSync: 0
   moves:
-  - {fileID: 11400000, guid: 3438d0430121f0546b8e82ed593c4155, type: 2}
-  - {fileID: 11400000, guid: 6d227ce0d05cc3e4e8d39449876c201a, type: 2}
+  - {fileID: 11400000, guid: 2d03c35a96c75be46a121a0a016b0fe3, type: 2}
   CombatColliders: {fileID: 1411081634}
   agent: {fileID: 0}
   deathType: 2

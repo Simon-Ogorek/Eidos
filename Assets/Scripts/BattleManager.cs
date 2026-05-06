@@ -179,6 +179,8 @@ public class BattleManager : MonoBehaviour
         {
             enemy.StopAllCoroutines();
         }
+
+        UIController.Instance.RemoveAllFromEnemyPanel();
     }
 
     public void RemoveFromBattle(Combatant ent)

@@ -288,4 +288,66 @@ public class Combatant : MonoBehaviour
 
         Destroy(visual);
     }
+
+    // I can't do everything I want without access to MonoBehaviour stuff
+    #region Boss Moves
+
+    public void BossMultiDash()
+    {
+        agent.updateRotation = false;
+        StartCoroutine(BossMultiDashHelper());
+    }
+
+    public IEnumerator BossMultiDashHelper()
+    {
+        int amountOfDashes = UnityEngine.Random.Range(5,10);
+        for (int i = 1; i < amountOfDashes; i++)
+        {
+            int pauseFrames = UnityEngine.Random.Range(5,10) * i ;
+            while (pauseFrames >= 0)
+            {
+                yield return new WaitForNextFrameUnit();
+                pauseFrames--;
+            }
+
+            Vector3 DashPoint = UnityEngine.Random.insideUnitSphere * 15 + target.transform.position;
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(DashPoint, out hit, 9999f, NavMesh.AllAreas))
+                agent.Warp(hit.position);
+
+            Vector3 targetPos = target.transform.position;
+            targetPos.y = transform.position.y;
+            transform.LookAt(targetPos);
+
+            
+        }
+        yield return new WaitForSeconds(1);
+
+        Vector3 size = new Vector3(1, 2, 5);
+        Collider col = SetHurtbox(size);  
+
+        float activeHitboxTime = 0.5f;
+        HurtColliderQuereyer colQuereyer = col.gameObject.GetComponent<HurtColliderQuereyer>();
+        colQuereyer.Refresh();
+
+        while (activeHitboxTime > 0)
+        {
+            yield return new WaitForSeconds(0.1f);
+            activeHitboxTime -= 0.1f;
+
+            if (colQuereyer.collidedCombatant != null)
+            {
+                AudioController.Instance.BattlePlayHurt();
+                colQuereyer.collidedCombatant.gameObject.GetComponent<Combatant>().ChangeHealth(-2);
+                break;
+            }
+        }
+        colQuereyer.Disable();
+
+        
+
+
+        agent.updateRotation = true;
+    }
+    #endregion
 }
