@@ -298,6 +298,7 @@ public class Combatant : MonoBehaviour
         }
         
         this.enabled = false;
+    }
     public void CreateVisual(GameObject prefab)
     {
         StartCoroutine(CreateVisualHelper(prefab));
