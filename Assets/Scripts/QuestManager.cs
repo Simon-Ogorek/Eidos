@@ -133,10 +133,10 @@ public class QuestManager : MonoBehaviour
         }
         if(questScript == 4 && !questActionComplete){
             StartCoroutine(UIController.Instance.FadeOut());  
-            Ship.transform.position = new Vector3(361.76f, -3.21f, -43.35f); 
-            Captain.transform.position = new Vector3(361.08f, 1.201f, -38.85f);  
-            Navigator.transform.position = new Vector3(362.62f, 1.201f, -38.85f);
-            SetPlayerPosition(new Vector3(361.82f, 1.186385f, -38.35f));
+            Ship.transform.position = new Vector3(361.76f, -2f, -43.35f); 
+            Captain.transform.position = new Vector3(361.08f, 2.411f, -38.85f);  
+            Navigator.transform.position = new Vector3(362.62f, 2.411f, -38.85f);
+            SetPlayerPosition(new Vector3(361.82f, 2.411f, -38.35f));
             ProgressDay();
             StartCoroutine(UIController.Instance.FadeIn());      
             questActionComplete = true;   
@@ -167,7 +167,7 @@ public class QuestManager : MonoBehaviour
             Ship.SetActive(false); 
             Captain.gameObject.SetActive(false);  
             Navigator.gameObject.SetActive(false);  
-            SetPlayerPosition(new Vector3(361.82f, 1.08f, 8.271f));
+            SetPlayerPosition(new Vector3(375.723f, 2.334757f, 81.34109f));
             ProgressDay();
             StartCoroutine(UIController.Instance.FadeIn());      
             questActionComplete = true;   
@@ -236,7 +236,60 @@ public class QuestManager : MonoBehaviour
         }
         if(questScript == 12 && !questActionComplete){
             StartCoroutine(MoveActor(Archimedes.gameObject, new Vector3(318.4f,8.49f,227.05f))); 
+            ProgressDay();
             questActionComplete = true;
+        }
+        if(questScript == 13 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("Several hours have passed. It’s been a long day for you, and the sun will soon set. We’ll rest here for the night. You will want plenty of energy for tomorrow.", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 14 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("Here, I have a gift for you. Take care: what is inside is very small and very precious.", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 15 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("A pea? A dried green pea?", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 16 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("No normal pea, I assure you. Take out the Tessamark and carefully place the pea into the small indentation above the center.", "Speech");
+            questActionComplete = true;
+        }
+        if(questScript == 17 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("I put it in the top indentation, and it glowed as I thought about the future. Press Key ESC.", "Thought");
+            UIController.Instance.unlockedTessamark = true; 
+            questActionComplete = true;
+        }
+        if(questScript == 18 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("Congratulations for discovering the first purpose of the Tessamark: to remind you to stop and think–to reflect on your experiences and the lessons they offer.(You can toggle the pause menu with KEY ESC)");          
+            questActionComplete = true;
+        }
+        if(questScript == 19 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("Woah, is it reading my mind?");
+            questActionComplete = true;
+        }
+        if(questScript == 20 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("It gathers thoughts in which you have invested intellectual or emotional energy. Initially, it will help you view, consider, and compare all the passions you’ve identified.");
+            questActionComplete = true;
+        }
+        if(questScript == 21 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("In the next stages of your quest, you’ll place three more peas in the Tessamark. Then you will really see what it can do.");
+            questActionComplete = true;
+        }
+        if(questScript == 22 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("Pretty cool. Where does its power come from? Some tiny battery?");
+            questActionComplete = true;
+        }
+        if(questScript == 23 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("No battery. The Tessamark is driven solely by your intellectual and emotional energies. And as you pursue this quest, you’ll see it grow in power.");
+            questActionComplete = true;}
+        if(questScript == 24 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("Let us sleep, tomorrow you will really see what it can do.");
+            questActionComplete = true;
+        }
+        if(questScript == 25 && !questActionComplete){
+            questActionComplete = true;
+            StartCoroutine(Sleep());
         }
 
         
@@ -246,11 +299,11 @@ public class QuestManager : MonoBehaviour
     {
         yield return StartCoroutine(UIController.Instance.FadeOut());
         actor.transform.position = position;
-        CameraController.Instance.FocusOn(actor);
+        //CameraController.Instance.FocusOn(actor);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
 
-        CameraController.Instance.FocusOn(Player);
+        //CameraController.Instance.FocusOn(Player);
 
         if(startBaseball)
             ActivityManager.Instance.StartBaseballMatch();
@@ -301,5 +354,18 @@ public class QuestManager : MonoBehaviour
             day+=1;
             UIController.Instance.SetDay("Day " + day + ": Morning");
         }
+    }
+
+    private IEnumerator Sleep()
+    {
+        yield return StartCoroutine(UIController.Instance.FadeOut());
+
+        ProgressDay();
+
+        yield return new WaitForSeconds(1f);
+
+        yield return StartCoroutine(UIController.Instance.FadeIn());
+
+        ContinueQuest();
     }
 }

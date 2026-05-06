@@ -93,6 +93,10 @@ public class UIController : MonoBehaviour
 
     public PlayerMovement playerMovement;
 
+    public bool unlockedTessamark = false;
+     
+    bool tessamarkQuest = true;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -222,9 +226,13 @@ public class UIController : MonoBehaviour
                     }
                 }
             }
-            if(Input.GetKeyDown(KeyCode.Escape))
+            if(Input.GetKeyDown(KeyCode.Escape) && unlockedTessamark)
         {
             TogglePause();
+            if(tessamarkQuest){
+                tessamarkQuest = false;
+                QuestManager.Instance.ContinueQuest();
+            }
         }
     }
 
@@ -284,6 +292,8 @@ public class UIController : MonoBehaviour
     {
         Debug.Log(name + "dialogue started");
         if(type == "Dialogue"){
+        SpeechUI.SetActive(false);
+        ThoughtUI.SetActive(false);
         DialogueUI.SetActive(true);
         DialogueBox.SetText(dialogue);
         DialogueBox.SetHeader(name);

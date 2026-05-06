@@ -52,7 +52,7 @@ public class NonCombatant : MonoBehaviour
             {
                 Debug.Log(name + " dialogueI");
                 if(i <= dialogue.Length-1){
-                    if(dialogue[i] == "QUEST")
+                    if(dialogue[i] == "STARTQUEST")
                         {
                             EndNPCDialogue();
                             QuestManager.Instance.StartQuest();
@@ -108,7 +108,16 @@ public class NonCombatant : MonoBehaviour
     {
         AudioController.Instance.PlayInteract();
         Debug.Log("This happened" + name);
-        if(dialogue[i] == "QUEST")
+        
+        while (i < dialogue.Length && dialogue[i].StartsWith("QUEST"))
+        {
+            i++;
+        }
+
+        if(i >= dialogue.Length)
+            return;
+            
+        if(dialogue[i] == "STARTQUEST")
         {
             EndNPCDialogue();
             QuestManager.Instance.StartQuest();
@@ -166,11 +175,11 @@ public class NonCombatant : MonoBehaviour
         while(i < dialogue.Length && dialogue[i] != marker)
             i++;
 
+        i+=1;
         if(i >= dialogue.Length)
         {
             Debug.LogWarning(name + "couldn't find dialogue marker: " + marker);
             return;
         }
-        i+=1;
     }
 }
