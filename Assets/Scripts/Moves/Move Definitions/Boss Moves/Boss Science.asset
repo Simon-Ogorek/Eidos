@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: Boss Science
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
   moveName: Solution
-  castTime: 3
-  output: -1
-  cooldown: 8
-  range: 10
+  castTime: 2
+  output: -2
+  cooldown: 2
+  range: 5
   manaChange: 2
   targetType: 1
   effects:
   - {fileID: 11400000, guid: 484ae6214e4f3a644acf3f059bfb12c9, type: 2}
   collider: 0
-  colliderTTL: 0.5
-  hurtBoxrange: 15
+  colliderTTL: 1
+  hurtBoxrange: 20
   hurtBoxWidth: 1
   spreadRange: 0
   spreadWidth: 0
   projectileObj: {fileID: 0}
   projectileForce: 0
-  castWeight: 30
+  castWeight: 70
   visual: {fileID: 6690584682991860262, guid: bfcaedeac097ed048ba64f1bdafc382f, type: 3}
   timeToWaitForVisual: 1

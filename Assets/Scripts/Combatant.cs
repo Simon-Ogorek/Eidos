@@ -81,6 +81,8 @@ public class Combatant : MonoBehaviour
 
     public DeathType deathType = DeathType.Dissapear; // TODO
 
+    public bool isBoss = false;
+
     void Start()
     {
         defaultSpeed = speed;
@@ -320,6 +322,13 @@ public class Combatant : MonoBehaviour
         }
 
         Destroy(visual);
+    }
+
+
+    public void TriggerBossAttackAnimation()
+    {
+        bossAnimationController bossAnimation = GetComponentInChildren<bossAnimationController>();
+        bossAnimation.TriggerAttack();
     }
 
     // I can't do everything I want without access to MonoBehaviour stuff
