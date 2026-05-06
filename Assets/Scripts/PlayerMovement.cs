@@ -140,8 +140,7 @@ public class PlayerMovement : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y");
 
         cameraTrackingPoints.transform.Rotate(new Vector3(-mouseX * cameraRotationX,0,0));
-        Debug.Log(velocityVector);
-        Vector3 XYDir = new Vector3(velocityVector.x, 0, velocityVector.z);
+        Vector3 XYDir = new Vector3(movemntDir.x, 0, movemntDir.z);
         if (XYDir.sqrMagnitude >= 0.001f)
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(XYDir), Time.deltaTime * 10);
     }
