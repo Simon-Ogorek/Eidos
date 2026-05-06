@@ -219,6 +219,12 @@ public class UIController : MonoBehaviour
             }
     }
 
+    public Combatant ResetTarget()
+    {
+        EnemyPanel.Reset();
+        return EnemyPanel.ChangeTargetUp();
+    }
+
     public void SetState(UIState newState)
     {
         current_state = newState;

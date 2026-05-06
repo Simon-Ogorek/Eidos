@@ -43,5 +43,6 @@ public class MoveData : ScriptableObject
 
     public int castWeight;
     public GameObject visual;
+    public float timeToWaitForVisual; // How many seconds to wait for the impact frame
 
 }

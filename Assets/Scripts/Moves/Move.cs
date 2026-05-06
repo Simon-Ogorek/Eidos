@@ -70,9 +70,22 @@ public static class MoveCaster : object
         }
         caster.agentDisable();
         float castingTime = 0;
+        float visualSpawnTimeLeft = -1f;
+        bool createdVisual = true;
+        if (data.visual != null)
+        {
+            createdVisual = false;
+            visualSpawnTimeLeft = data.timeToWaitForVisual;
+        }
         while (castingTime < data.castTime)
         {
             castingTime += Time.deltaTime;
+            visualSpawnTimeLeft -= Time.deltaTime;
+            if (!createdVisual && visualSpawnTimeLeft < 0)
+            {
+                createdVisual = true;
+                caster.CreateVisual(data.visual);
+            }
             Vector3 lookPos = caster.target.transform.position - caster.transform.position;
             lookPos.y = 0;
             Quaternion targetRot = Quaternion.LookRotation(lookPos);

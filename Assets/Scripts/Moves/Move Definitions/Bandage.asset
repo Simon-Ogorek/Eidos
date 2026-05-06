@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3bc598696cd8c438657b304755ee89, type: 3}
   m_Name: Bandage
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
-  moveName: Bandage
+  moveName: Compose
   castTime: 5
   output: 1
   cooldown: 3
@@ -30,3 +30,5 @@ MonoBehaviour:
   projectileObj: {fileID: 0}
   projectileForce: 0
   castWeight: 200
+  visual: {fileID: 0}
+  timeToWaitForVisual: 0
