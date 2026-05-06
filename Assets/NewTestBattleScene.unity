@@ -1672,8 +1672,10 @@ MonoBehaviour:
   agent: {fileID: 0}
   deathType: 2
   awarenessRange: 5
+  forgetRange: 40
   movementOpportunityInterval: 5
   movementOpportunityChance: 0.5
+  hasTriggeredBattle: 0
 --- !u!135 &195502011
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3281,8 +3283,10 @@ MonoBehaviour:
   agent: {fileID: 0}
   deathType: 2
   awarenessRange: 5
+  forgetRange: 40
   movementOpportunityInterval: 5
   movementOpportunityChance: 0.1
+  hasTriggeredBattle: 0
 --- !u!135 &347987882
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8558,8 +8562,10 @@ MonoBehaviour:
   agent: {fileID: 0}
   deathType: 2
   awarenessRange: 5
+  forgetRange: 40
   movementOpportunityInterval: 5
   movementOpportunityChance: 0.5
+  hasTriggeredBattle: 0
 --- !u!135 &949084845
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10807,8 +10813,10 @@ MonoBehaviour:
   agent: {fileID: 0}
   deathType: 2
   awarenessRange: 5
+  forgetRange: 40
   movementOpportunityInterval: 5
   movementOpportunityChance: 0.1
+  hasTriggeredBattle: 0
 --- !u!135 &1176891433
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10998,7 +11006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.ProbeVolumePerSceneData
   serializedBakingSet: {fileID: 0}
-  sceneGUID: 450e0075b4b63e0478bbbb132f123f80
+  sceneGUID: dc6cd4d7de76ce14b9cbee09343dba5a
   obsoleteAsset: {fileID: 0}
   obsoleteCellSharedDataAsset: {fileID: 0}
   obsoleteCellSupportDataAsset: {fileID: 0}
@@ -12073,7 +12081,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8bd1d3f5b2f731f49a55e120bc8d5b39, type: 2}
   CombatColliders: {fileID: 2036123683}
   agent: {fileID: 0}
-  deathType: 2
+  deathType: 3
 --- !u!4 &1301514104
 Transform:
   m_ObjectHideFlags: 0
@@ -13106,8 +13114,10 @@ MonoBehaviour:
   agent: {fileID: 0}
   deathType: 2
   awarenessRange: 5
+  forgetRange: 40
   movementOpportunityInterval: 5
   movementOpportunityChance: 0.5
+  hasTriggeredBattle: 0
 --- !u!135 &1374483852
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -17256,8 +17266,10 @@ MonoBehaviour:
   agent: {fileID: 0}
   deathType: 2
   awarenessRange: 5
+  forgetRange: 40
   movementOpportunityInterval: 5
   movementOpportunityChance: 0.5
+  hasTriggeredBattle: 0
 --- !u!4 &1894722546
 Transform:
   m_ObjectHideFlags: 0
