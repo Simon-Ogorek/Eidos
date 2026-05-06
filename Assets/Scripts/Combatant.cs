@@ -150,7 +150,8 @@ public class Combatant : MonoBehaviour
                 Destroy(gameObject, 10f);
                 break;
             case DeathType.Player_Death:
-                // TODO
+                BattleManager.Instance.EndBattle();
+                health = maxHealth;
                 break;
         }
     }
