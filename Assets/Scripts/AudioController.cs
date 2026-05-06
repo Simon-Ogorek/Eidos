@@ -22,6 +22,8 @@ public class AudioController : MonoBehaviour
     [SerializeField] private AudioClip combatSelectDown;
     [SerializeField] private AudioClip combatHurt;
     [SerializeField] private AudioClip combatWin;
+    [SerializeField] private AudioClip baseballHit;
+    [SerializeField] private AudioClip baseballMiss;
 
     
     public static AudioController Instance { get; private set; }
@@ -101,5 +103,13 @@ public class AudioController : MonoBehaviour
     }    public void BattlePlayWin()
     {
         PlaySFX(combatWin);
+}
+ public void BaseballHit()
+    {
+        PlaySFX(baseballHit);
+}
+public void BaseballMiss()
+    {
+        PlaySFX(baseballMiss);
 }
 }

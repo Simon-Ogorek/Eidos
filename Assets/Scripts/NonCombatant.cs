@@ -18,7 +18,7 @@ public class NonCombatant : MonoBehaviour
 
     public PlayerMovement player;
 
-    int i = 0;
+    public int i = 0;
     bool inDialogue = false;
 
     bool questDialogue = false;
@@ -122,7 +122,7 @@ public class NonCombatant : MonoBehaviour
 
         if(Time.time < blockNormalDialogueUntil)
             return;
-            
+
         AudioController.Instance.PlayInteract();
         Debug.Log("This happened" + name + dialogue[i]);
         
@@ -166,7 +166,8 @@ public class NonCombatant : MonoBehaviour
         inDialogue = true;
         normalDialogueStartTime = Time.time;
         player.cantMove = true;
-        i += 1;}
+        if(i<dialogue.Length)
+            i += 1;}
     }
 
     public void GiveQuestDialogue(string dialogue, string type = "Dialogue")

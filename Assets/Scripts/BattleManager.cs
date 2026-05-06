@@ -177,6 +177,7 @@ public class BattleManager : MonoBehaviour
         }
         Destroy(arenaVisualInstance);
         state = BattleState.Inactive;
+        UIController.Instance.ClearMoves();
         UIController.Instance.hideBattleUI();
         UIController.Instance.SetState(UIController.UIState.Exploring);
 

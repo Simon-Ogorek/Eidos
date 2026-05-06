@@ -422,4 +422,9 @@ public class UIController : MonoBehaviour
             Cursor.visible = false;
         }
     }
+
+    public void ClearMoves()
+    {
+        MovePanel.ClearMoves();
+    }
 }

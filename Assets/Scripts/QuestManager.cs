@@ -350,7 +350,19 @@ public class QuestManager : MonoBehaviour
         if(questScript == 3 && !questActionComplete){
             questActionComplete = true;
             UIController.Instance.NotificationPop("Discover your Passions!", "Main Quest: The Village of Passions", true, false);
+            ContinueQuest();
         }
+        if(questScript == 4 && !questActionComplete){
+            questActionComplete = true;
+            ProgressDay();
+            StartCoroutine(MoveActor(Archimedes.gameObject, new Vector3(336.98f,10.48f,352.43f)));
+            ContinueQuest();
+        }
+        if(questScript == 5 && !questActionComplete){
+            questActionComplete = true;
+            Archimedes.i = 9;
+        }
+        
      
     }
 

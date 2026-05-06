@@ -104,6 +104,7 @@ public class ActivityManager : MonoBehaviour
         }
         if((inPlay && Input.GetKeyDown(KeyCode.I)) || (inPlay &&  usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
         {
+            AudioController.Instance.BaseballHit();
             Debug.Log("BASEBALL HIT");
             HitBaseball();
             hits+=1;
@@ -114,6 +115,7 @@ public class ActivityManager : MonoBehaviour
         }
         else if ((!inPlay && Input.GetKeyDown(KeyCode.I)) || (!inPlay &&  usingController && Gamepad.current.buttonEast.wasPressedThisFrame))
         {
+            AudioController.Instance.BaseballMiss();
             Debug.Log("BASEBALL MISS");   
             strikes+=1;
             if(strikes == 3){
@@ -207,10 +209,14 @@ public class ActivityManager : MonoBehaviour
      void finishBaseball()
     {
         inBaseball = false;
+
+        Baseball.SetActive(false);
+        Bat.SetActive(false);
         UIController.Instance.SetState(UIController.UIState.Exploring);
         Player.GetComponent<PlayerMovement>().cantMove = false;
         CameraController.Instance.FocusOn(Player);
         QuestManager.Instance.ProgressDay();
+        gameObject.SetActive(false);
 
     }
     /*

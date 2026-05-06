@@ -41,8 +41,10 @@ public class UIMoveInfo : MonoBehaviour
     }
     public void UpdateMoveSelection(Combatant combatant)
     {
-        listOfMoveUIs.Clear();
-        mapUIToMove.Clear();
+        ClearMoves();
+
+        //listOfMoveUIs.Clear();
+        //mapUIToMove.Clear();
 
         foreach (MoveData move in combatant.moves)
         {
@@ -185,5 +187,21 @@ public class UIMoveInfo : MonoBehaviour
         {
             moveUIs.GetComponentInChildren<UnityEngine.UI.Image>().color = new Color(1f,1f,1f,1f);
         }
+    }
+
+    public void ClearMoves()
+    {
+        if(listOfMoveUIs != null)
+        {
+            foreach (GameObject ui in listOfMoveUIs)
+            {
+                if(ui!=null)
+                    Destroy(ui);
+            }
+            listOfMoveUIs.Clear();
+        }
+        mapUIToMove?.Clear();
+        moveIndex = 0;
+        underCooldown = false;
     }
 }
