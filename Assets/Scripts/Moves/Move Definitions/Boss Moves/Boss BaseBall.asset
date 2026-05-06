@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
   moveName: Curveball
   castTime: 2
-  output: -3
-  cooldown: 4
-  range: 10
-  manaChange: 3
+  output: -2
+  cooldown: 2
+  range: 4
+  manaChange: 0
   targetType: 1
   effects:
   - {fileID: 11400000, guid: 484ae6214e4f3a644acf3f059bfb12c9, type: 2}
@@ -28,7 +28,7 @@ MonoBehaviour:
   spreadRange: 0
   spreadWidth: 0
   projectileObj: {fileID: 7377806702426059609, guid: bfe83b86e2c969f45820454827b447b2, type: 3}
-  projectileForce: 3000
-  castWeight: 1
+  projectileForce: 2500
+  castWeight: 100
   visual: {fileID: 2983893621417059760, guid: 857a4cc4e03c99d42ac9d40d3b407e99, type: 3}
   timeToWaitForVisual: 0
