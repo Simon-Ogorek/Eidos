@@ -58,13 +58,13 @@ public class NonCombatant : MonoBehaviour
                             QuestManager.Instance.StartQuest();
 
                         }
-                    else if(dialogue[i] == "CONTINUEQUEST")
+                    if(dialogue[i] == "CONTINUEQUEST")
                         {
                             EndNPCDialogue();
                             QuestManager.Instance.ContinueQuest();
 
                     }
-                    else if(dialogue[i] == "BASEBALL")
+                    if(dialogue[i] == "BASEBALL")
                         {
                             EndNPCDialogue();
                             QuestManager.Instance.PlayBaseball(gameObject);
@@ -115,6 +115,20 @@ public class NonCombatant : MonoBehaviour
             i+=1;
             return;
         }
+        if(dialogue[i] == "CONTINUEQUEST")
+        {
+            EndNPCDialogue();
+            QuestManager.Instance.ContinueQuest();
+            i+=1;
+            return;
+        }
+        if(dialogue[i] == "BASEBALL")
+        {
+            EndNPCDialogue();
+            QuestManager.Instance.PlayBaseball(gameObject);
+            i+=1;
+            return;
+        }
         else{
         CameraController.Instance.FocusOn(gameObject);
         UIController.Instance.OpenDialogue(dialogue[i], name);
@@ -137,7 +151,11 @@ public class NonCombatant : MonoBehaviour
     public void EndNPCDialogue()
     {
         inDialogue = false;
-        i-=2;
+
+        if(i >= 2)
+            i-=2;
+        else
+            i = 0;
         player.cantMove = false;
         CameraController.Instance.FocusOn(player.gameObject);
         UIController.Instance.EndDialogue();
@@ -145,8 +163,14 @@ public class NonCombatant : MonoBehaviour
 
     public void AdvanceDialogueGroup(string marker)
     {
-        while(dialogue[i] != marker)
+        while(i < dialogue.Length && dialogue[i] != marker)
             i++;
+
+        if(i >= dialogue.Length)
+        {
+            Debug.LogWarning(name + "couldn't find dialogue marker: " + marker);
+            return;
+        }
         i+=1;
     }
 }

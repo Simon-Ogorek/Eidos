@@ -216,20 +216,26 @@ public class QuestManager : MonoBehaviour
         }
         if(questScript == 7 && !questActionComplete){
             Archimedes.GiveQuestDialogue("In fact, learning to use the Tessamark is key to your quest’s success. For now, put it your pocket and keep it safe. Let's start going to the forest.", "Speech"); 
-            StartCoroutine(MoveActor(Archimedes.gameObject, new Vector3(355.59f,6.21f,154.76f)));
             questActionComplete = true;
         }
         if(questScript == 8 && !questActionComplete){
+            StartCoroutine(MoveActor(Archimedes.gameObject, new Vector3(355.59f,6.21f,154.76f)));
+            questActionComplete = true;
+            ContinueQuest();        }
+        if(questScript == 9 && !questActionComplete){
             Archimedes.AdvanceDialogueGroup("QUEST1"); 
             questActionComplete = true;
         }
-        if(questScript == 9 && !questActionComplete){
+        if(questScript == 10 && !questActionComplete){
             playerDialogue.GiveQuestDialogue("Will all the incoming voyagers have a guide too?", "Speech"); 
             questActionComplete = true;
         }
-        if(questScript == 10 && !questActionComplete){
+        if(questScript == 11 && !questActionComplete){
             Archimedes.GiveQuestDialogue("Unfortunately, no. Many will wander about fruitlessly and miss out on the knowledge this land offers. Lets continue now, the journey is long.", "Speech");
-            StartCoroutine(MoveActor(Archimedes.gameObject, new Vector3(355.59f,6.21f,154.76f))); 
+            questActionComplete = true;
+        }
+        if(questScript == 12 && !questActionComplete){
+            StartCoroutine(MoveActor(Archimedes.gameObject, new Vector3(318.4f,8.49f,227.05f))); 
             questActionComplete = true;
         }
 
