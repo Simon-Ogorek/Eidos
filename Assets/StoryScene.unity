@@ -1547,6 +1547,7 @@ MonoBehaviour:
   arenaVisualPrefab: {fileID: 2074831787795924776, guid: 7853295e7eb5c1e49a63591960f58e21, type: 3}
   centerOfArena: {x: 0, y: 0, z: 0}
   arenaRadius: 0
+  quest: 0
 --- !u!4 &131186114
 Transform:
   m_ObjectHideFlags: 0
@@ -1589,14 +1590,14 @@ RectTransform:
   m_GameObject: {fileID: 135037271}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15, y: 35, z: 7.611}
+  m_LocalScale: {x: 50, y: 50, z: 7.611}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1429329545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1220, y: -184}
+  m_AnchoredPosition: {x: 1220, y: -282}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &135037273
@@ -1619,8 +1620,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: a006e2daf22ee5c4a97d373707060b25, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2040,14 +2041,14 @@ RectTransform:
   m_GameObject: {fileID: 206213170}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15, y: 35, z: 7.611}
+  m_LocalScale: {x: 50, y: 50, z: 7.611}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1429329545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -610, y: -150}
+  m_AnchoredPosition: {x: -584, y: -264}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &206213172
@@ -2070,8 +2071,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: a006e2daf22ee5c4a97d373707060b25, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2319,7 +2320,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ba0f5fbf60312b74eac577d92c8483f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ebda1506ec8967a48b6a00dd6a16c46f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3710,8 +3711,10 @@ MonoBehaviour:
   agent: {fileID: 0}
   deathType: 2
   awarenessRange: 5
+  forgetRange: 40
   movementOpportunityInterval: 5
   movementOpportunityChance: 0.1
+  hasTriggeredBattle: 0
 --- !u!135 &347987882
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5541,7 +5544,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 361, y: -513}
+  m_AnchoredPosition: {x: -65, y: -354}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &594680187
@@ -5564,7 +5567,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Work: 1'
+  m_text: Solution
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 62683ff31b10dfc479dcf3c9523d5c6f, type: 2}
@@ -5573,8 +5576,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4281463666
+  m_fontColor: {r: 0.44705883, g: 0.9529412, b: 0.19215687, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6301,7 +6304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 360, y: -919}
+  m_AnchoredPosition: {x: 669, y: -1283}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &690986854
@@ -6324,7 +6327,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Self: 1'
+  m_text: "Marketus\tLevel 1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 62683ff31b10dfc479dcf3c9523d5c6f, type: 2}
@@ -6681,7 +6684,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Main Quest:'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 62683ff31b10dfc479dcf3c9523d5c6f, type: 2}
@@ -7780,6 +7783,8 @@ MonoBehaviour:
   - CONTINUEQUEST
   - Good job!
   - Keep it up!
+  - QUEST2
+  - STARTQUEST
   name: Archimedes
   player: {fileID: 1301514105}
 --- !u!135 &824683817
@@ -7965,8 +7970,10 @@ MonoBehaviour:
   agent: {fileID: 0}
   deathType: 4
   awarenessRange: 5
+  forgetRange: 40
   movementOpportunityInterval: 5
   movementOpportunityChance: 0.5
+  hasTriggeredBattle: 0
 --- !u!195 &824683824
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -9546,8 +9553,10 @@ MonoBehaviour:
   agent: {fileID: 0}
   deathType: 2
   awarenessRange: 5
+  forgetRange: 40
   movementOpportunityInterval: 5
   movementOpportunityChance: 0.5
+  hasTriggeredBattle: 0
 --- !u!135 &949084845
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9908,7 +9917,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You are going to try out the different activities!
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 62683ff31b10dfc479dcf3c9523d5c6f, type: 2}
@@ -10713,6 +10722,81 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1030982994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1030982995}
+  - component: {fileID: 1030982997}
+  - component: {fileID: 1030982996}
+  m_Layer: 5
+  m_Name: Character
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1030982995
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030982994}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 15, y: 25, z: 7.611}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1429329545}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 342, y: -614}
+  m_SizeDelta: {x: 40, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1030982996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030982994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.13725491, g: 0.7568628, b: 0, a: 0.83137256}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 5b754e36f21028547b051416fd0621e7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1030982997
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030982994}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1031995588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11088,14 +11172,14 @@ RectTransform:
   m_GameObject: {fileID: 1069612898}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15, y: 35, z: 7.611}
+  m_LocalScale: {x: 50, y: 50, z: 7.611}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1429329545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 295, y: 91}
+  m_AnchoredPosition: {x: 314, y: 91}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1069612900
@@ -11118,8 +11202,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: a006e2daf22ee5c4a97d373707060b25, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -12417,8 +12501,10 @@ MonoBehaviour:
   agent: {fileID: 0}
   deathType: 2
   awarenessRange: 5
+  forgetRange: 40
   movementOpportunityInterval: 5
   movementOpportunityChance: 0.1
+  hasTriggeredBattle: 0
 --- !u!135 &1176891433
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12924,7 +13010,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1184, y: -923}
+  m_AnchoredPosition: {x: 825, y: 3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1205732530
@@ -12947,7 +13033,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Family: 1'
+  m_text: Curveball
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 62683ff31b10dfc479dcf3c9523d5c6f, type: 2}
@@ -12956,8 +13042,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4281463666
+  m_fontColor: {r: 0.44705883, g: 0.9529412, b: 0.19215687, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -13739,9 +13825,9 @@ MonoBehaviour:
   uiOutOfSync: 0
   moves:
   - {fileID: 11400000, guid: 3438d0430121f0546b8e82ed593c4155, type: 2}
-  - {fileID: 11400000, guid: 3438d0430121f0546b8e82ed593c4155, type: 2}
+  - {fileID: 11400000, guid: 877ece940df3c2948abeb21cb2a90296, type: 2}
   - {fileID: 11400000, guid: 94fd20479f0eedd448dc998810d635c3, type: 2}
-  - {fileID: 11400000, guid: 3438d0430121f0546b8e82ed593c4155, type: 2}
+  - {fileID: 11400000, guid: 795ebf28f58889d47a4352bcc0bce746, type: 2}
   - {fileID: 11400000, guid: 8bd1d3f5b2f731f49a55e120bc8d5b39, type: 2}
   CombatColliders: {fileID: 2036123683}
   agent: {fileID: 0}
@@ -13779,8 +13865,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   speed: 1
-  gravity: 5
-  jumpForce: 12
+  gravity: 0.0125
+  jumpForce: 0.3
   friction: 0.9
   maxFallSpeed: 5
   maxWalkVelocity: 5
@@ -14939,8 +15025,10 @@ MonoBehaviour:
   agent: {fileID: 0}
   deathType: 2
   awarenessRange: 5
+  forgetRange: 40
   movementOpportunityInterval: 5
   movementOpportunityChance: 0.5
+  hasTriggeredBattle: 0
 --- !u!135 &1374483852
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15883,6 +15971,7 @@ RectTransform:
   - {fileID: 228727823}
   - {fileID: 899796536}
   - {fileID: 1506540129}
+  - {fileID: 1030982995}
   - {fileID: 206213171}
   - {fileID: 1069612899}
   - {fileID: 135037272}
@@ -16428,14 +16517,14 @@ RectTransform:
   m_GameObject: {fileID: 1506540128}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15, y: 35, z: 7.611}
+  m_LocalScale: {x: 50, y: 50, z: 7.611}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1429329545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 319, y: -772}
+  m_AnchoredPosition: {x: 319, y: -627.0001}
   m_SizeDelta: {x: 30, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1506540130
@@ -16458,8 +16547,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 4abd75d7b2c4a994f9572e1159986f62, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -19030,7 +19119,7 @@ Transform:
   m_GameObject: {fileID: 1764491466}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15212339, y: 0.000000053101605, z: -0.00000000817312, w: 0.98836154}
-  m_LocalPosition: {x: 361.82, y: 3.914529, z: -138.06859}
+  m_LocalPosition: {x: 360.9, y: 2.6335292, z: 17.211414}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19763,8 +19852,10 @@ MonoBehaviour:
   agent: {fileID: 0}
   deathType: 2
   awarenessRange: 5
+  forgetRange: 40
   movementOpportunityInterval: 5
   movementOpportunityChance: 0.5
+  hasTriggeredBattle: 0
 --- !u!4 &1894722546
 Transform:
   m_ObjectHideFlags: 0
@@ -20168,7 +20259,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1171, y: -513}
+  m_AnchoredPosition: {x: 1732, y: -371}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1913282833
@@ -20191,7 +20282,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Community 1:'
+  m_text: Compose
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 62683ff31b10dfc479dcf3c9523d5c6f, type: 2}
@@ -20200,8 +20291,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4281463666
+  m_fontColor: {r: 0.44705886, g: 0.95294124, b: 0.19215688, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

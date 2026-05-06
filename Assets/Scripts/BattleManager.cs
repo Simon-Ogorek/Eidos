@@ -48,6 +48,8 @@ public class BattleManager : MonoBehaviour
     public Vector3 centerOfArena;
     public float arenaRadius;
     List<Transform> combatantList;
+
+    public bool quest = false;
     
     void Awake()
     {
@@ -169,6 +171,10 @@ public class BattleManager : MonoBehaviour
     public void EndBattle()
     {
         AudioController.Instance.BattlePlayWin();
+        if(quest){
+            QuestManager.Instance.ContinueQuest();
+            quest = false;
+        }
         Destroy(arenaVisualInstance);
         state = BattleState.Inactive;
         UIController.Instance.hideBattleUI();

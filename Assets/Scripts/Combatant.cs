@@ -155,6 +155,7 @@ public class Combatant : MonoBehaviour
                 health = maxHealth;
                 break;
             case DeathType.Become_NPC:
+                BattleManager.Instance.EndBattle();
                 agent.enabled = false;
                 becomeNPC();
                 break;

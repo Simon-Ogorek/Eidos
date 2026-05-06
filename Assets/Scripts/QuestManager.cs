@@ -102,6 +102,8 @@ public class QuestManager : MonoBehaviour
             Quest0();
         else if(quest == 1)
             Quest1();
+        else if(quest == 2)
+            Quest2();
         //LookTowards(Eidos);
     }
 
@@ -293,15 +295,60 @@ public class QuestManager : MonoBehaviour
         }
         if(questScript == 26 && !questActionComplete){
             questActionComplete = true;
-            Archimedes.GiveQuestDialogue("Here we go!");
+            UIController.Instance.NotificationPop("You are going to have a visual dialogue with Archimedes!", "Main Quest: Discovering Magic", true);
+            UIController.Instance.SetState(UIController.UIState.Exploring);
+            inQuest = false;
+            StartQuest();
         }
-        if(questScript == 27 && !questActionComplete){
+    }
+
+    public void Quest2()
+    {
+        if(questScript == 0 && !questActionComplete){
             questActionComplete = true;
+        }
+        if(questScript == 1 && !questActionComplete){
+            questActionComplete = true;
+            Archimedes.GiveQuestDialogue("With the Tessamark, you are able to manifest your beliefs into reality! Let's try it out!");
+        }
+        if(questScript == 2 && !questActionComplete){
+            questActionComplete = true;
+            Archimedes.GiveQuestDialogue("When our dialogue begins, use LEFT ARROW Key and RIGHT ARROW key to select a spell. Then use R and F to select a target, and press ENTER to use your spell!");
+        }
+        if(questScript == 3 && !questActionComplete){
+            questActionComplete = true;
+            BattleManager.Instance.quest = true;
             Archimedes.becomeEnemy();
         }
-
-        
+        if(questScript == 4 && !questActionComplete){
+            questActionComplete = true;
+            UIController.Instance.NotificationPop("COMPLETE!", "Main Quest: Discovering Magic", true);
+            Archimedes.AdvanceDialogueGroup("QUEST2"); 
+            inQuest = false;
+        }
     }
+
+        public void Quest3()
+    {
+        if(questScript == 0 && !questActionComplete){
+            questActionComplete = true;
+            Archimedes.GiveQuestDialogue("I know you have questions, but for now, place the Tessamark back in your pocket and let us venture into the first village.");
+        }
+        if(questScript == 1 && !questActionComplete){
+            questActionComplete = true;
+            playerDialogue.GiveQuestDialogue("What is the name of this village?");
+        }
+        if(questScript == 2 && !questActionComplete){
+            questActionComplete = true;
+            Archimedes.GiveQuestDialogue("It is called the Village of Passions.");
+        }
+        if(questScript == 3 && !questActionComplete){
+            questActionComplete = true;
+            UIController.Instance.NotificationPop("Discover your Passions!", "Main Quest: The Village of Passions", true);
+        }
+     
+    }
+
 
     IEnumerator MoveActor(GameObject actor, Vector3 position, bool startBaseball = false)
     {
@@ -373,5 +420,6 @@ public class QuestManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         yield return StartCoroutine(UIController.Instance.FadeIn());
+        ContinueQuest();
     }
 }
