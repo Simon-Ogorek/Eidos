@@ -66,6 +66,9 @@ public class UIController : MonoBehaviour
     private UITextDisplay NotificationBox;
 
     [SerializeField]
+    private GameObject SelfUI;
+
+    [SerializeField]
     private UITextDisplay DayBox;
 
     [SerializeField]
@@ -81,6 +84,8 @@ public class UIController : MonoBehaviour
     bool canCloseNotif = false;
 
     bool quest = false;
+
+    bool isPaused = false;
 
     public static UIController Instance { get; private set; }
 
@@ -217,6 +222,10 @@ public class UIController : MonoBehaviour
                     }
                 }
             }
+            if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
     }
 
     public void SetState(UIState newState)
@@ -366,5 +375,29 @@ public class UIController : MonoBehaviour
     public IEnumerator FadeIn()
     {
         yield return StartCoroutine(Fade.FadeIn());
+    }
+
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+
+        if (isPaused)
+        {
+            SelfUI.SetActive(true);
+            Time.timeScale = 0f;
+            Time.fixedDeltaTime = 0f;
+            playerMovement.cantMove = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            SelfUI.SetActive(false);
+            Time.timeScale = 1f;
+            Time.fixedDeltaTime = 0.02f;
+            playerMovement.cantMove = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 }

@@ -116,7 +116,7 @@ public class QuestManager : MonoBehaviour
     {
         if(questScript == 0 && !questActionComplete){
             StartCoroutine(UIController.Instance.FadeIn());
-            playerDialogue.GiveQuestDialogue("Look! I think we're almost there!", "Speech");
+            playerDialogue.GiveQuestDialogue("Look! I think we're almost there! (Press KEY I to Interact)", "Speech");
             questActionComplete = true;
         }
         if(questScript == 1 && !questActionComplete){
@@ -137,6 +137,7 @@ public class QuestManager : MonoBehaviour
             Captain.transform.position = new Vector3(361.08f, 1.201f, -38.85f);  
             Navigator.transform.position = new Vector3(362.62f, 1.201f, -38.85f);
             SetPlayerPosition(new Vector3(361.82f, 1.186385f, -38.35f));
+            ProgressDay();
             StartCoroutine(UIController.Instance.FadeIn());      
             questActionComplete = true;   
             ContinueQuest();
@@ -167,6 +168,7 @@ public class QuestManager : MonoBehaviour
             Captain.gameObject.SetActive(false);  
             Navigator.gameObject.SetActive(false);  
             SetPlayerPosition(new Vector3(361.82f, 1.08f, 8.271f));
+            ProgressDay();
             StartCoroutine(UIController.Instance.FadeIn());      
             questActionComplete = true;   
             ContinueQuest();
@@ -196,12 +198,47 @@ public class QuestManager : MonoBehaviour
             Archimedes.GiveQuestDialogue("Nowhere near as accomplished as he was, but I have invented this.", "Speech");
             questActionComplete = true;
         }
+        if(questScript == 3 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("Archimedes gives me an item and I unwrap it, it fits in my palm.", "Thought"); 
+            questActionComplete = true;
+        }
+        if(questScript == 4 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("It is a tessares makhana. In Greek, that means ‘a machine of four elements.’ But for simplicity, I just call it a Tessamark.", "Speech"); 
+            questActionComplete = true;
+        }
+        if(questScript == 5 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("What’s it do?", "Speech"); 
+            questActionComplete = true;
+        }
+        if(questScript == 6 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("At the moment, nothing. By the time we reach the other side of that mountain range, though, you will see what it can do.", "Speech"); 
+            questActionComplete = true;
+        }
+        if(questScript == 7 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("In fact, learning to use the Tessamark is key to your quest’s success. For now, put it your pocket and keep it safe. Let's start going to the forest.", "Speech"); 
+            StartCoroutine(MoveActor(Archimedes.gameObject, new Vector3(355.59f,6.21f,154.76f)));
+            questActionComplete = true;
+        }
+        if(questScript == 8 && !questActionComplete){
+            Archimedes.AdvanceDialogueGroup("QUEST1"); 
+            questActionComplete = true;
+        }
+        if(questScript == 9 && !questActionComplete){
+            playerDialogue.GiveQuestDialogue("Will all the incoming voyagers have a guide too?", "Speech"); 
+            questActionComplete = true;
+        }
+        if(questScript == 10 && !questActionComplete){
+            Archimedes.GiveQuestDialogue("Unfortunately, no. Many will wander about fruitlessly and miss out on the knowledge this land offers. Lets continue now, the journey is long.", "Speech");
+            StartCoroutine(MoveActor(Archimedes.gameObject, new Vector3(355.59f,6.21f,154.76f))); 
+            questActionComplete = true;
+        }
 
         
     }
 
     IEnumerator MoveActor(GameObject actor, Vector3 position, bool startBaseball = false)
     {
+        yield return StartCoroutine(UIController.Instance.FadeOut());
         actor.transform.position = position;
         CameraController.Instance.FocusOn(actor);
 
@@ -211,6 +248,8 @@ public class QuestManager : MonoBehaviour
 
         if(startBaseball)
             ActivityManager.Instance.StartBaseballMatch();
+        
+        yield return StartCoroutine(UIController.Instance.FadeIn());
 
     }
 

@@ -6306,6 +6306,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NonCombatant
   dialogue:
   - QUEST
+  - QUEST1
+  - CONTINUEQUEST
   name: Archimedes
   player: {fileID: 1301514105}
 --- !u!135 &824683817
@@ -6418,7 +6420,7 @@ Transform:
   m_GameObject: {fileID: 824683815}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9752362, z: -0, w: 0.2211661}
-  m_LocalPosition: {x: 335.72, y: 3.07, z: 92.88}
+  m_LocalPosition: {x: 353.32, y: 3.07, z: 92.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14491,7 +14493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -130, y: 11}
+  m_AnchoredPosition: {x: -130, y: -77}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1582897124
@@ -16181,7 +16183,7 @@ Transform:
   m_GameObject: {fileID: 1764491466}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15212339, y: 0.000000053101605, z: -0.00000000817312, w: 0.98836154}
-  m_LocalPosition: {x: 361.82, y: 2.704529, z: -138.06859}
+  m_LocalPosition: {x: 360.9, y: 2.6335292, z: 17.211414}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16565,7 +16567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -130, y: 11}
+  m_AnchoredPosition: {x: -130, y: -77}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1877701576
@@ -18051,12 +18053,13 @@ MonoBehaviour:
   SpeechBox: {fileID: 776622408}
   QuestBox: {fileID: 28497949}
   NotificationBox: {fileID: 1761320775}
+  SelfUI: {fileID: 1757713040}
   DayBox: {fileID: 1538023761}
   Fade: {fileID: 898612248}
   hits: {fileID: 1030357224}
   strikes: {fileID: 1204863918}
   playerCombatant: {fileID: 1301514103}
-  playerMovement: {fileID: 0}
+  playerMovement: {fileID: 1301514105}
 --- !u!114 &2070676432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18187,7 +18190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -130, y: 11}
+  m_AnchoredPosition: {x: -130, y: -77}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2091323243
@@ -18535,6 +18538,10 @@ PrefabInstance:
     - target: {fileID: 6636890340316116687, guid: c40bbcedf96c19f4d944a27460d8fd9c, type: 3}
       propertyPath: m_Name
       value: Ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 6636890340316116687, guid: c40bbcedf96c19f4d944a27460d8fd9c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
