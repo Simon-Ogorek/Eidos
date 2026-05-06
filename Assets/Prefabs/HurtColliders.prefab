@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7217621207342912}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -126,6 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 784ab05a824297446afa93f9c103d23d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HurtColliderQuereyer
+  selfTag: 
+  collidedCombatant: {fileID: 0}
 --- !u!1 &1370117507542182224
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 784ab05a824297446afa93f9c103d23d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HurtColliderQuereyer
+  selfTag: 
+  collidedCombatant: {fileID: 0}
 --- !u!1 &7101217283781967329
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +258,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7101217283781967329}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -329,3 +333,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 784ab05a824297446afa93f9c103d23d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HurtColliderQuereyer
+  selfTag: 
+  collidedCombatant: {fileID: 0}

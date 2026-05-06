@@ -29,4 +29,4 @@ MonoBehaviour:
   spreadWidth: 0
   projectileObj: {fileID: 0}
   projectileForce: 0
-  castWeight: 30
+  castWeight: 50

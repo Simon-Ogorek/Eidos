@@ -13,9 +13,19 @@ MonoBehaviour:
   m_Name: Stalk
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
   moveName: Stalk
+  castTime: 0
   output: 0
   cooldown: 1
-  range: 0
+  range: 5
   manaChange: 0
-  targetType: 0
+  targetType: 1
   effects: []
+  collider: 3
+  colliderTTL: 0
+  hurtBoxrange: 0
+  hurtBoxWidth: 0
+  spreadRange: 0
+  spreadWidth: 0
+  projectileObj: {fileID: 0}
+  projectileForce: 0
+  castWeight: 100

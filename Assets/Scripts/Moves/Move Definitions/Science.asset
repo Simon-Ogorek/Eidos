@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc3bc598696cd8c438657b304755ee89, type: 3}
-  m_Name: Bandage
+  m_Name: Science
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
-  moveName: Bandage
-  castTime: 5
-  output: 1
-  cooldown: 3
+  moveName: 
+  castTime: 0
+  output: 0
+  cooldown: 0
   range: 0
-  manaChange: -2
+  manaChange: 0
   targetType: 0
-  effects:
-  - {fileID: 11400000, guid: f02f1b56da28b9f4dbebd1c830f350d9, type: 2}
-  collider: 3
+  effects: []
+  collider: 0
   colliderTTL: 0
   hurtBoxrange: 0
   hurtBoxWidth: 0
@@ -29,4 +28,5 @@ MonoBehaviour:
   spreadWidth: 0
   projectileObj: {fileID: 0}
   projectileForce: 0
-  castWeight: 200
+  castWeight: 0
+  visual: {fileID: 0}

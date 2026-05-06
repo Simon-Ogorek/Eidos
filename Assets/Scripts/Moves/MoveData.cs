@@ -42,5 +42,6 @@ public class MoveData : ScriptableObject
     public float projectileForce;
 
     public int castWeight;
+    public GameObject visual;
 
 }

@@ -41,6 +41,7 @@ public static class MoveCaster : object
         else if (data.collider == BattleManager.ColliderTypes.Projectile)
         {
             Vector3 force = new Vector3(UnityEngine.Random.Range(-0.01f,0.01f), UnityEngine.Random.Range(-0.01f,0.01f), data.projectileForce);
+            force = caster.transform.TransformDirection(force);
             return caster.ShootProjectile(data.projectileObj, force);
         }
         return null;
