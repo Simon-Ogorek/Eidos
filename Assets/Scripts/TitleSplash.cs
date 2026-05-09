@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using System.Collections;
 
 /// <summary>
 /// Just for Midterm Splash Screen
@@ -12,7 +13,10 @@ public class TitleSplash : MonoBehaviour
     public GameObject StudioEidos;
     
     public GameObject LifeOfP;
-    public GameObject Tessemark;
+
+    public GameObject questManager;
+
+    public GameObject fadeBackground;
     int i = 0;
 
     void Start()
@@ -20,7 +24,10 @@ public class TitleSplash : MonoBehaviour
         background.SetActive(true);
         StudioEidos.SetActive(false);
         LifeOfP.SetActive(false);
-        Tessemark.SetActive(false);
+
+        questManager.SetActive(false);
+
+
     }
 
     void Update()
@@ -30,17 +37,27 @@ public class TitleSplash : MonoBehaviour
             StudioEidos.SetActive(true);
         if(i==500)
             StudioEidos.SetActive(false);
-        if(i==550)
-            Tessemark.SetActive(true);
         if(i==600)
             LifeOfP.SetActive(true);
         if (i == 1200)
         {
-            LifeOfP.SetActive(false);
-            Tessemark.SetActive(false);
-            background.SetActive(false);
-            this.enabled = false;
+            StartCoroutine(EndSplash());
         }
+    }
+
+    IEnumerator EndSplash()
+    {
+        this.enabled = false;
+
+        LifeOfP.SetActive(false);
+        background.SetActive(false);
+
+        questManager.SetActive(true);
+        fadeBackground.SetActive(true);
+
+        
+
+        yield return StartCoroutine(UIController.Instance.FadeIn());
     }
 
 }
